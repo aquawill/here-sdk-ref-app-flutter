@@ -24,3 +24,8 @@
 -dontwarn com.here.sdk.R$layout
 -dontwarn com.here.sdk.R$string
 -dontwarn com.here.sdk.R$styleable
+
+# Suppress R8 warnings for missing classes from Apache Tika (used by file_picker)
+# These classes (e.g., javax.xml.stream) are not available on Android and cause R8 to fail
+-dontwarn javax.xml.stream.**
+-dontwarn org.apache.tika.**

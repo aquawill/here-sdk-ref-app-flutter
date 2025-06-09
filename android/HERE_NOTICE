@@ -5,7 +5,7 @@ This software depends on external packages and source code.
 The applicable license information is listed below:
 
 ----
-Copyright (c) 2009, 2011-2023 The Android Open Source Project
+Copyright (c) 2009, 2011-2024 The Android Open Source Project
 Copyright (c) 2011 Google Inc.
 Copyright (c) 2017-2025 HERE Europe B.V.
 Copyright (c) 20188 The Android Open Source Project
@@ -1250,6 +1250,7 @@ Copyright (c) 2021 CRUV.
 Copyright (c) 2021 Yulian Kuncheff
 Copyright (c) 2022 com.baseflow.permissionhandler
 Copyright (c) 2023 com.mr.flutter.plugin.filepicker
+Copyright (c) 2025 com.mr.flutter.plugin
 Copyright 2000 Example.com
 Copyright 2023 Harrowmykel
 
