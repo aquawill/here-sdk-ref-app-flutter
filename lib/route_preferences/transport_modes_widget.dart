@@ -18,9 +18,8 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-import '../common/ui_style.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 
 /// Available transport modes currently supported by the Ref App.
 /// The HERE SDK supports more transport modes than featured by this application.
@@ -32,7 +31,7 @@ enum TransportModes {
 }
 
 /// Widget for switching between transport modes.
-class TransportModesWidget extends StatelessWidget {
+class TransportModesWidget extends StatefulWidget {
   /// This widget's selection and animation state.
   final TabController tabController;
 
@@ -47,27 +46,53 @@ class TransportModesWidget extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) =>
-      TabBar(controller: tabController, tabs: _buildTransportTabs(context, tabController.index));
+  State<TransportModesWidget> createState() => _TransportModesWidgetState();
+}
 
-  List<Widget> _buildTransportTabs(BuildContext context, int selectedIndex) {
-    return List<Widget>.generate(
-      transportModes.length,
-      (index) => _buildTransportTab(context, index, selectedIndex == index),
-    );
+class _TransportModesWidgetState extends State<TransportModesWidget> {
+  late int _currentTabIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentTabIndex = widget.tabController.index;
+    widget.tabController.addListener(_handleTabChange);
   }
 
-  Widget _buildTransportTab(BuildContext context, int index, bool isSelected) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
-    Color color = isSelected ? colorScheme.primary : colorScheme.onSecondary;
+  @override
+  void dispose() {
+    widget.tabController.removeListener(_handleTabChange);
+    super.dispose();
+  }
 
-    return Tab(
-      icon: SvgPicture.asset(
-        transportModes[index].icon,
-        colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
-        width: UIStyle.bigIconSize,
-        height: UIStyle.bigIconSize,
-      ),
+  void _handleTabChange() {
+    if (mounted && _currentTabIndex != widget.tabController.index) {
+      setState(() {
+        _currentTabIndex = widget.tabController.index;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TabBar(
+      controller: widget.tabController,
+      tabs: List<Widget>.generate(widget.transportModes.length, (index) {
+        /// Determine if the tab is currently selected.
+        bool isSelected = _currentTabIndex == index;
+
+        /// Theme color setup.
+        ColorScheme colorScheme = Theme.of(context).colorScheme;
+        Color color =
+            isSelected ? colorScheme.primary : colorScheme.onSecondary;
+
+        return Tab(
+          icon: HdsIconWidget(
+            widget.transportModes[index].icon,
+            color: color,
+          ),
+        );
+      }),
     );
   }
 }
@@ -76,13 +101,13 @@ extension _TransportModeIcon on TransportModes {
   String get icon {
     switch (this) {
       case TransportModes.car:
-        return "assets/car.svg";
+        return HdsAssetsPaths.carDrivingIcon;
       case TransportModes.truck:
-        return "assets/truck.svg";
+        return HdsAssetsPaths.truck;
       case TransportModes.scooter:
-        return "assets/scooter.svg";
+        return HdsAssetsPaths.scooter;
       case TransportModes.walk:
-        return "assets/walk.svg";
+        return HdsAssetsPaths.walk;
     }
   }
 }

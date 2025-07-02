@@ -23,6 +23,7 @@ import 'package:flutter/material.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/location.dart';
 import 'package:here_sdk/mapview.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
 import 'package:provider/provider.dart';
 
 import '../common/ui_style.dart';
@@ -147,7 +148,7 @@ mixin Positioning {
     // Image on top of the current location.
     _locationMarker = Util.createMarkerWithImagePath(
       geoCoordinates,
-      "assets/position.svg",
+      HdsAssetsPaths.currentLocation,
       locationMarkerSize,
       locationMarkerSize,
     );

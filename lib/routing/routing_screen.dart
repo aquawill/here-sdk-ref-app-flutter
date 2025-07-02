@@ -28,6 +28,7 @@ import 'package:here_sdk/mapview.dart';
 import 'package:here_sdk/routing.dart' as Routing;
 import 'package:here_sdk/search.dart';
 import 'package:here_sdk_reference_application_flutter/common/extensions/error_handling/routing_error_extension.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
 import 'package:here_sdk_reference_application_flutter/common/util.dart';
 import 'package:provider/provider.dart';
 
@@ -450,7 +451,7 @@ class _RoutingScreenState extends State<RoutingScreen> with TickerProviderStateM
               child: Padding(
                 padding: EdgeInsets.all(UIStyle.contentMarginMedium),
                 child: SvgPicture.asset(
-                  appPreferences.showTrafficLayers ? "assets/traffic_off.svg" : "assets/traffic_on.svg",
+                  appPreferences.showTrafficLayers ? HdsAssetsPaths.trafficOff : HdsAssetsPaths.trafficOn,
                   colorFilter: ColorFilter.mode(colorScheme.primary, BlendMode.srcIn),
                   width: UIStyle.bigIconSize,
                   height: UIStyle.bigIconSize,

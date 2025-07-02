@@ -88,10 +88,11 @@ flutter:
 
   assets:
     - assets/
+    - assets/here-icons/icons/core-ui/SVG/
     - assets/here-icons/icons/guidance-icons/manoeuvers-sdk/
-    - assets/here-icons/icons/core-ui/SVG/menu_solid_24px.svg
-    - assets/here-icons/icons/core-ui/SVG/chevron-right_solid_24px.svg
-    - assets/here-icons/icons/core-ui/SVG/inbox-attention_solid_24px.svg
+    - assets/here-icons/icons/travel-transport-tracking/SVG/
+    - assets/here-icons/icons/poi/SVG/
+    - assets/here-icons/icons/tools/SVG/path_solid_16px.svg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

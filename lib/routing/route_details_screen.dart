@@ -23,6 +23,7 @@ import 'package:here_sdk/gestures.dart';
 import 'package:here_sdk/mapview.dart';
 import 'package:here_sdk/routing.dart' as Routing;
 import 'package:here_sdk_reference_application_flutter/common/extensions/geo_box_extensions.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
 import 'package:here_sdk_reference_application_flutter/common/util.dart';
 import 'package:here_sdk_reference_application_flutter/navigation/maneuver_action_text_helper.dart';
 import 'package:provider/provider.dart';
@@ -163,7 +164,7 @@ class _RouteDetailsScreenState extends State<RouteDetailsScreen> {
   void _addRouteToMap() {
     _mapRoute = MapPolyline.withRepresentation(widget.route.geometry, mapRouteRepresentation());
     _hereMapController.mapScene.addMapPolyline(_mapRoute);
-    MapImage mapImage = MapImage.withFilePathAndWidthAndHeight("assets/maneuver.svg", _markerSize, _markerSize);
+    MapImage mapImage = MapImage.withFilePathAndWidthAndHeight(HdsAssetsPaths.currentLocation, _markerSize, _markerSize);
     widget.route.sections.forEach((section) {
       section.maneuvers.forEach((maneuver) {
         if (maneuver.action == Routing.ManeuverAction.depart || maneuver.action == Routing.ManeuverAction.arrive) {

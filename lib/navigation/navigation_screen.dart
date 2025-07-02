@@ -30,6 +30,7 @@ import 'package:here_sdk/navigation.dart' as Navigation;
 import 'package:here_sdk/routing.dart' as Routing;
 import 'package:here_sdk/transport.dart' as Transport;
 import 'package:here_sdk_reference_application_flutter/common/battery_saver_utils.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
 import 'package:here_sdk_reference_application_flutter/common/notifications/android_notifications.dart';
 import 'package:here_sdk_reference_application_flutter/common/notifications/ios_notifications.dart';
 import 'package:here_sdk_reference_application_flutter/common/notifications/notifications_manager.dart';
@@ -329,7 +330,7 @@ class _NavigationScreenState extends State<NavigationScreen>
     int markerSize = (_hereMapController.pixelScale * UIStyle.locationMarkerSize).round();
     _startMarker = Util.createMarkerWithImagePath(
       _currentRoute.geometry.vertices.first,
-      "assets/position.svg",
+      HdsAssetsPaths.currentLocation,
       markerSize,
       markerSize,
       drawOrder: UIStyle.waypointsMarkerDrawOrder,

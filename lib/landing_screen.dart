@@ -472,11 +472,7 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
           _routeFromPlace = place;
           _addRouteFromPoint(coordinates);
         },
-        leftButtonIcon: SvgPicture.asset(
-          "assets/depart_marker.svg",
-          width: UIStyle.bigIconSize,
-          height: UIStyle.bigIconSize,
-        ),
+        leftButtonIcon: HdsIconWidget(HdsAssetsPaths.departIcon),
         onRightButtonPressed: (place) {
           _dismissWayPointPopup();
           _showRoutingScreen(place != null
@@ -488,11 +484,8 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
                   coordinates: coordinates,
                 ));
         },
-        rightButtonIcon: SvgPicture.asset(
-          "assets/route.svg",
-          colorFilter: ColorFilter.mode(UIStyle.addWayPointPopupForegroundColor, BlendMode.srcIn),
-          width: UIStyle.bigIconSize,
-          height: UIStyle.bigIconSize,
+        rightButtonIcon: HdsIconWidget(HdsAssetsPaths.path,
+        color: UIStyle.addWayPointPopupForegroundColor,
         ),
       ),
       coordinates,
@@ -505,7 +498,7 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
       int markerSize = (_hereMapController.pixelScale * UIStyle.searchMarkerSize).round();
       _routeFromMarker = Util.createMarkerWithImagePath(
         coordinates,
-        "assets/depart_marker.svg",
+        HdsAssetsPaths.departIcon,
         markerSize,
         markerSize,
         drawOrder: UIStyle.waypointsMarkerDrawOrder,

@@ -24,6 +24,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/search.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -146,7 +147,7 @@ Widget _createPopupFromPlace(BuildContext context, Place place, bool routeToEnab
                 _buildOptionButton(
                   context,
                   SvgPicture.asset(
-                    "assets/route.svg",
+                    HdsAssetsPaths.path,
                     colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
                     width: UIStyle.smallIconSize,
                     height: UIStyle.smallIconSize,

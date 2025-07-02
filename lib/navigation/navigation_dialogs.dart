@@ -19,7 +19,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 
 import '../common/ui_style.dart';
 import '../common/util.dart' as Util;
@@ -36,12 +37,9 @@ Future<bool?> askForPositionSource(BuildContext context) async {
       children: [
         SimpleDialogOption(
           child: ListTile(
-            leading: SvgPicture.asset(
-              "assets/route.svg",
-              colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onSecondary, BlendMode.srcIn),
-              width: UIStyle.mediumIconSize,
-              height: UIStyle.mediumIconSize,
-            ),
+            leading: HdsIconWidget(
+              HdsAssetsPaths.path,
+              color: Theme.of(context).colorScheme.onSecondary),
             title: Text(appLocalizations.simulatedLocationSourceTitle),
           ),
           onPressed: () => Navigator.of(context).pop(true),

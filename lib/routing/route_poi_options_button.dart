@@ -20,22 +20,21 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:here_sdk/search.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 
 import '../common/ui_style.dart';
 import 'route_poi_options_item.dart';
 
 class _PoiSettingInfo {
   final String categoryId;
-  final String imageEnabled;
-  final String imageDisabled;
+  final String image;
   final IconData icon;
 
   _PoiSettingInfo({
     required this.categoryId,
-    required this.imageEnabled,
-    required this.imageDisabled,
+    required this.image,
     required this.icon,
   });
 
@@ -57,20 +56,17 @@ class _PoiSettingInfo {
 final List<_PoiSettingInfo> _poiSettings = [
   _PoiSettingInfo(
     categoryId: PlaceCategory.eatAndDrink,
-    imageEnabled: "assets/eat_and_drink_icon.svg",
-    imageDisabled: "assets/eat_and_drink_icon_disabled.svg",
+    image: HdsAssetsPaths.restaurant,
     icon: Icons.restaurant_rounded,
   ),
   _PoiSettingInfo(
     categoryId: PlaceCategory.businessAndServicesFuelingStation,
-    imageEnabled: "assets/fueling_station_icon.svg",
-    imageDisabled: "assets/fueling_station_icon_disabled.svg",
+    image: HdsAssetsPaths.petrolStation,
     icon: Icons.local_gas_station_rounded,
   ),
   _PoiSettingInfo(
     categoryId: PlaceCategory.businessAndServicesAtm,
-    imageEnabled: "assets/atm_icon.svg",
-    imageDisabled: "assets/atm_icon_disabled.svg",
+    image: HdsAssetsPaths.atmIcon,
     icon: Icons.local_atm,
   ),
 ];
@@ -105,8 +101,12 @@ class RoutePoiOptionsButton extends StatelessWidget {
                     padding: EdgeInsets.only(
                       right: UIStyle.contentMarginMedium,
                     ),
-                    child: SvgPicture.asset(
-                        categoryIds.contains(poiInfo.categoryId) ? poiInfo.imageEnabled : poiInfo.imageDisabled),
+                    child: HdsIconWidget.medium(
+                      poiInfo.image,
+                      color: categoryIds.contains(poiInfo.categoryId)
+                          ? null
+                          : UIStyle.foregroundInactive,
+                    ),
                   ))
               .toList(),
         ),

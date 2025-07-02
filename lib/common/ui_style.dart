@@ -114,6 +114,7 @@ class UIStyle {
   static const Color _lightForeground = Color.fromARGB(0xff, 0x27, 0x2d, 0x37);
   static const Color _lightForegroundSecondary = Color.fromARGB(0xff, 0x6f, 0x73, 0x7a);
   static const Color _lightForegroundHint = Color.fromARGB(0xff, 0xb7, 0xb9, 0xbc);
+  static const Color foregroundInactive =  Color.fromRGBO(0, 25, 75, 0.20);
 
   static final ThemeData lightTheme = ThemeData(
     useMaterial3: false,

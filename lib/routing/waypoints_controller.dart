@@ -21,6 +21,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/mapview.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
 
 import '../common/ui_style.dart';
 import 'waypoint_info.dart';
@@ -120,7 +121,7 @@ class WayPointsController extends ValueNotifier<List<WayPointInfo>> {
 
     MapMarker marker = Util.createMarkerWithImagePath(
       super.value[0].coordinates,
-      "assets/depart_marker.svg",
+      HdsAssetsPaths.departIcon,
       locationMarkerSize,
       locationMarkerSize,
       drawOrder: UIStyle.waypointsMarkerDrawOrder,
