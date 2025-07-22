@@ -156,6 +156,17 @@ class PositioningEngine {
     _locationEngine!.startWithLocationAccuracy(LocationAccuracy.bestAvailable);
   }
 
+  /// Restarts the location engine by stopping and starting it again.
+  void restartLocationEngine() {
+    _locationEngine
+      ?..stop()
+      ..setBackgroundLocationAllowed(true)
+      ..setBackgroundLocationIndicatorVisible(true)
+      ..setPauseLocationUpdatesAutomatically(false)
+      ..confirmHEREPrivacyNoticeInclusion()
+      ..startWithLocationAccuracy(LocationAccuracy.bestAvailable);
+  }
+
   /// Creates and initialises the location engine if all required permissions
   /// are granted.
   Future<void> _createLocationEngineIfPermissionsGranted() async {

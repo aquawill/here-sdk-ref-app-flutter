@@ -149,41 +149,54 @@ class _RoutingScreenState extends State<RoutingScreen> with TickerProviderStateM
     super.dispose();
   }
 
+  void _handleBackPress() {
+    // Go back to the previous screen and indicate that restart is not needed.
+    Navigator.of(context).pop(false);
+  }
+
   @override
   Widget build(BuildContext context) {
     final HereMapOptions options = HereMapOptions()..initialBackgroundColor = Theme.of(context).colorScheme.surface;
     options.renderMode = MapRenderMode.texture;
-    return Stack(
-      children: [
-        Scaffold(
-          resizeToAvoidBottomInset: false,
-          key: _scaffoldKey,
-          body: Stack(
-            children: [
-              HereMap(
-                key: _hereMapKey,
-                options: options,
-                onMapCreated: _onMapCreated,
-              ),
-              if (!Provider.of<AppPreferences>(context, listen: false).useAppOffline) _buildTrafficButton(context),
-            ],
-          ),
-          extendBodyBehindAppBar: true,
-          bottomNavigationBar: _mapInitSuccess ? _buildBottomNavigationBar(context) : null,
-          floatingActionButton: enableMapUpdate && _mapInitSuccess
-              ? null
-              : ResetLocationButton(
-                  onPressed: _resetCurrentPosition,
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (bool didPop, _) {
+        if (!didPop) {
+          _handleBackPress();
+        }
+      },
+      child: Stack(
+        children: [
+          Scaffold(
+            resizeToAvoidBottomInset: false,
+            key: _scaffoldKey,
+            body: Stack(
+              children: [
+                HereMap(
+                  key: _hereMapKey,
+                  options: options,
+                  onMapCreated: _onMapCreated,
                 ),
-        ),
-        if (_routingInProgress)
-          Container(
-            color: Colors.white54,
-            child: Center(
-              child: CircularProgressIndicator(),
+                if (!Provider.of<AppPreferences>(context, listen: false).useAppOffline) _buildTrafficButton(context),
+              ],
             ),
+            extendBodyBehindAppBar: true,
+            bottomNavigationBar: _mapInitSuccess ? _buildBottomNavigationBar(context) : null,
+            floatingActionButton: enableMapUpdate && _mapInitSuccess
+                ? null
+                : ResetLocationButton(
+                    onPressed: _resetCurrentPosition,
+                  ),
           ),
-      ],
+          if (_routingInProgress)
+            Container(
+              color: Colors.white54,
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            ),
+        ],
+      ),
     );
   }
 
@@ -503,7 +516,7 @@ class _RoutingScreenState extends State<RoutingScreen> with TickerProviderStateM
               IconButton(
                 icon: Icon(Icons.close),
                 color: colorScheme.primary,
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: _handleBackPress,
               ),
             ],
           ),

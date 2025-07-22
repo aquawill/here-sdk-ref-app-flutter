@@ -601,25 +601,30 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
     final GeoCoordinates currentPosition =
         lastKnownLocation != null ? lastKnownLocation!.coordinates : Positioning.initPosition;
 
-    await Navigator.of(context).pushNamed(
-      RoutingScreen.navRoute,
-      arguments: [
-        currentPosition,
-        _routeFromMarker != null
-            ? _routeFromPlace != null
-                ? WayPointInfo.withPlace(
-                    place: _routeFromPlace,
-                    originalCoordinates: _routeFromMarker!.coordinates,
-                  )
-                : WayPointInfo.withCoordinates(
-                    coordinates: _routeFromMarker!.coordinates,
-                  )
-            : WayPointInfo(coordinates: currentPosition),
-        destination,
-      ],
-    );
+    // Restart if coming back from navigation screen (no value returned).
+    final bool shouldRestartLocationEngine = await Navigator.of(context).pushNamed(
+          RoutingScreen.navRoute,
+          arguments: [
+            currentPosition,
+            _routeFromMarker != null
+                ? _routeFromPlace != null
+                    ? WayPointInfo.withPlace(
+                        place: _routeFromPlace,
+                        originalCoordinates: _routeFromMarker!.coordinates,
+                      )
+                    : WayPointInfo.withCoordinates(
+                        coordinates: _routeFromMarker!.coordinates,
+                      )
+                : WayPointInfo(coordinates: currentPosition),
+            destination,
+          ],
+        ) as bool? ??
+        true;
 
     _routeFromPlace = null;
     _removeRouteFromMarker();
+    if (shouldRestartLocationEngine) {
+      _positioningEngine.restartLocationEngine();
+    }
   }
 }
