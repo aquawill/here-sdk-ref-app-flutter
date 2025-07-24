@@ -19,6 +19,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 import 'package:provider/provider.dart';
 
 import 'map_loader_controller.dart';
@@ -58,18 +60,17 @@ class MapUpdateProgress extends StatelessWidget {
                 children: [
                   Spacer(),
                   if (controller.mapUpdateState == MapUpdateState.progress)
-                    _buildButton(context, Icon(Icons.pause), () => controller.pauseMapUpdate()),
+                    _buildButton(context, HdsIconWidget(HdsAssetsPaths.pauseIcon), () => controller.pauseMapUpdate()),
                   if (controller.mapUpdateState == MapUpdateState.paused)
-                    _buildButton(context, Icon(Icons.play_arrow), () => controller.resumeMapUpdate()),
+                    _buildButton(context, HdsIconWidget(HdsAssetsPaths.playIcon), () => controller.resumeMapUpdate()),
                   Container(
                     width: UIStyle.contentMarginMedium,
                   ),
                   if (controller.mapUpdateState != MapUpdateState.cancelling)
                     _buildButton(
                         context,
-                        Icon(
-                          Icons.cancel,
-                          color: Colors.red,
+                        HdsIconWidget(
+                          HdsAssetsPaths.crossIcon,
                         ),
                         () => controller.cancelMapUpdate()),
                 ],

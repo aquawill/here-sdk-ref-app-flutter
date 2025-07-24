@@ -21,6 +21,8 @@ import 'package:flutter/material.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/mapview.dart';
 import 'package:here_sdk_reference_application_flutter/common/draggable_popup_here_logo_helper.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 
 import '../common/ui_style.dart';
 import '../common/util.dart' as Util;
@@ -68,8 +70,11 @@ class _RouteWayPointsState extends State<RouteWayPoints> {
   @override
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
-    bool displayCurrentLocationButton = widget.controller.value.fold(true,
-        (previousValue, element) => previousValue && element.sourceType != WayPointInfoSourceType.CurrentPosition);
+    bool displayCurrentLocationButton = widget.controller.value.fold(
+        true,
+        (previousValue, element) =>
+            previousValue &&
+            element.sourceType != WayPointInfoSourceType.CurrentPosition);
 
     return Row(
       children: [
@@ -81,7 +86,8 @@ class _RouteWayPointsState extends State<RouteWayPoints> {
               Divider(
                 height: 1,
               ),
-              _buildWayPointItem(context, widget.controller.length - 1, displayCurrentLocationButton),
+              _buildWayPointItem(context, widget.controller.length - 1,
+                  displayCurrentLocationButton),
             ],
           ),
         ),
@@ -95,37 +101,39 @@ class _RouteWayPointsState extends State<RouteWayPoints> {
           child: widget.controller.length > 2
               ? IconButton(
                   padding: EdgeInsets.all(UIStyle.contentMarginMedium),
-                  icon: Icon(
-                    Icons.list,
+                  icon: HdsIconWidget(
+                    HdsAssetsPaths.menuSolidIcon,
                     color: colorScheme.primary,
                   ),
                   onPressed: () => _showWayPointsEditPopup(context),
                 )
               : IconButton(
                   padding: EdgeInsets.all(UIStyle.contentMarginMedium),
-                  icon: Icon(
-                    Icons.swap_vert,
+                  icon: HdsIconWidget(
+                    HdsAssetsPaths.switchVertical,
                     color: colorScheme.primary,
                   ),
-                  onPressed: () => setState(
-                      () => widget.controller.value = widget.controller.value.swap(0, widget.controller.length - 1)),
+                  onPressed: () => setState(() => widget.controller.value =
+                      widget.controller.value
+                          .swap(0, widget.controller.length - 1)),
                 ),
         ),
       ],
     );
   }
 
-  Widget _buildWayPointItem(BuildContext context, int index, bool displayCurrentLocationButton) {
+  Widget _buildWayPointItem(
+      BuildContext context, int index, bool displayCurrentLocationButton) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     final WayPointInfo wayPoint = widget.controller[index];
-    bool isCurrent = wayPoint.sourceType == WayPointInfoSourceType.CurrentPosition;
+    bool isCurrent =
+        wayPoint.sourceType == WayPointInfoSourceType.CurrentPosition;
 
     return ListTile(
       dense: true,
-      leading: Icon(
-        isCurrent ? Icons.gps_fixed : Icons.location_on_rounded,
+      leading: HdsIconWidget(
+        isCurrent ? HdsAssetsPaths.center : HdsAssetsPaths.mapMarker,
         color: colorScheme.primary,
-        size: UIStyle.mediumIconSize,
       ),
       title: Text(
         isCurrent ? widget.currentLocationTitle : wayPoint.title,
@@ -141,7 +149,9 @@ class _RouteWayPointsState extends State<RouteWayPoints> {
           currentPosition: currentPosition,
           hereMapController: widget.hereMapController,
           hereMapKey: widget.hereMapKey,
-          currentLocationTitle: displayCurrentLocationButton || isCurrent ? widget.currentLocationTitle : null,
+          currentLocationTitle: displayCurrentLocationButton || isCurrent
+              ? widget.currentLocationTitle
+              : null,
         );
         if (result != null) {
           setState(() {

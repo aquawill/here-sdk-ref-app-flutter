@@ -18,6 +18,8 @@
  */
 
 import 'package:flutter/material.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 
 import '../common/ui_style.dart';
 
@@ -69,7 +71,7 @@ class PreferencesDisclosureRowWidget extends StatelessWidget {
                 ),
               ),
               IconButton(
-                icon: Icon(Icons.keyboard_arrow_right, color: Theme.of(context).colorScheme.onSecondary),
+                icon: HdsIconWidget(HdsAssetsPaths.chevronRightIcon, color: Theme.of(context).colorScheme.onSecondary),
                 onPressed: onPressed,
               ),
             ],

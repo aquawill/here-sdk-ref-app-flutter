@@ -21,11 +21,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/core.threading.dart';
 import 'package:here_sdk/mapview.dart';
 import 'package:here_sdk/search.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../common/application_preferences.dart';
@@ -123,7 +124,9 @@ class _SearchPopupState extends State<_SearchPopup> {
   @override
   void initState() {
     super.initState();
-    _searchEngine = SearchEngineProxy(offline: Provider.of<AppPreferences>(context, listen: false).useAppOffline);
+    _searchEngine = SearchEngineProxy(
+        offline:
+            Provider.of<AppPreferences>(context, listen: false).useAppOffline);
     _lastPosition = widget.currentPosition;
   }
 
@@ -151,7 +154,8 @@ class _SearchPopupState extends State<_SearchPopup> {
                   slivers: [
                     SliverAppBar(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(UIStyle.popupsBorderRadius),
+                        borderRadius:
+                            BorderRadius.circular(UIStyle.popupsBorderRadius),
                       ),
                       leading: Container(),
                       leadingWidth: 0,
@@ -170,10 +174,9 @@ class _SearchPopupState extends State<_SearchPopup> {
                           if (widget.currentLocationTitle != null)
                             ListTile(
                               dense: true,
-                              leading: Icon(
-                                Icons.gps_fixed,
+                              leading: HdsIconWidget(
+                                HdsAssetsPaths.center,
                                 color: colorScheme.primary,
-                                size: UIStyle.mediumIconSize,
                               ),
                               title: Text(
                                 widget.currentLocationTitle!,
@@ -184,17 +187,22 @@ class _SearchPopupState extends State<_SearchPopup> {
                               ),
                               onTap: () {
                                 _stopCurrentSearch();
-                                Navigator.of(context).pop(SearchResult.currentLocation());
+                                Navigator.of(context)
+                                    .pop(SearchResult.currentLocation());
                               },
                             ),
                           _buildResultsHeader(context),
                         ],
                       ),
-                      toolbarHeight: widget.currentLocationTitle != null ? _kHeaderHeightExt : _kHeaderHeight,
+                      toolbarHeight: widget.currentLocationTitle != null
+                          ? _kHeaderHeightExt
+                          : _kHeaderHeight,
                     ),
                     if (_lastError != null) _buildErrorWidget(),
                     if (_lastError == null)
-                      _suggestions != null ? _buildSuggestionsWidget(context) : _buildRecentSearchWidget(context),
+                      _suggestions != null
+                          ? _buildSuggestionsWidget(context)
+                          : _buildRecentSearchWidget(context),
                   ],
                 ),
                 if (_searchInProgress)
@@ -247,7 +255,7 @@ class _SearchPopupState extends State<_SearchPopup> {
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.clear),
+                  icon: HdsIconWidget.small(HdsAssetsPaths.crossIcon),
                   color: foregroundColor,
                   onPressed: () => setState(() {
                     _lastError = null;
@@ -285,7 +293,8 @@ class _SearchPopupState extends State<_SearchPopup> {
     );
   }
 
-  List<TextSpan> _makeHighlightedText(String text, List<IndexRange>? highlights) {
+  List<TextSpan> _makeHighlightedText(
+      String text, List<IndexRange>? highlights) {
     List<TextSpan> result = [];
 
     if (highlights == null) {
@@ -315,11 +324,13 @@ class _SearchPopupState extends State<_SearchPopup> {
     return result;
   }
 
-  Widget _buildSearchTile(BuildContext context, String title, {Map<HighlightType, List<IndexRange>>? highlights}) {
-    List<TextSpan> textSpans = _makeHighlightedText(title, (highlights ?? const {})[HighlightType.title]);
+  Widget _buildSearchTile(BuildContext context, String title,
+      {Map<HighlightType, List<IndexRange>>? highlights}) {
+    List<TextSpan> textSpans = _makeHighlightedText(
+        title, (highlights ?? const {})[HighlightType.title]);
 
     return ListTile(
-      leading: Icon(Icons.search),
+      leading: HdsIconWidget.medium(HdsAssetsPaths.search),
       title: RichText(
         text: TextSpan(
           text: "\"",
@@ -349,12 +360,14 @@ class _SearchPopupState extends State<_SearchPopup> {
     required bool isRecentSearchResult,
   }) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
-    List<TextSpan> titleTextSpans = _makeHighlightedText(place.title, (highlights ?? const {})[HighlightType.title]);
-    List<TextSpan> addressTextSpans =
-        _makeHighlightedText(place.address.addressText, (highlights ?? const {})[HighlightType.addressLabel]);
+    List<TextSpan> titleTextSpans = _makeHighlightedText(
+        place.title, (highlights ?? const {})[HighlightType.title]);
+    List<TextSpan> addressTextSpans = _makeHighlightedText(
+        place.address.addressText,
+        (highlights ?? const {})[HighlightType.addressLabel]);
 
     return ListTile(
-      leading: Icon(Icons.location_on_rounded),
+      leading: HdsIconWidget(HdsAssetsPaths.mapMarker),
       title: RichText(
         text: TextSpan(
           text: "",
@@ -386,7 +399,8 @@ class _SearchPopupState extends State<_SearchPopup> {
       ),
       onTap: () {
         FocusScope.of(context).unfocus();
-        RecentSearchDataModel model = Provider.of<RecentSearchDataModel>(context, listen: false);
+        RecentSearchDataModel model =
+            Provider.of<RecentSearchDataModel>(context, listen: false);
         model.insertPlace(place);
         _showSearchResults(context, null, [place], isRecentSearchResult);
       },
@@ -394,7 +408,8 @@ class _SearchPopupState extends State<_SearchPopup> {
   }
 
   Widget _buildRecentSearchWidget(BuildContext context) {
-    RecentSearchDataModel model = Provider.of<RecentSearchDataModel>(context, listen: false);
+    RecentSearchDataModel model =
+        Provider.of<RecentSearchDataModel>(context, listen: false);
 
     return FutureBuilder<List<RecentSearchItem>>(
       future: model.getData(),
@@ -410,7 +425,8 @@ class _SearchPopupState extends State<_SearchPopup> {
 
                   final RecentSearchItem item = snapshot.data![index ~/ 2];
                   return item.place != null
-                      ? _buildPlaceTile(context, item.place!, isRecentSearchResult: true)
+                      ? _buildPlaceTile(context, item.place!,
+                          isRecentSearchResult: true)
                       : _buildSearchTile(context, item.title!);
                 },
                 semanticIndexCallback: (Widget widget, int localIndex) {
@@ -439,7 +455,8 @@ class _SearchPopupState extends State<_SearchPopup> {
           Widget suggestionsWidget;
           Suggestion suggestion = _suggestions![index ~/ 2];
           Place? place = suggestion.place;
-          Map<HighlightType, List<IndexRange>> highlights = suggestion.getHighlights();
+          Map<HighlightType, List<IndexRange>> highlights =
+              suggestion.getHighlights();
 
           if (place == null) {
             suggestionsWidget = _buildSearchTile(
@@ -478,7 +495,7 @@ class _SearchPopupState extends State<_SearchPopup> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SvgPicture.asset("assets/nothing_found.svg"),
+            HdsIconWidget("assets/nothing_found.svg"),
             Text(
               appLocalizations.noResultsFoundText,
               style: TextStyle(
@@ -514,8 +531,10 @@ class _SearchPopupState extends State<_SearchPopup> {
       });
     } else {
       // start searching
-      final TextQuery query = TextQuery.withArea(text, TextQueryArea.withCenter(_lastPosition));
-      _searchTaskHandle = _searchEngine.suggest(query, _searchOptions, (error, suggestions) {
+      final TextQuery query =
+          TextQuery.withArea(text, TextQueryArea.withCenter(_lastPosition));
+      _searchTaskHandle =
+          _searchEngine.suggest(query, _searchOptions, (error, suggestions) {
         if (error != null) {
           print('Search failed. Error: ${error.toString()}');
           _showErrorMessage(error);
@@ -540,11 +559,14 @@ class _SearchPopupState extends State<_SearchPopup> {
       _searchInProgress = true;
     });
 
-    RecentSearchDataModel model = Provider.of<RecentSearchDataModel>(context, listen: false);
+    RecentSearchDataModel model =
+        Provider.of<RecentSearchDataModel>(context, listen: false);
     model.insertText(text);
 
-    final TextQuery query = TextQuery.withArea(text, TextQueryArea.withCenter(_lastPosition));
-    _searchTaskHandle = _searchEngine.searchByText(query, _searchOptions, (error, places) async {
+    final TextQuery query =
+        TextQuery.withArea(text, TextQueryArea.withCenter(_lastPosition));
+    _searchTaskHandle = _searchEngine.searchByText(query, _searchOptions,
+        (error, places) async {
       if (error != null) {
         print('Search failed. Error: ${error.toString()}');
         _showErrorMessage(error);
@@ -558,11 +580,16 @@ class _SearchPopupState extends State<_SearchPopup> {
     });
   }
 
-  Future _showSearchResults(
-      BuildContext context, String? queryString, List<Place> places, bool isRecentSearchResult) async {
+  Future _showSearchResults(BuildContext context, String? queryString,
+      List<Place> places, bool isRecentSearchResult) async {
     final result = await Navigator.of(context).pushNamed(
       SearchResultsScreen.navRoute,
-      arguments: [queryString ?? "", places, _lastPosition, isRecentSearchResult],
+      arguments: [
+        queryString ?? "",
+        places,
+        _lastPosition,
+        isRecentSearchResult
+      ],
     );
 
     if (result != null) {
@@ -579,7 +606,8 @@ class _SearchPopupState extends State<_SearchPopup> {
   }
 
   void _showErrorMessage(SearchError searchError) {
-    final String? message = searchError.errorMessage(AppLocalizations.of(context)!);
+    final String? message =
+        searchError.errorMessage(AppLocalizations.of(context)!);
     if (mounted && message != null) {
       ErrorToaster.makeToast(context, message);
     }

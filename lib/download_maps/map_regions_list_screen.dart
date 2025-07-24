@@ -23,6 +23,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:here_sdk/maploader.dart';
 import 'package:here_sdk_reference_application_flutter/common/extensions/error_handling/map_loader_error_extension.dart';
 import 'package:here_sdk_reference_application_flutter/common/extensions/region_extensions.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 import 'package:provider/provider.dart';
 
 import 'map_loader_controller.dart';
@@ -61,7 +63,7 @@ class _MapRegionsListScreenState extends State<MapRegionsListScreen> {
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
             leading: IconButton(
-              icon: Icon(Icons.arrow_back),
+              icon: HdsIconWidget(HdsAssetsPaths.arrowLeftIcon),
               onPressed: () => Navigator.of(context).pop(),
             ),
             title: Text(AppLocalizations.of(context)!.downloadMapsTitle),

@@ -20,6 +20,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 import 'package:here_sdk_reference_application_flutter/common/ui_style.dart';
 
 const int _toastDurationInMs = 3000;
@@ -99,8 +101,8 @@ class _Toast extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.all(UIStyle.contentMarginSmall),
-                    child: Icon(
-                      Icons.error,
+                    child: HdsIconWidget(
+                      HdsAssetsPaths.attentionCircleIcon,
                       color: UIStyle.errorMessageTextColor,
                     ),
                   ),

@@ -20,6 +20,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -45,7 +47,15 @@ class HerePrivacyNoticeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     AppLocalizations localized = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(title: Text(localized.privacyNotice)),
+      appBar: AppBar(
+        title: Text(localized.privacyNotice),
+        leading: IconButton(
+          highlightColor: UIStyle.foregroundInactive,
+          onPressed: () => Navigator.maybePop(context),
+          icon: const HdsIconWidget.medium(HdsAssetsPaths.arrowLeftIcon),
+          iconSize: UIStyle.sizeAppBarIcon,
+        ),
+      ),
       body: Padding(
         padding: _commonPadding,
         child: Column(

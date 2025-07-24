@@ -18,8 +18,8 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:here_sdk/routing.dart' as Routing;
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 import 'package:here_sdk_reference_application_flutter/navigation/maneuver_action_text_helper.dart';
 
 import '../common/ui_style.dart';
@@ -51,10 +51,8 @@ class CurrentManeuver extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.all(UIStyle.contentMarginLarge),
-          child: SvgPicture.asset(
+          child: HdsIconWidget.large(
             action.iconPath,
-            width: UIStyle.bigButtonHeight,
-            height: UIStyle.bigButtonHeight,
           ),
         ),
         Expanded(

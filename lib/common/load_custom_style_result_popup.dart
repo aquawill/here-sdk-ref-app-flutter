@@ -19,6 +19,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 
 import '../common/ui_style.dart';
 
@@ -70,8 +72,8 @@ class LoadCustomStyleResultPopup extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  icon: Icon(
-                    Icons.close,
+                  icon: HdsIconWidget(
+                    HdsAssetsPaths.crossIcon,
                     color: UIStyle.loadCustomStyleResultPopupTextColor,
                   ),
                   onPressed: onClosePressed,

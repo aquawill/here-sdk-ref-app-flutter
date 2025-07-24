@@ -19,6 +19,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 import 'package:reorderables/reorderables.dart';
 
 import '../common/ui_style.dart';
@@ -94,7 +96,8 @@ class _RouteWayPointsListState extends State<RouteWayPointsList> {
             childCount: _wayPoints.length * 2 - 1,
           ),
           onReorder: (oldIndex, newIndex) {
-            setState(() => _wayPoints.insert(newIndex ~/ 2, _wayPoints.removeAt(oldIndex ~/ 2)));
+            setState(() => _wayPoints.insert(
+                newIndex ~/ 2, _wayPoints.removeAt(oldIndex ~/ 2)));
             widget.onChanged(_wayPoints);
           },
         ),
@@ -105,7 +108,7 @@ class _RouteWayPointsListState extends State<RouteWayPointsList> {
   Widget _buildHeader(BuildContext context) => Row(
         children: [
           IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: HdsIconWidget(HdsAssetsPaths.arrowLeftIcon),
             onPressed: () => Navigator.of(context).pop(),
           ),
           Expanded(
@@ -129,18 +132,16 @@ class _RouteWayPointsListState extends State<RouteWayPointsList> {
       leading: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
-            Icons.drag_handle,
+          HdsIconWidget.medium(
+            HdsAssetsPaths.dragListIcon,
             color: colorScheme.primary,
-            size: UIStyle.mediumIconSize,
           ),
           Container(
             width: UIStyle.contentMarginLarge,
           ),
-          Icon(
-            isCurrent ? Icons.gps_fixed : Icons.location_on_rounded,
+          HdsIconWidget(
+            isCurrent ? HdsAssetsPaths.center : HdsAssetsPaths.mapMarker,
             color: colorScheme.primary,
-            size: UIStyle.mediumIconSize,
           ),
         ],
       ),
@@ -162,8 +163,8 @@ class _RouteWayPointsListState extends State<RouteWayPointsList> {
       Container(
         width: UIStyle.contentMarginLarge,
       ),
-      Icon(
-        Icons.delete,
+      HdsIconWidget(
+        HdsAssetsPaths.deleteIcon,
         color: UIStyle.removeWayPointIconColor,
       ),
       Spacer(),

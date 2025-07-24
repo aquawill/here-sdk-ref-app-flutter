@@ -101,6 +101,7 @@ class UIStyle {
   static const int waypointsMarkerDrawOrder = 10;
 
   static const int notificationIconSize = 80;
+  static const double sizeAppBarIcon = 24.0;
 
   // private UI constants
   static const double _defaultFontSize = 16;

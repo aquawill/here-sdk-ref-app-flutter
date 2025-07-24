@@ -20,6 +20,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:here_sdk/maploader.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 
 import '../common/ui_style.dart';
 import '../common/util.dart' as Util;
@@ -39,7 +41,7 @@ class MapRegionTile extends StatelessWidget {
   final bool isChild;
 
   /// Leading icon.
-  final Icon? icon;
+  final Widget? icon;
 
   /// Download progress.
   final int? downloadProgress;
@@ -82,23 +84,22 @@ class MapRegionTile extends StatelessWidget {
       subtitle = Util.makeStorageSizeString(context, region.sizeOnDiskInBytes);
     }
 
-    Icon? tileIcon;
+    Widget? tileIcon;
     if (!hideTrailingIcon) {
       if (downloadProgress != null) {
         if (downloadProgress! >= 0) {
-          tileIcon = Icon(
-            Icons.close,
-            size: UIStyle.smallIconSize,
+          tileIcon = HdsIconWidget.small(
+            HdsAssetsPaths.crossIcon,
           );
         }
       } else {
         tileIcon = icon ??
-            Icon(
+            HdsIconWidget(
               installedRegion?.status == InstalledRegionStatus.installed
-                  ? Icons.check_circle
+                  ? HdsAssetsPaths.confirmSolidIcon
                   : hasChildren && !isHeader
-                      ? Icons.arrow_forward
-                      : Icons.download,
+                      ? HdsAssetsPaths.arrowRightIcon
+                      : HdsAssetsPaths.downloadIcon,
               color: installedRegion?.status == InstalledRegionStatus.installed ? Colors.green : null,
             );
       }

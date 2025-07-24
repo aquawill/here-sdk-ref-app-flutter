@@ -21,10 +21,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/search.dart';
 import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -107,7 +107,7 @@ Widget _createPopupFromPlace(BuildContext context, Place place, bool routeToEnab
               ),
             ),
             IconButton(
-              icon: Icon(Icons.close),
+              icon: HdsIconWidget(HdsAssetsPaths.crossIcon),
               onPressed: () => Navigator.of(context).pop(),
             ),
           ],
@@ -146,11 +146,9 @@ Widget _createPopupFromPlace(BuildContext context, Place place, bool routeToEnab
                 Spacer(),
                 _buildOptionButton(
                   context,
-                  SvgPicture.asset(
+                  HdsIconWidget.medium(
                     HdsAssetsPaths.path,
-                    colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
-                    width: UIStyle.smallIconSize,
-                    height: UIStyle.smallIconSize,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                   AppLocalizations.of(context)!.routeToButtonTitle,
                   () => Navigator.of(context).pop(PlaceDetailsPopupResult.routeTo),
@@ -160,10 +158,9 @@ Widget _createPopupFromPlace(BuildContext context, Place place, bool routeToEnab
                 Spacer(),
                 _buildOptionButton(
                   context,
-                  Icon(
-                    Icons.add_location,
+                  HdsIconWidget.small(
+                    HdsAssetsPaths.addMapMarkerIcon,
                     color: Theme.of(context).colorScheme.primary,
-                    size: UIStyle.smallIconSize,
                   ),
                   AppLocalizations.of(context)!.addToRouteButton,
                   () => Navigator.of(context).pop(PlaceDetailsPopupResult.addToRoute),
@@ -183,14 +180,14 @@ List<Widget>? _buildPhonesList(BuildContext context, Place place) {
   }
 
   List<ListTile> phoneWidgets = [
-    ...place.details.contacts.first.landlinePhones.map((phone) => _buildPhoneTile(Icons.phone, phone.phoneNumber)),
-    ...place.details.contacts.first.mobilePhones.map((phone) => _buildPhoneTile(Icons.phone_iphone, phone.phoneNumber)),
+    ...place.details.contacts.first.landlinePhones.map((phone) => _buildPhoneTile(HdsAssetsPaths.telephoneIcon, phone.phoneNumber)),
+    ...place.details.contacts.first.mobilePhones.map((phone) => _buildPhoneTile(HdsAssetsPaths.smartPhone, phone.phoneNumber)),
   ];
 
   return _convertToExpansionTile(phoneWidgets);
 }
 
-ListTile _buildPhoneTile(IconData icon, String phoneNumber) {
+ListTile _buildPhoneTile(String icon, String phoneNumber) {
   return _buildInfoTile(icon, phoneNumber, () => launchUrl(Uri.parse("tel:" + phoneNumber)));
 }
 
@@ -201,7 +198,7 @@ List<Widget>? _buildOpeningHours(Place place) {
 
   List<ListTile> openingHoursWidgets = [];
   place.details.openingHours.forEach((openingHours) =>
-      openingHours.text.forEach((hour) => openingHoursWidgets.add(_buildInfoTile(Icons.access_time, hour, null))));
+      openingHours.text.forEach((hour) => openingHoursWidgets.add(_buildInfoTile(HdsAssetsPaths.time, hour, null))));
 
   return _convertToExpansionTile(openingHoursWidgets);
 }
@@ -212,7 +209,7 @@ List<Widget>? _buildURLsList(BuildContext context, Place place) {
   }
 
   List<ListTile> urlsWidgets = place.details.contacts.first.websites.map((site) {
-    return _buildInfoTile(Icons.language, site.address, () {
+    return _buildInfoTile(HdsAssetsPaths.globalIcon, site.address, () {
       launchUrl(
         Uri.parse(site.address),
         mode: LaunchMode.externalApplication,
@@ -251,8 +248,8 @@ List<Widget>? _convertToExpansionTile(List<ListTile> tiles) {
   ];
 }
 
-ListTile _buildInfoTile(IconData icon, String text, VoidCallback? onTap) => ListTile(
-      leading: Icon(icon),
+ListTile _buildInfoTile(String icon, String text, VoidCallback? onTap) => ListTile(
+      leading: HdsIconWidget(icon),
       title: Text(
         text,
         maxLines: 2,

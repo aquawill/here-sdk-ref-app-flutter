@@ -18,6 +18,8 @@
  */
 
 import 'package:flutter/material.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 
 import 'ui_style.dart';
 
@@ -39,7 +41,7 @@ class ResetLocationButton extends StatelessWidget {
       child: FloatingActionButton(
         heroTag: null,
         backgroundColor: Theme.of(context).colorScheme.surface,
-        child: Icon(Icons.gps_fixed),
+        child: HdsIconWidget(HdsAssetsPaths.center),
         onPressed: onPressed,
       ),
     );

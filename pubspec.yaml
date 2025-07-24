@@ -92,7 +92,14 @@ flutter:
     - assets/here-icons/icons/guidance-icons/manoeuvers-sdk/
     - assets/here-icons/icons/travel-transport-tracking/SVG/
     - assets/here-icons/icons/poi/SVG/
-    - assets/here-icons/icons/tools/SVG/path_solid_16px.svg
+    - assets/here-icons/icons/tools/SVG/
+    - assets/here-icons/icons/map-view/SVG/
+    - assets/here-icons/icons/misc/SVG/
+    - assets/here-icons/icons/social/SVG/
+    - assets/here-icons/icons/guidance-icons/lane-assistance/directions/set-1/
+    - assets/here-icons/icons/discovery-sharing/SVG/
+    - assets/here-icons/icons/guidance-icons/manoeuvers/SVG/
+    - assets/here-icons/icons/navigation-image/SVG/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -22,6 +22,8 @@ import 'package:here_sdk/core.dart';
 import 'package:here_sdk/core.threading.dart';
 import 'package:here_sdk/mapview.dart';
 import 'package:here_sdk/search.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../search/search_engine_proxy.dart';
@@ -57,8 +59,8 @@ class PlaceActionsPopup extends StatefulWidget {
     required this.hereMapController,
     required this.coordinates,
     required this.onRightButtonPressed,
-    this.rightButtonIcon = const Icon(
-      Icons.add,
+    this.rightButtonIcon = const HdsIconWidget(
+      HdsAssetsPaths.plus,
       color: UIStyle.addWayPointPopupForegroundColor,
     ),
     this.onLeftButtonPressed = null,

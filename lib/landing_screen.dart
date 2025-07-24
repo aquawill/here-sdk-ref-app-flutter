@@ -23,7 +23,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/core.engine.dart';
 import 'package:here_sdk/gestures.dart';
@@ -67,7 +67,8 @@ class LandingScreen extends StatefulWidget {
   _LandingScreenState createState() => _LandingScreenState();
 }
 
-class _LandingScreenState extends State<LandingScreen> with Positioning, WidgetsBindingObserver {
+class _LandingScreenState extends State<LandingScreen>
+    with Positioning, WidgetsBindingObserver {
   static const int _kLocationWarningDismissPeriod = 5; // seconds
   static const int _kLoadCustomStyleResultPopupDismissPeriod = 5; // seconds
 
@@ -101,21 +102,25 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
       // This flag helps us to re-init the positioning when app is resumed.
       _didBackPressedAndPositionStopped = true;
       stopPositioning();
-    } else if (state == AppLifecycleState.resumed && _didBackPressedAndPositionStopped) {
+    } else if (state == AppLifecycleState.resumed &&
+        _didBackPressedAndPositionStopped) {
       _didBackPressedAndPositionStopped = false;
       // Restart the location engine and initiate positioning when the app is resumed.
       _positioningEngine.initLocationEngine(context: context).then((value) {
-        initPositioning(context: context, hereMapController: _hereMapController);
+        initPositioning(
+            context: context, hereMapController: _hereMapController);
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final HereMapOptions options = HereMapOptions()..initialBackgroundColor = Theme.of(context).colorScheme.surface;
+    final HereMapOptions options = HereMapOptions()
+      ..initialBackgroundColor = Theme.of(context).colorScheme.surface;
     options.renderMode = MapRenderMode.texture;
     return ConnectionStateMonitor(
-      mapLoaderController: Provider.of<MapLoaderController>(context, listen: false),
+      mapLoaderController:
+          Provider.of<MapLoaderController>(context, listen: false),
       child: Consumer2<AppPreferences, CustomMapStyleSettings>(
         builder: (context, preferences, customStyleSettings, child) => Scaffold(
           resizeToAvoidBottomInset: false,
@@ -141,7 +146,8 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
   void _onMapCreated(HereMapController hereMapController) {
     _hereMapController = hereMapController;
 
-    hereMapController.mapScene.loadSceneForMapScheme(MapScheme.normalDay, (MapError? error) {
+    hereMapController.mapScene.loadSceneForMapScheme(MapScheme.normalDay,
+        (MapError? error) {
       if (error != null) {
         print('Map scene not loaded. MapError: ${error.toString()}');
         return;
@@ -149,7 +155,8 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
 
       hereMapController.camera.lookAtPointWithMeasure(
         Positioning.initPosition,
-        MapMeasure(MapMeasureKind.distanceInMeters, Positioning.initDistanceToEarth),
+        MapMeasure(
+            MapMeasureKind.distanceInMeters, Positioning.initDistanceToEarth),
       );
 
       hereMapController.setWatermarkLocation(
@@ -162,8 +169,10 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
 
       _addGestureListeners();
 
-      _positioningEngine = Provider.of<PositioningEngine>(context, listen: false);
-      _positioningEngine.getLocationEngineStatusUpdates.listen(_checkLocationStatus);
+      _positioningEngine =
+          Provider.of<PositioningEngine>(context, listen: false);
+      _positioningEngine.getLocationEngineStatusUpdates
+          .listen(_checkLocationStatus);
       _positioningEngine.initLocationEngine(context: context).then((value) {
         initPositioning(context: context, hereMapController: hereMapController);
       });
@@ -199,7 +208,8 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
     );
   }
 
-  void applyCustomStyle(CustomMapStyleSettings customMapStyleSettings, File file) {
+  void applyCustomStyle(
+      CustomMapStyleSettings customMapStyleSettings, File file) {
     _hereMapController.mapScene.loadSceneFromConfigurationFile(
       file.path,
       (MapError? error) {
@@ -213,7 +223,8 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
     );
   }
 
-  Future<void> loadCustomScene(CustomMapStyleSettings customMapStyleSettings) async {
+  Future<void> loadCustomScene(
+      CustomMapStyleSettings customMapStyleSettings) async {
     final FilePickerResult? result = await FilePicker.platform.pickFiles();
     if (result == null) {
       return;
@@ -245,13 +256,15 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
   List<Widget> _buildLoadCustomSceneItem(BuildContext context) {
     ThemeData themeData = Theme.of(context);
     AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    CustomMapStyleSettings customMapStyleSettings = Provider.of<CustomMapStyleSettings>(context, listen: false);
+    CustomMapStyleSettings customMapStyleSettings =
+        Provider.of<CustomMapStyleSettings>(context, listen: false);
     return [
       ListTile(
         onTap: () => loadCustomScene(customMapStyleSettings),
         trailing: customMapStyleSettings.customMapStyleFilepath != null
             ? IconButton(
-                icon: Icon(Icons.clear, color: Colors.white),
+                icon: HdsIconWidget(HdsAssetsPaths.crossIcon,
+                    color: Colors.white),
                 onPressed: () => resetCustomScene(customMapStyleSettings),
               )
             : null,
@@ -304,7 +317,8 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
                               appLocalizations.appTitleHeader,
                               [
                                 snapshot.data?.version ?? '',
-                                SDKBuildInformation.sdkVersion().versionGeneration,
+                                SDKBuildInformation.sdkVersion()
+                                    .versionGeneration,
                                 SDKBuildInformation.sdkVersion().versionMajor,
                                 SDKBuildInformation.sdkVersion().versionMinor,
                               ],
@@ -327,9 +341,12 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
               ),
             ),
             ListTile(
-              leading: HdsIconWidget(HdsAssetsPaths.inboxAttentionIcon, color: colorScheme.onPrimary),
-              title: Text(appLocalizations.privacyNotice, style: TextStyle(color: colorScheme.onPrimary)),
-              trailing: HdsIconWidget(HdsAssetsPaths.chevronRightIcon, color: colorScheme.onPrimary),
+              leading: HdsIconWidget(HdsAssetsPaths.inboxAttentionIcon,
+                  color: colorScheme.onPrimary),
+              title: Text(appLocalizations.privacyNotice,
+                  style: TextStyle(color: colorScheme.onPrimary)),
+              trailing: HdsIconWidget(HdsAssetsPaths.chevronRightIcon,
+                  color: colorScheme.onPrimary),
               onTap: () {
                 Navigator.of(context)
                   ..pop()
@@ -337,8 +354,8 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
               },
             ),
             ListTile(
-                leading: Icon(
-                  Icons.download_rounded,
+                leading: HdsIconWidget(
+                  HdsAssetsPaths.downloadIcon,
                   color: colorScheme.onPrimary,
                 ),
                 title: Text(
@@ -363,12 +380,14 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
               value: preferences.useAppOffline,
               onChanged: (newValue) async {
                 if (newValue) {
-                  MapLoaderController controller = Provider.of<MapLoaderController>(context, listen: false);
+                  MapLoaderController controller =
+                      Provider.of<MapLoaderController>(context, listen: false);
                   List<InstalledRegion> installedRegions = [];
                   try {
                     installedRegions = controller.getInstalledRegions();
                   } on MapLoaderExceptionException catch (error) {
-                    print(error.error.errorMessage(AppLocalizations.of(context)!));
+                    print(error.error
+                        .errorMessage(AppLocalizations.of(context)!));
                   }
                   if (installedRegions.isEmpty) {
                     Navigator.of(context).pop();
@@ -380,7 +399,8 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
                     )) {
                       return;
                     }
-                    Navigator.of(context).pushNamed(DownloadMapsScreen.navRoute);
+                    Navigator.of(context)
+                        .pushNamed(DownloadMapsScreen.navRoute);
                   }
                 }
                 preferences.useAppOffline = newValue;
@@ -407,20 +427,24 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
               height: UIStyle.contentMarginMedium,
             ),
             FloatingActionButton(
-              child: ClipOval(
-                child: Ink(
-                  width: UIStyle.bigButtonHeight,
-                  height: UIStyle.bigButtonHeight,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    gradient: LinearGradient(
-                      colors: [
-                        UIStyle.buttonPrimaryColor,
-                        UIStyle.buttonSecondaryColor,
-                      ],
+              child: SizedBox(
+                width: UIStyle.bigButtonHeight,
+                height: UIStyle.bigButtonHeight,
+                child: ClipOval(
+                  child: Ink(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: LinearGradient(
+                        colors: [
+                          UIStyle.buttonPrimaryColor,
+                          UIStyle.buttonSecondaryColor,
+                        ],
+                      ),
+                    ),
+                    child: Center(
+                      child: HdsIconWidget(HdsAssetsPaths.search),
                     ),
                   ),
-                  child: Icon(Icons.search),
                 ),
               ),
               onPressed: () => _onSearch(context),
@@ -432,7 +456,8 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
   }
 
   void _addGestureListeners() {
-    _hereMapController.gestures.panListener = PanListener((state, origin, translation, velocity) {
+    _hereMapController.gestures.panListener =
+        PanListener((state, origin, translation, velocity) {
       if (enableMapUpdate) {
         setState(() => enableMapUpdate = false);
       }
@@ -445,7 +470,8 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
       _dismissWayPointPopup();
     });
 
-    _hereMapController.gestures.longPressListener = LongPressListener((state, point) {
+    _hereMapController.gestures.longPressListener =
+        LongPressListener((state, point) {
       if (state == GestureState.begin) {
         _showWayPointPopup(point);
       }
@@ -461,7 +487,8 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
   void _showWayPointPopup(Point2D point) {
     _dismissWayPointPopup();
     GeoCoordinates coordinates =
-        _hereMapController.viewToGeoCoordinates(point) ?? _hereMapController.camera.state.targetCoordinates;
+        _hereMapController.viewToGeoCoordinates(point) ??
+            _hereMapController.camera.state.targetCoordinates;
 
     _hereMapController.pinWidget(
       PlaceActionsPopup(
@@ -472,7 +499,10 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
           _routeFromPlace = place;
           _addRouteFromPoint(coordinates);
         },
-        leftButtonIcon: HdsIconWidget(HdsAssetsPaths.departIcon),
+        leftButtonIcon: HdsIconWidget.medium(
+          "assets/depart_marker.svg",
+          color: UIStyle.addWayPointPopupForegroundColor,
+        ),
         onRightButtonPressed: (place) {
           _dismissWayPointPopup();
           _showRoutingScreen(place != null
@@ -484,8 +514,9 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
                   coordinates: coordinates,
                 ));
         },
-        rightButtonIcon: HdsIconWidget(HdsAssetsPaths.path,
-        color: UIStyle.addWayPointPopupForegroundColor,
+        rightButtonIcon: HdsIconWidget.medium(
+          HdsAssetsPaths.path,
+          color: UIStyle.addWayPointPopupForegroundColor,
         ),
       ),
       coordinates,
@@ -495,7 +526,8 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
 
   void _addRouteFromPoint(GeoCoordinates coordinates) {
     if (_routeFromMarker == null) {
-      int markerSize = (_hereMapController.pixelScale * UIStyle.searchMarkerSize).round();
+      int markerSize =
+          (_hereMapController.pixelScale * UIStyle.searchMarkerSize).round();
       _routeFromMarker = Util.createMarkerWithImagePath(
         coordinates,
         HdsAssetsPaths.departIcon,
@@ -523,11 +555,14 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
   }
 
   void _resetCurrentPosition() {
-    GeoCoordinates coordinates = lastKnownLocation != null ? lastKnownLocation!.coordinates : Positioning.initPosition;
+    GeoCoordinates coordinates = lastKnownLocation != null
+        ? lastKnownLocation!.coordinates
+        : Positioning.initPosition;
     _hereMapController.camera.lookAtPointWithGeoOrientationAndMeasure(
       coordinates,
       GeoOrientationUpdate(double.nan, double.nan),
-      MapMeasure(MapMeasureKind.distanceInMeters, Positioning.initDistanceToEarth),
+      MapMeasure(
+          MapMeasureKind.distanceInMeters, Positioning.initDistanceToEarth),
     );
 
     setState(() => enableMapUpdate = true);
@@ -539,24 +574,28 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
   }
 
   void _checkLocationStatus(LocationEngineStatus status) {
-    if (status == LocationEngineStatus.engineStarted || status == LocationEngineStatus.alreadyStarted) {
+    if (status == LocationEngineStatus.engineStarted ||
+        status == LocationEngineStatus.alreadyStarted) {
       _dismissLocationWarningPopup();
       return;
     }
     // If we manually stopped the [_positioning], then no need to show the
     // warning dialog.
-    if (status == LocationEngineStatus.engineStopped && _didBackPressedAndPositionStopped) {
+    if (status == LocationEngineStatus.engineStopped &&
+        _didBackPressedAndPositionStopped) {
       _dismissLocationWarningPopup();
       return;
     }
 
     if (_locationWarningOverlay == null) {
       _locationWarningOverlay = OverlayEntry(
-        builder: (context) => NoLocationWarning(onPressed: () => _dismissLocationWarningPopup()),
+        builder: (context) =>
+            NoLocationWarning(onPressed: () => _dismissLocationWarningPopup()),
       );
 
       Overlay.of(context).insert(_locationWarningOverlay!);
-      Timer(Duration(seconds: _kLocationWarningDismissPeriod), _dismissLocationWarningPopup);
+      Timer(Duration(seconds: _kLocationWarningDismissPeriod),
+          _dismissLocationWarningPopup);
     }
   }
 
@@ -571,7 +610,8 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
     );
 
     Overlay.of(context).insert(_loadCustomSceneResultOverlay!);
-    Timer(Duration(seconds: _kLoadCustomStyleResultPopupDismissPeriod), _dismissLoadCustomSceneResultPopup);
+    Timer(Duration(seconds: _kLoadCustomStyleResultPopupDismissPeriod),
+        _dismissLoadCustomSceneResultPopup);
   }
 
   void _dismissLoadCustomSceneResultPopup() {
@@ -580,7 +620,8 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
   }
 
   void _onSearch(BuildContext context) async {
-    GeoCoordinates currentPosition = _hereMapController.camera.state.targetCoordinates;
+    GeoCoordinates currentPosition =
+        _hereMapController.camera.state.targetCoordinates;
 
     final SearchResult? result = await showSearchPopup(
       context: context,
@@ -598,8 +639,9 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
   }
 
   void _showRoutingScreen(WayPointInfo destination) async {
-    final GeoCoordinates currentPosition =
-        lastKnownLocation != null ? lastKnownLocation!.coordinates : Positioning.initPosition;
+    final GeoCoordinates currentPosition = lastKnownLocation != null
+        ? lastKnownLocation!.coordinates
+        : Positioning.initPosition;
 
     // Restart if coming back from navigation screen (no value returned).
     final bool shouldRestartLocationEngine = await Navigator.of(context).pushNamed(

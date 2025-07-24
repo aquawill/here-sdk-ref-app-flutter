@@ -43,9 +43,12 @@ class NoLocationWarning extends StatelessWidget {
     if (!await Permission.location.serviceStatus.isEnabled) {
       return AppLocalizations.of(context)!.noLocationWarning;
     }
-    final PermissionStatus locationPermission = await Permission.location.status;
-    final PermissionStatus locationAlwaysPermission = await Permission.locationAlways.status;
-    if (locationPermission == PermissionStatus.granted && locationAlwaysPermission != PermissionStatus.granted) {
+    final PermissionStatus locationPermission =
+        await Permission.location.status;
+    final PermissionStatus locationAlwaysPermission =
+        await Permission.locationAlways.status;
+    if (locationPermission == PermissionStatus.granted &&
+        locationAlwaysPermission != PermissionStatus.granted) {
       return AppLocalizations.of(context)!.backgroundPositioningWarning;
     } else {
       return AppLocalizations.of(context)!.noLocationWarning;
@@ -60,7 +63,8 @@ class NoLocationWarning extends StatelessWidget {
       bottom: _kOverlayPosition,
       child: Material(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(UIStyle.popupsBorderRadius)),
+          borderRadius:
+              BorderRadius.all(Radius.circular(UIStyle.popupsBorderRadius)),
         ),
         color: UIStyle.noLocationWarningBackgroundColor,
         elevation: 2,
@@ -70,9 +74,12 @@ class NoLocationWarning extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: EdgeInsets.all(UIStyle.contentMarginMedium),
-                  child: HdsIconWidget(HdsAssetsPaths.gps),
+                IconButton(
+                  icon: HdsIconWidget(
+                    HdsAssetsPaths.center,
+                    color: UIStyle.noLocationWarningColor,
+                  ),
+                  onPressed: () {},
                 ),
                 Expanded(
                   child: FutureBuilder<String>(
@@ -93,8 +100,8 @@ class NoLocationWarning extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  icon: Icon(
-                    Icons.close,
+                  icon: HdsIconWidget(
+                    HdsAssetsPaths.crossIcon,
                     color: UIStyle.noLocationWarningColor,
                   ),
                   onPressed: onPressed,

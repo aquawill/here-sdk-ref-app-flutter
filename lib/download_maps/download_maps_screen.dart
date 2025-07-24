@@ -24,6 +24,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:here_sdk/maploader.dart';
 import 'package:here_sdk_reference_application_flutter/common/extensions/error_handling/map_loader_error_extension.dart';
 import 'package:here_sdk_reference_application_flutter/common/extensions/region_extensions.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../common/error_toast.dart';
@@ -79,13 +81,13 @@ class _DownloadMapsScreenState extends State<DownloadMapsScreen> {
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
             leading: IconButton(
-              icon: Icon(Icons.close),
+              icon: HdsIconWidget(HdsAssetsPaths.crossIcon),
               onPressed: () => Navigator.of(context).pop(),
             ),
             title: Text(AppLocalizations.of(context)!.downloadMapsTitle),
             actions: [
               PopupMenuButton(
-                icon: Icon(Icons.menu),
+                icon: HdsIconWidget(HdsAssetsPaths.menuSolidIcon),
                 onSelected: _menuActionHandler,
                 itemBuilder: (_) {
                   return [
@@ -182,7 +184,7 @@ class _DownloadMapsScreenState extends State<DownloadMapsScreen> {
               : hideTrailingAndDisableTap
                   ? null
                   : _displayDownloadedMapMenu(context, controller, region, element),
-          icon: Icon(Icons.menu),
+          icon: HdsIconWidget(HdsAssetsPaths.menuSolidIcon),
           hideTrailingIcon: hideTrailingAndDisableTap,
         );
 
@@ -260,14 +262,14 @@ class _DownloadMapsScreenState extends State<DownloadMapsScreen> {
               ),
               actions: [
                 IconButton(
-                  icon: Icon(Icons.close),
+                  icon: HdsIconWidget(HdsAssetsPaths.crossIcon),
                   onPressed: () => Navigator.of(context).pop(),
                 ),
               ],
             ),
             if (installedRegion.status == InstalledRegionStatus.pending) ...[
               ListTile(
-                leading: Icon(Icons.download),
+                leading: HdsIconWidget(HdsAssetsPaths.downloadIcon),
                 title: Text(appLocalizations.retryDownloadMapOptionTitle),
                 onTap: () {
                   controller.downloadRegion(region.regionId);
@@ -277,8 +279,8 @@ class _DownloadMapsScreenState extends State<DownloadMapsScreen> {
               Divider(),
             ],
             ListTile(
-              leading: Icon(
-                Icons.delete,
+              leading: HdsIconWidget(
+                HdsAssetsPaths.deleteIcon,
                 color: Colors.red,
               ),
               title: Text(

@@ -204,7 +204,7 @@ class _RouteDetailsScreenState extends State<RouteDetailsScreen> {
 
   Widget _buildManeuverItem(BuildContext context, int index) {
     return ListTile(
-      leading: HdsIconWidget.large(_maneuvers[index].action.iconPath),
+      leading: HdsIconWidget(_maneuvers[index].action.iconPath),
       title: Text(_maneuvers[index].text),
       onTap: () => _zoomToManeuver(index),
     );
@@ -346,7 +346,7 @@ class _HeaderBuildDelegate extends SliverPersistentHeaderDelegate {
                 right: UIStyle.contentMarginLarge,
               ),
               child: IconButton(
-                icon: Icon(Icons.arrow_back_ios),
+                icon: HdsIconWidget(HdsAssetsPaths.chevronLeftIcon),
                 onPressed: () => Navigator.of(context).maybePop(),
               ),
             ),

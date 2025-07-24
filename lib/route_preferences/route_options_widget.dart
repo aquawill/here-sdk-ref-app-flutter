@@ -17,6 +17,9 @@
  * License-Filename: LICENSE
  */
 
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
+
 import 'route_preferences_model.dart';
 import 'package:provider/provider.dart';
 import 'numeric_text_field_widget.dart';
@@ -81,8 +84,8 @@ class RouteOptionsWidget extends StatelessWidget {
                   maintainState: true,
                   visible: routeOptions.departureTime != null,
                   child: IconButton(
-                    icon: Icon(
-                      Icons.clear_rounded,
+                    icon: HdsIconWidget.medium(
+                      HdsAssetsPaths.crossIcon,
                       color: UIStyle.optionsBorderColor,
                     ),
                     onPressed: () => context.read<RoutePreferencesModel>().sharedRouteOptions = RouteOptions(

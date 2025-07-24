@@ -37,16 +37,15 @@ Future<bool?> askForPositionSource(BuildContext context) async {
       children: [
         SimpleDialogOption(
           child: ListTile(
-            leading: HdsIconWidget(
-              HdsAssetsPaths.path,
-              color: Theme.of(context).colorScheme.onSecondary),
+            leading: HdsIconWidget.medium(HdsAssetsPaths.path,
+                color: Theme.of(context).colorScheme.onSecondary),
             title: Text(appLocalizations.simulatedLocationSourceTitle),
           ),
           onPressed: () => Navigator.of(context).pop(true),
         ),
         SimpleDialogOption(
           child: ListTile(
-            leading: Icon(Icons.gps_fixed),
+            leading: HdsIconWidget(HdsAssetsPaths.center),
             title: Text(appLocalizations.realLocationSourceTitle),
           ),
           onPressed: () => Navigator.of(context).pop(false),

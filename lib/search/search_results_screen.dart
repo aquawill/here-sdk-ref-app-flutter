@@ -18,12 +18,12 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/gestures.dart';
 import 'package:here_sdk/mapview.dart';
 import 'package:here_sdk/search.dart';
 import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../common/custom_map_style_settings.dart';
@@ -296,7 +296,7 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> with TickerPr
     return Row(
       children: [
         IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: HdsIconWidget(HdsAssetsPaths.arrowLeftIcon),
           onPressed: () => Navigator.of(context).pop(_hereMapController.camera.state.targetCoordinates),
         ),
         Expanded(
@@ -310,8 +310,8 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> with TickerPr
         ),
         if (widget.places.length > 1)
           IconButton(
-            icon: Icon(
-              expanded ? Icons.expand_more : Icons.expand_less,
+            icon: HdsIconWidget.medium(
+              expanded ? HdsAssetsPaths.chevronDown : HdsAssetsPaths.chevronUp,
             ),
             onPressed: expanded ? () => Navigator.of(context).pop() : () => _showResultsList(context),
           ),
@@ -372,11 +372,9 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> with TickerPr
               color: colorScheme.surface,
               child: InkWell(
                 child: Center(
-                  child: SvgPicture.asset(
+                  child: HdsIconWidget.medium(
                     HdsAssetsPaths.path,
-                    colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onSecondary, BlendMode.srcIn),
-                    width: UIStyle.smallIconSize,
-                    height: UIStyle.smallIconSize,
+                    color: Theme.of(context).colorScheme.onSecondary,
                   ),
                 ),
                 onTap: () {

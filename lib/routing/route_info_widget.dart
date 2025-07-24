@@ -20,6 +20,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:here_sdk/routing.dart' as Routing;
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 
 import '../common/ui_style.dart';
 import '../common/util.dart' as Util;
@@ -57,17 +59,23 @@ class RouteInfo extends StatelessWidget {
               children: [
                 RichText(
                   text: TextSpan(
-                    text: _buildDurationString(context, route.duration.inSeconds) + " ",
+                    text: _buildDurationString(
+                            context, route.duration.inSeconds) +
+                        " ",
                     style: TextStyle(
                       fontSize: UIStyle.hugeFontSize,
                       fontWeight: FontWeight.bold,
                       color: colorScheme.primary,
                     ),
                     children: [
-                      if (route.trafficDelay.inSeconds > Duration.secondsPerMinute)
+                      if (route.trafficDelay.inSeconds >
+                          Duration.secondsPerMinute)
                         TextSpan(
-                          text: Util.formatString(AppLocalizations.of(context)!.trafficDelayText,
-                              [_buildDurationString(context, route.trafficDelay.inSeconds)]),
+                          text: Util.formatString(
+                              AppLocalizations.of(context)!.trafficDelayText, [
+                            _buildDurationString(
+                                context, route.trafficDelay.inSeconds)
+                          ]),
                           style: TextStyle(
                             fontSize: UIStyle.mediumFontSize,
                             color: UIStyle.trafficWarningColor,
@@ -75,7 +83,8 @@ class RouteInfo extends StatelessWidget {
                         )
                       else
                         TextSpan(
-                          text: AppLocalizations.of(context)!.noTrafficDelaysText,
+                          text:
+                              AppLocalizations.of(context)!.noTrafficDelaysText,
                           style: TextStyle(
                             fontSize: UIStyle.smallFontSize,
                             color: colorScheme.onSecondary,
@@ -102,19 +111,20 @@ class RouteInfo extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               if (onRouteDetails != null)
-                ClipOval(
-                  child: Material(
-                    child: Ink(
-                      width: UIStyle.smallButtonHeight,
-                      height: UIStyle.smallButtonHeight,
+                SizedBox(
+                  width: UIStyle.smallButtonHeight,
+                  height: UIStyle.smallButtonHeight,
+                  child: ClipOval(
+                    child: Material(
                       color: colorScheme.surface,
                       child: InkWell(
-                        child: Icon(
-                          Icons.directions,
-                          size: UIStyle.smallIconSize,
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
                         onTap: onRouteDetails,
+                        child: Center(
+                          child: HdsIconWidget.medium(
+                            HdsAssetsPaths.directionRightIcon,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -124,19 +134,20 @@ class RouteInfo extends StatelessWidget {
                   width: UIStyle.contentMarginMedium,
                 ),
               if (onNavigation != null)
-                ClipOval(
-                  child: Material(
-                    child: Ink(
-                      width: UIStyle.smallButtonHeight,
-                      height: UIStyle.smallButtonHeight,
+                SizedBox(
+                  width: UIStyle.smallButtonHeight,
+                  height: UIStyle.smallButtonHeight,
+                  child: ClipOval(
+                    child: Material(
                       color: colorScheme.surface,
                       child: InkWell(
-                        child: Icon(
-                          Icons.navigation,
-                          size: UIStyle.smallIconSize,
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
                         onTap: onNavigation,
+                        child: Center(
+                          child: HdsIconWidget.medium(
+                            HdsAssetsPaths.navigationIcon,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -156,9 +167,11 @@ class RouteInfo extends StatelessWidget {
     if (hours == 0) {
       return "$minutes ${AppLocalizations.of(context)!.minuteAbbreviationText}";
     } else {
-      String result = "$hours ${AppLocalizations.of(context)!.hourAbbreviationText}";
+      String result =
+          "$hours ${AppLocalizations.of(context)!.hourAbbreviationText}";
       if (minutes != 0) {
-        result += " $minutes ${AppLocalizations.of(context)!.minuteAbbreviationText}";
+        result +=
+            " $minutes ${AppLocalizations.of(context)!.minuteAbbreviationText}";
       }
       return result;
     }

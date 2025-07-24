@@ -30,12 +30,10 @@ import 'route_poi_options_item.dart';
 class _PoiSettingInfo {
   final String categoryId;
   final String image;
-  final IconData icon;
 
   _PoiSettingInfo({
     required this.categoryId,
     required this.image,
-    required this.icon,
   });
 
   String getTitle(BuildContext context) {
@@ -57,17 +55,14 @@ final List<_PoiSettingInfo> _poiSettings = [
   _PoiSettingInfo(
     categoryId: PlaceCategory.eatAndDrink,
     image: HdsAssetsPaths.restaurant,
-    icon: Icons.restaurant_rounded,
   ),
   _PoiSettingInfo(
     categoryId: PlaceCategory.businessAndServicesFuelingStation,
     image: HdsAssetsPaths.petrolStation,
-    icon: Icons.local_gas_station_rounded,
   ),
   _PoiSettingInfo(
     categoryId: PlaceCategory.businessAndServicesAtm,
     image: HdsAssetsPaths.atmIcon,
-    icon: Icons.local_atm,
   ),
 ];
 
@@ -143,7 +138,7 @@ class RoutePoiOptionsButton extends StatelessWidget {
               title: Text(AppLocalizations.of(context)!.poiSettingsTitle),
               actions: [
                 IconButton(
-                  icon: Icon(Icons.close),
+                  icon: HdsIconWidget(HdsAssetsPaths.crossIcon),
                   onPressed: () => Navigator.of(context).pop(),
                 ),
               ],
@@ -154,8 +149,8 @@ class RoutePoiOptionsButton extends StatelessWidget {
                       title: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(
-                            poiInfo.icon,
+                          HdsIconWidget(
+                            poiInfo.image,
                             color: colorScheme.primary,
                           ),
                           Container(

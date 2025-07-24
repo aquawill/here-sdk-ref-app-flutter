@@ -21,7 +21,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/gestures.dart';
 import 'package:here_sdk/mapview.dart';
@@ -29,6 +28,7 @@ import 'package:here_sdk/routing.dart' as Routing;
 import 'package:here_sdk/search.dart';
 import 'package:here_sdk_reference_application_flutter/common/extensions/error_handling/routing_error_extension.dart';
 import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 import 'package:here_sdk_reference_application_flutter/common/util.dart';
 import 'package:provider/provider.dart';
 
@@ -463,11 +463,9 @@ class _RoutingScreenState extends State<RoutingScreen> with TickerProviderStateM
             child: InkWell(
               child: Padding(
                 padding: EdgeInsets.all(UIStyle.contentMarginMedium),
-                child: SvgPicture.asset(
+                child: HdsIconWidget(
                   appPreferences.showTrafficLayers ? HdsAssetsPaths.trafficOff : HdsAssetsPaths.trafficOn,
-                  colorFilter: ColorFilter.mode(colorScheme.primary, BlendMode.srcIn),
-                  width: UIStyle.bigIconSize,
-                  height: UIStyle.bigIconSize,
+                  color: colorScheme.primary,
                 ),
               ),
               onTap: () => setState(() {
@@ -514,7 +512,7 @@ class _RoutingScreenState extends State<RoutingScreen> with TickerProviderStateM
                 ),
               ),
               IconButton(
-                icon: Icon(Icons.close),
+                icon: HdsIconWidget.medium(HdsAssetsPaths.crossIcon),
                 color: colorScheme.primary,
                 onPressed: _handleBackPress,
               ),

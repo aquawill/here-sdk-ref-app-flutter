@@ -19,254 +19,263 @@
 
 /// Constants defined for paths of HDS assets
 class HdsAssetsPaths {
-  /// A constant value for arriveIcon
-  static const String arriveIcon = '$_manoeuversSdkAssets/arrive.svg';
+  static const String addMapMarkerIcon =
+      '$_tools/add-map-marker_solid_24px.svg';
 
-  /// A constant value for atmIcon
-  static const String atmIcon = '$_poiAssets/atm_solid_16px.svg';
+  static const String arrowLeftIcon =
+      '$_coreUiAssets/arrow-left_solid_24px.svg';
 
-  /// A constant value for carDrivingIcon
+  static const String arrowRightIcon =
+      '$_coreUiAssets/arrow-right_solid_24px.svg';
+
+  static const String arriveIcon = '$_manoeuverAssets/arrive_solid_24px.svg';
+
+  static const String atmIcon = '$_poiAssets/atm_solid_24px.svg';
+
+  static const String attentionCircleIcon =
+      '$_coreUiAssets/inbox-attention_solid_24px.svg';
+
+  static const String cameraVideoIcon =
+      '$_mapView/camera-view_solid_24px.svg';
+
   static const String carDrivingIcon =
-      '$_traveTransportTracking/driving_solid_16px.svg';
+      '$_traveTransportTracking/driving_solid_24px.svg';
 
-  /// A constant value for chevronRightIcon
+  static const String chevronDown =
+      '$_coreUiAssets/chevron-down_solid_24px.svg';
+
+  static const String chevronLeftIcon =
+      '$_coreUiAssets/chevron-left_solid_24px.svg';
+
   static const String chevronRightIcon =
       '$_coreUiAssets/chevron-right_solid_24px.svg';
 
-  /// A constant value for continueOnIcon
+  static const String chevronUp = '$_coreUiAssets/chevron-up_solid_24px.svg';
+
+
+  static const String confirmSolidIcon =
+      '$_coreUiAssets/confirm_solid_24px.svg';
+
   static const String continueOnIcon = '$_manoeuversSdkAssets/continue-on.svg';
 
-  /// A constant value for currentLocation
-  static const String currentLocation = '$_mapView/current-location_solid_16px.svg';
+  static const String crossIcon = '$_coreUiAssets/cross_solid_24px.svg';
 
-  /// A constant value for departIcon
-  static const String departIcon = '$_manoeuversSdkAssets/depart.svg';
+  static const String currentLocation =
+      '$_mapView/current-location_solid_24px.svg';
 
-  /// A constant value for enterHighwayFromLeftIcon
+  static const String deleteIcon = '$_coreUiAssets/delete_solid_24px.svg';
+
+  static const String departIcon = '$_manoeuverAssets/depart_outline_24px.svg';
+
+  static const String directionRightIcon = '$_directionsSet1/right.svg';
+
+  static const String downloadIcon =
+      '$_discoverySharing/download_solid_24px.svg';
+
+  static const String dragListIcon =
+      '$_coreUiAssets/drag-list_solid_24px.svg';
+
   static const String enterHighwayFromLeftIcon =
       '$_manoeuversSdkAssets/enter-highway-left.svg';
 
-  /// A constant value for enterHighwayFromRightIcon
   static const String enterHighwayFromRightIcon =
       '$_manoeuversSdkAssets/enter-highway-right.svg';
 
-  /// A constant value for gps
-  static const String gps = '$_coreUiAssets/gps_solid_24px.svg';
+  static const String center = '$_mapView/view-center_solid_24px.svg';
 
-  /// A constant value for inboxAttentionIcon
+  static const String globalIcon = '$_misc/global_solid_24px.svg';
+
   static const String inboxAttentionIcon =
       '$_coreUiAssets/inbox-attention_solid_24px.svg';
 
-
-  /// A constant value for leftExitIcon
   static const String leftExitIcon = '$_manoeuversSdkAssets/left-exit.svg';
 
-  /// A constant value for leftForkIcon
   static const String leftForkIcon = '$_manoeuversSdkAssets/left-fork.svg';
 
-  /// A constant value for leftRampIcon
   static const String leftRampIcon = '$_manoeuversSdkAssets/left-ramp.svg';
 
-  /// A constant value for leftRoundaboutEnterIcon
   static const String leftRoundaboutEnterIcon =
       '$_manoeuversSdkAssets/left-roundabout-enter.svg';
 
-  /// A constant value for leftRoundaboutExit10Icon
-  static const String leftRoundaboutExit10Icon =
-      '$_manoeuversSdkAssets/left-roundabout-exit10.svg';
-
-  /// A constant value for leftRoundaboutExit11Icon
-  static const String leftRoundaboutExit11Icon =
-      '$_manoeuversSdkAssets/left-roundabout-exit1.svg';
-
-  /// A constant value for leftRoundaboutExit12Icon
-  static const String leftRoundaboutExit12Icon =
-      '$_manoeuversSdkAssets/left-roundabout-exit2.svg';
-
-  /// A constant value for leftRoundaboutExit1Icon
   static const String leftRoundaboutExit1Icon =
       '$_manoeuversSdkAssets/left-roundabout-exit1.svg';
 
-  /// A constant value for leftRoundaboutExit2Icon
   static const String leftRoundaboutExit2Icon =
       '$_manoeuversSdkAssets/left-roundabout-exit2.svg';
 
-  /// A constant value for leftRoundaboutExit3Icon
   static const String leftRoundaboutExit3Icon =
       '$_manoeuversSdkAssets/left-roundabout-exit3.svg';
 
-  /// A constant value for leftRoundaboutExit4Icon
   static const String leftRoundaboutExit4Icon =
       '$_manoeuversSdkAssets/left-roundabout-exit4.svg';
 
-  /// A constant value for leftRoundaboutExit5Icon
   static const String leftRoundaboutExit5Icon =
       '$_manoeuversSdkAssets/left-roundabout-exit5.svg';
 
-  /// A constant value for leftRoundaboutExit6Icon
   static const String leftRoundaboutExit6Icon =
       '$_manoeuversSdkAssets/left-roundabout-exit6.svg';
 
-  /// A constant value for leftRoundaboutExit7Icon
   static const String leftRoundaboutExit7Icon =
       '$_manoeuversSdkAssets/left-roundabout-exit7.svg';
 
-  /// A constant value for leftRoundaboutExit8Icon
   static const String leftRoundaboutExit8Icon =
       '$_manoeuversSdkAssets/left-roundabout-exit8.svg';
 
-  /// A constant value for leftRoundaboutExit9Icon
   static const String leftRoundaboutExit9Icon =
       '$_manoeuversSdkAssets/left-roundabout-exit9.svg';
 
-  /// A constant value for leftRoundaboutPassIcon
+  static const String leftRoundaboutExit10Icon =
+      '$_manoeuversSdkAssets/left-roundabout-exit10.svg';
+
+  static const String leftRoundaboutExit11Icon =
+      '$_manoeuversSdkAssets/left-roundabout-exit11.svg';
+
+  static const String leftRoundaboutExit12Icon =
+      '$_manoeuversSdkAssets/left-roundabout-exit12.svg';
+
   static const String leftRoundaboutPassIcon =
       '$_manoeuversSdkAssets/left-roundabout-pass.svg';
 
-  /// A constant value for leftTurnIcon
   static const String leftTurnIcon = '$_manoeuversSdkAssets/left-turn.svg';
 
-  /// A constant value for leftUTurnIcon
   static const String leftUTurnIcon = '$_manoeuversSdkAssets/left-u-turn.svg';
 
-  /// A constant value for menuSolidIcon
+  static const String mapMarker = '$_mapView/map-marker_solid_24px.svg';
+
   static const String menuSolidIcon = '$_coreUiAssets/menu_solid_24px.svg';
 
-  /// A constant value for middleForkIcon
   static const String middleForkIcon = '$_manoeuversSdkAssets/middle-fork.svg';
 
-  /// A constant value for petrolStation
+  static const String navigationIcon =
+      '$_traveTransportTracking/navigation_solid_24px.svg';
+
+  static const String path = '$_assets/tools/SVG/path_solid_24px.svg';
+
+  static const String pauseIcon = '$_navigationImage/pause_solid_24px.svg';
+
   static const String petrolStation =
-      '$_poiAssets/petrol-station_solid_16px.svg';
+      '$_poiAssets/petrol-station_solid_24px.svg';
 
-  /// A constant value for restaurant
-  static const String restaurant = '$_poiAssets/restaurant_solid_16px.svg';
+  static const String playIcon = '$_navigationImage/play_solid_24px.svg';
 
-  /// A constant value for rightExitIcon
+  static const String plus = '$_coreUiAssets/plus_solid_24px.svg';
+
+  static const String restaurant = '$_poiAssets/restaurant_solid_24px.svg';
+
   static const String rightExitIcon = '$_manoeuversSdkAssets/right-exit.svg';
 
-  /// A constant value for rightForkIcon
   static const String rightForkIcon = '$_manoeuversSdkAssets/right-fork.svg';
 
-  /// A constant value for rightRampIcon
   static const String rightRampIcon = '$_manoeuversSdkAssets/right-ramp.svg';
 
-  /// A constant value for rightRoundaboutEnterIcon
   static const String rightRoundaboutEnterIcon =
       '$_manoeuversSdkAssets/right-roundabout-enter.svg';
 
-  /// A constant value for rightRoundaboutExit10Icon
   static const String rightRoundaboutExit10Icon =
       '$_manoeuversSdkAssets/right-roundabout-exit10.svg';
 
-  /// A constant value for rightRoundaboutExit11Icon
   static const String rightRoundaboutExit11Icon =
       '$_manoeuversSdkAssets/right-roundabout-exit11.svg';
 
-  /// A constant value for rightRoundaboutExit12Icon
   static const String rightRoundaboutExit12Icon =
       '$_manoeuversSdkAssets/right-roundabout-exit12.svg';
 
-  /// A constant value for rightRoundaboutExit1Icon
   static const String rightRoundaboutExit1Icon =
       '$_manoeuversSdkAssets/right-roundabout-exit1.svg';
 
-  /// A constant value for rightRoundaboutExit2Icon
   static const String rightRoundaboutExit2Icon =
       '$_manoeuversSdkAssets/right-roundabout-exit2.svg';
 
-  /// A constant value for rightRoundaboutExit3Icon
   static const String rightRoundaboutExit3Icon =
       '$_manoeuversSdkAssets/right-roundabout-exit3.svg';
 
-  /// A constant value for rightRoundaboutExit4Icon
   static const String rightRoundaboutExit4Icon =
       '$_manoeuversSdkAssets/right-roundabout-exit4.svg';
 
-  /// A constant value for rightRoundaboutExit5Icon
   static const String rightRoundaboutExit5Icon =
       '$_manoeuversSdkAssets/right-roundabout-exit5.svg';
 
-  /// A constant value for rightRoundaboutExit6Icon
   static const String rightRoundaboutExit6Icon =
       '$_manoeuversSdkAssets/right-roundabout-exit6.svg';
 
-  /// A constant value for rightRoundaboutExit7Icon
   static const String rightRoundaboutExit7Icon =
       '$_manoeuversSdkAssets/right-roundabout-exit7.svg';
 
-  /// A constant value for rightRoundaboutExit8Icon
   static const String rightRoundaboutExit8Icon =
       '$_manoeuversSdkAssets/right-roundabout-exit8.svg';
 
-  /// A constant value for rightRoundaboutExit9Icon
   static const String rightRoundaboutExit9Icon =
       '$_manoeuversSdkAssets/right-roundabout-exit9.svg';
 
-  /// A constant value for rightRoundaboutPassIcon
   static const String rightRoundaboutPassIcon =
       '$_manoeuversSdkAssets/right-roundabout-pass.svg';
 
-  /// A constant value for rightTurnIcon
   static const String rightTurnIcon = '$_manoeuversSdkAssets/right-turn.svg';
 
-  /// A constant value for rightUTurnIcon
   static const String rightUTurnIcon = '$_manoeuversSdkAssets/right-u-turn.svg';
 
-  /// A constant value for route
-  static const String path = '$_assets/tools/SVG/path_solid_16px.svg';
-
-  /// A constant value for scooter
   static const String scooter =
-      '$_traveTransportTracking/motorscooter_solid_16px.svg';
+      '$_traveTransportTracking/motorscooter_solid_24px.svg';
 
-  /// A constant value for sharpLeftTurnIcon
+  static const String search = '$_coreUiAssets/search_solid_24px.svg';
+
   static const String sharpLeftTurnIcon =
       '$_manoeuversSdkAssets/sharp-left-turn.svg';
 
-  /// A constant value for sharpRightTurnIcon
   static const String sharpRightTurnIcon =
       '$_manoeuversSdkAssets/sharp-right-turn.svg';
 
-  /// A constant value for slightLeftTurnIcon
   static const String slightLeftTurnIcon =
       '$_manoeuversSdkAssets/slight-left-turn.svg';
 
-  /// A constant value for slightRightTurnIcon
   static const String slightRightTurnIcon =
       '$_manoeuversSdkAssets/slight-right-turn.svg';
 
-  /// A constant value for trafficOff
+  static const String smartPhone =
+      '$_deviceSensors/smartphone_solid_24px.svg';
+
+  static const String switchVertical =
+      '$_coreUiAssets/switch-vertical_solid_24px.svg';
+
+  static const String telephoneIcon = '$_social/telephone_solid_24px.svg';
+
   static const String trafficOff =
-      '$_traveTransportTracking/traffic-off_solid_16px.svg';
+      '$_traveTransportTracking/traffic-off_solid_24px.svg';
 
-  /// A constant value for trafficOn
+  static const String time = '$_coreUiAssets/time_solid_24px.svg';
+
   static const String trafficOn =
-      '$_traveTransportTracking/traffic_solid_16px.svg';
+      '$_traveTransportTracking/traffic_solid_24px.svg';
 
-  /// A constant value for truck
-  static const String truck = '$_traveTransportTracking/truck_solid_16px.svg';
+  static const String truck = '$_traveTransportTracking/truck_solid_24px.svg';
 
-  /// A constant value for walk
-  static const String walk = '$_traveTransportTracking/walking_solid_16px.svg';
+  static const String volumeHighIcon =
+      '$_coreUiAssets/volume-high_solid_24px.svg';
 
-  /// A constant value for _assets
+  static const String volumeOffIcon =
+      '$_coreUiAssets/volume-off_solid_24px.svg';
+
+  static const String walk =
+      '$_traveTransportTracking/walking_solid_24px.svg';
+
+//image folder shortcuts
+
   static const String _assets = 'assets/here-icons/icons';
-
-  /// A constant value for _coreUiAssets
   static const String _coreUiAssets = '$_assets/core-ui/SVG';
-
-  /// A constant value for _mapView
-  static const String _mapView = '$_assets/map-view/SVG';
-
-  /// A constant value for _manoeuverAssets
+  static const String _deviceSensors = '$_assets/devices-sensors/SVG';
+  static const String _discoverySharing = '$_assets/discovery-sharing/SVG';
+  static const String _directionsSet1 =
+      '$_assets/guidance-icons/lane-assistance/directions/set-1';
   static const String _manoeuversSdkAssets =
       '$_assets/guidance-icons/manoeuvers-sdk';
-
-  /// A constant value for _poiAssets
+  static const String _manoeuverAssets =
+      '$_assets/guidance-icons/manoeuvers/SVG/';
+  static const String _mapView = '$_assets/map-view/SVG';
+  static const String _misc = '$_assets/misc/SVG';
+  static const String _navigationImage = '$_assets/navigation-image/SVG';
   static const String _poiAssets = '$_assets/poi/SVG';
-
-  /// A constant value for _traveTransportTracking
+  static const String _social = '$_assets/social/SVG';
+  static const String _tools = '$_assets/tools/SVG';
   static const String _traveTransportTracking =
       '$_assets/travel-transport-tracking/SVG';
 }
