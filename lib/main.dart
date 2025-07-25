@@ -18,7 +18,6 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/core.engine.dart';
@@ -27,6 +26,7 @@ import 'package:here_sdk/maploader.dart';
 import 'package:here_sdk/routing.dart' as Routing;
 import 'package:here_sdk/search.dart';
 import 'package:here_sdk_reference_application_flutter/environment.dart';
+import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'common/application_preferences.dart';

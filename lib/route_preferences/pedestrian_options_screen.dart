@@ -17,17 +17,17 @@
  * License-Filename: LICENSE
  */
 
-import 'route_preferences_model.dart';
-import 'preferences_row_title_widget.dart';
-import 'preferences_section_title_widget.dart';
-import 'numeric_text_field_widget.dart';
-import 'route_options_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:here_sdk/routing.dart';
-import 'route_text_options_widget.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
+import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
 import 'package:provider/provider.dart';
+
+import 'numeric_text_field_widget.dart';
+import 'preferences_row_title_widget.dart';
+import 'preferences_section_title_widget.dart';
+import 'route_options_widget.dart';
+import 'route_preferences_model.dart';
+import 'route_text_options_widget.dart';
 
 /// Routing settings widget for pedestrian mode.
 class PedestrianOptionsScreen extends StatelessWidget {

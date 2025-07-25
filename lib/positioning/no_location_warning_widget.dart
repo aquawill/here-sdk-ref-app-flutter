@@ -18,9 +18,9 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
 import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
+import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../common/ui_style.dart';
@@ -43,12 +43,9 @@ class NoLocationWarning extends StatelessWidget {
     if (!await Permission.location.serviceStatus.isEnabled) {
       return AppLocalizations.of(context)!.noLocationWarning;
     }
-    final PermissionStatus locationPermission =
-        await Permission.location.status;
-    final PermissionStatus locationAlwaysPermission =
-        await Permission.locationAlways.status;
-    if (locationPermission == PermissionStatus.granted &&
-        locationAlwaysPermission != PermissionStatus.granted) {
+    final PermissionStatus locationPermission = await Permission.location.status;
+    final PermissionStatus locationAlwaysPermission = await Permission.locationAlways.status;
+    if (locationPermission == PermissionStatus.granted && locationAlwaysPermission != PermissionStatus.granted) {
       return AppLocalizations.of(context)!.backgroundPositioningWarning;
     } else {
       return AppLocalizations.of(context)!.noLocationWarning;
@@ -63,8 +60,7 @@ class NoLocationWarning extends StatelessWidget {
       bottom: _kOverlayPosition,
       child: Material(
         shape: RoundedRectangleBorder(
-          borderRadius:
-              BorderRadius.all(Radius.circular(UIStyle.popupsBorderRadius)),
+          borderRadius: BorderRadius.all(Radius.circular(UIStyle.popupsBorderRadius)),
         ),
         color: UIStyle.noLocationWarningBackgroundColor,
         elevation: 2,

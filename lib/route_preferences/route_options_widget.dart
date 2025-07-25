@@ -17,26 +17,24 @@
  * License-Filename: LICENSE
  */
 
-import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
-import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
+import 'dart:io' show Platform;
 
-import 'route_preferences_model.dart';
-import 'package:provider/provider.dart';
-import 'numeric_text_field_widget.dart';
-import 'enum_string_helper.dart';
-import 'preferences_row_title_widget.dart';
-import 'preferences_section_title_widget.dart';
-
-import 'dropdown_widget.dart';
-
-import '../common/ui_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:here_sdk/routing.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'dart:io' show Platform;
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
+import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
+import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
+import 'package:provider/provider.dart';
 
+import '../common/ui_style.dart';
 import '../common/util.dart' as Util;
+import 'dropdown_widget.dart';
+import 'enum_string_helper.dart';
+import 'numeric_text_field_widget.dart';
+import 'preferences_row_title_widget.dart';
+import 'preferences_section_title_widget.dart';
+import 'route_preferences_model.dart';
 
 /// Routing options widget.
 class RouteOptionsWidget extends StatelessWidget {

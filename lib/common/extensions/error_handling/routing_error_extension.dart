@@ -17,8 +17,8 @@
  * License-Filename: LICENSE
  */
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:here_sdk/routing.dart' as Routing;
+import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
 
 extension RoutingErrorExtension on Routing.RoutingError {
   String errorMessage(AppLocalizations localized) {

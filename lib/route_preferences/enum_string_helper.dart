@@ -20,10 +20,10 @@
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/routing.dart';
 import 'package:here_sdk/transport.dart' as Transport;
+import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
 
 /// Helper class for the routing options strings.
 class EnumStringHelper {

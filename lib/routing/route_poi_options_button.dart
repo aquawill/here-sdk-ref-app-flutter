@@ -19,10 +19,10 @@
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:here_sdk/search.dart';
 import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
 import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
+import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
 
 import '../common/ui_style.dart';
 import 'route_poi_options_item.dart';
@@ -98,9 +98,7 @@ class RoutePoiOptionsButton extends StatelessWidget {
                     ),
                     child: HdsIconWidget.medium(
                       poiInfo.image,
-                      color: categoryIds.contains(poiInfo.categoryId)
-                          ? null
-                          : UIStyle.foregroundInactive,
+                      color: categoryIds.contains(poiInfo.categoryId) ? null : UIStyle.foregroundInactive,
                     ),
                   ))
               .toList(),

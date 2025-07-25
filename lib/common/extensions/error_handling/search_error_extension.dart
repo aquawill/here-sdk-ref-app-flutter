@@ -17,8 +17,8 @@
  * License-Filename: LICENSE
  */
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:here_sdk/search.dart' show SearchError;
+import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
 
 extension SearchErrorExtension on SearchError {
   String? errorMessage(AppLocalizations localized) {

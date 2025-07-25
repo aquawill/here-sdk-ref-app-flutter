@@ -18,14 +18,14 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:here_sdk/routing.dart';
+import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../enum_string_helper.dart';
-import '../route_preferences_model.dart';
-import '../preferences_section_title_widget.dart';
 import '../preferences_disclosure_row_widget.dart';
+import '../preferences_section_title_widget.dart';
+import '../route_preferences_model.dart';
 import 'country_avoidance_screen.dart';
 import 'road_features_avoidance_screen.dart';
 

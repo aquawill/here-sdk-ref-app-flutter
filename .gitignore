@@ -34,6 +34,9 @@ export-distribution.plist
 .pub/
 /build/
 
+# Ignore all generated localization files
+lib/L10n/generated/
+
 # Web related
 lib/generated_plugin_registrant.dart
 

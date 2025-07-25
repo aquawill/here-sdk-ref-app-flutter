@@ -21,10 +21,10 @@ import 'dart:async';
 
 import 'package:disk_space_plus/disk_space_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
 
-import '../common/util.dart' as Util;
 import '../common/ui_style.dart';
+import '../common/util.dart' as Util;
 
 /// A widget displaying the available space in local storage.
 class StorageSpace extends StatefulWidget {

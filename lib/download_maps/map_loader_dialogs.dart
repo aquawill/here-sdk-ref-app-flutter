@@ -19,8 +19,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:here_sdk/maploader.dart';
+import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
 
 import '../common/util.dart' as Util;
 import 'map_loader_controller.dart';
