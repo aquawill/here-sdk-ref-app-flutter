@@ -507,7 +507,7 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
       int markerSize = (_hereMapController.pixelScale * UIStyle.searchMarkerSize).round();
       _routeFromMarker = Util.createMarkerWithImagePath(
         coordinates,
-        HdsAssetsPaths.departIcon,
+        "assets/depart_marker.svg",
         markerSize,
         markerSize,
         drawOrder: UIStyle.waypointsMarkerDrawOrder,
