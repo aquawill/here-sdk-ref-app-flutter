@@ -29,6 +29,7 @@ import 'package:here_sdk_reference_application_flutter/common/extensions/error_h
 import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
 import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_icon_widget.dart';
 import 'package:here_sdk_reference_application_flutter/common/util.dart';
+import 'package:here_sdk_reference_application_flutter/common/utils/navigation/position_status_listener.dart';
 import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
 import 'package:provider/provider.dart';
 
@@ -78,7 +79,9 @@ class RoutingScreen extends StatefulWidget {
   _RoutingScreenState createState() => _RoutingScreenState();
 }
 
-class _RoutingScreenState extends State<RoutingScreen> with TickerProviderStateMixin, Positioning {
+class _RoutingScreenState extends State<RoutingScreen>
+    with TickerProviderStateMixin, Positioning
+    implements PositioningStatusListener {
   static const double _kTapRadius = 60; // pixels
   static const double _kRouteCardHeight = 85;
 
@@ -104,6 +107,8 @@ class _RoutingScreenState extends State<RoutingScreen> with TickerProviderStateM
   late TabController _transportModesTabController;
   late List<TransportModes> _transportModes;
   late WayPointsController _wayPointsController;
+  DeviceLocationServicesStatusNotifier? _servicesStatusNotifier;
+  bool _canLocateUserPosition = false;
 
   @override
   void initState() {
@@ -145,8 +150,35 @@ class _RoutingScreenState extends State<RoutingScreen> with TickerProviderStateM
     _routePoiHandler.release();
     _transportModesTabController.dispose();
     _routesTabController.dispose();
+    _servicesStatusNotifier?.stop();
     stopPositioning();
     super.dispose();
+  }
+
+  @override
+  void didDevicePositioningStatusUpdated({
+    required bool isPositioningAvailable,
+    required bool hasPermissionsGranted,
+  }) {
+    _setCanLocateUserPosition(isPositioningAvailable && hasPermissionsGranted);
+  }
+
+  void _initialiseUserPositioning() {
+    _servicesStatusNotifier = DeviceLocationServicesStatusNotifier();
+    _servicesStatusNotifier!.start(this);
+    _servicesStatusNotifier!.canLocateUserPositioning().then(_setCanLocateUserPosition);
+  }
+
+  void _setCanLocateUserPosition(bool value) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        setState(() {
+          _canLocateUserPosition = value;
+          shouldAddUserLocationMarker = value;
+          locationVisible = value;
+        });
+      }
+    });
   }
 
   void _handleBackPress() {
@@ -182,11 +214,13 @@ class _RoutingScreenState extends State<RoutingScreen> with TickerProviderStateM
             ),
             extendBodyBehindAppBar: true,
             bottomNavigationBar: _mapInitSuccess ? _buildBottomNavigationBar(context) : null,
-            floatingActionButton: enableMapUpdate && _mapInitSuccess
-                ? null
-                : ResetLocationButton(
-                    onPressed: _resetCurrentPosition,
-                  ),
+            floatingActionButton: _canLocateUserPosition
+                ? (enableMapUpdate && _mapInitSuccess)
+                    ? null
+                    : ResetLocationButton(
+                        onPressed: _resetCurrentPosition,
+                      )
+                : null,
           ),
           if (_routingInProgress)
             Container(
@@ -246,6 +280,7 @@ class _RoutingScreenState extends State<RoutingScreen> with TickerProviderStateM
     };
 
     Util.loadMapScene(customMapStyleSettings, hereMapController, mapSceneLoadSceneCallback);
+    _initialiseUserPositioning();
   }
 
   void _addGestureListeners() {

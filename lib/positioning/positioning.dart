@@ -50,6 +50,10 @@ mixin Positioning {
 
   bool enableMapUpdate = true;
 
+  // Indicates whether the user location marker should be added to the map,
+  // based on location permissions and service status.
+  bool shouldAddUserLocationMarker = true;
+
   /// Gets last known location.
   Location? get lastKnownLocation => _positioningEngine?.lastKnownLocation ?? _lastKnownLocation;
 
@@ -114,7 +118,10 @@ mixin Positioning {
           (lastKnownLocation.horizontalAccuracyInMeters != null) ? lastKnownLocation.horizontalAccuracyInMeters! : 0;
 
       // Show the obtained last known location on a map.
-      _addMyLocationToMap(geoCoordinates: lastKnownLocation.coordinates, accuracyRadiusInMeters: accuracy);
+      _addMyLocationToMap(
+          geoCoordinates: lastKnownLocation.coordinates,
+          accuracyRadiusInMeters: accuracy,
+          canShowUserLocationMarker: shouldAddUserLocationMarker);
       // Update the map viewport to be centered on the location.
       if (enableMapUpdate) {
         _hereMapController.camera.lookAtPointWithMeasure(
@@ -124,7 +131,7 @@ mixin Positioning {
       }
     } else {
       // No last known location available, show a pre-defined location.
-      _addMyLocationToMap(geoCoordinates: initPosition);
+      _addMyLocationToMap(geoCoordinates: initPosition, canShowUserLocationMarker: shouldAddUserLocationMarker);
       // Update the map viewport to be centered on the location.
       if (enableMapUpdate) {
         _hereMapController.camera.lookAtPointWithMeasure(
@@ -138,6 +145,7 @@ mixin Positioning {
   void _addMyLocationToMap({
     required GeoCoordinates geoCoordinates,
     double accuracyRadiusInMeters = 0,
+    bool canShowUserLocationMarker = true,
   }) {
     int locationMarkerSize = (UIStyle.locationMarkerSize * _hereMapController.pixelScale).truncate();
 
@@ -152,10 +160,8 @@ mixin Positioning {
       locationMarkerSize,
     );
 
-    // Add the circle to the map.
-    _hereMapController.mapScene.addMapPolygon(_locationAccuracyCircle!);
-    _hereMapController.mapScene.addMapMarker(_locationMarker!);
-    _locationMarkerVisible = true;
+    // Add the location marker and circle to the map based on the flag [canShowUserLocationMarker].
+    locationVisible = canShowUserLocationMarker;
   }
 
   GeoPolygon _createGeometry(GeoCoordinates geoCoordinates, double accuracyRadiusInMeters) {
