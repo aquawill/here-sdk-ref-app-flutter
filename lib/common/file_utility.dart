@@ -122,8 +122,14 @@ class FileUtility {
     if (context == null || !context.mounted) {
       return null;
     }
+
+    final Brightness platformBrightness =
+        MediaQuery.of(context).platformBrightness;
+    final Color svgColor =
+        platformBrightness == Brightness.dark ? Colors.white : Colors.black;
+
     final PictureInfo pictureInfo = await vg.loadPicture(
-      SvgStringLoader(svgString, colorMapper: _SvgColorMapper(Theme.of(context).colorScheme.primary)),
+      SvgStringLoader(svgString, colorMapper: _SvgColorMapper(svgColor)),
       context,
     );
     final ui.Image image = await pictureInfo.picture.toImage(width, height);

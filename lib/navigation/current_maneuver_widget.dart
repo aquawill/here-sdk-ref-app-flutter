@@ -53,6 +53,7 @@ class CurrentManeuver extends StatelessWidget {
           padding: EdgeInsets.all(UIStyle.contentMarginLarge),
           child: HdsIconWidget.large(
             action.iconPath,
+            color: colorScheme.surface,
           ),
         ),
         Expanded(

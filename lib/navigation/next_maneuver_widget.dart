@@ -53,6 +53,7 @@ class NextManeuver extends StatelessWidget {
           padding: EdgeInsets.all(UIStyle.contentMarginLarge),
           child: HdsIconWidget.small(
             action.iconPath,
+            color: colorScheme.surface,
           ),
         ),
         Text(
