@@ -28,7 +28,7 @@ class HdsAssetsPaths {
   static const String arrowRightIcon =
       '$_coreUiAssets/arrow-right_solid_24px.svg';
 
-  static const String arriveIcon = '$_manoeuverAssets/arrive_solid_24px.svg';
+  static const String arriveIcon = '$_manoeuversSdkAssets/arrive.svg';
 
   static const String atmIcon = '$_poiAssets/atm_solid_24px.svg';
 

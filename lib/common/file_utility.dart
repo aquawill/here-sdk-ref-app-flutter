@@ -123,17 +123,19 @@ class FileUtility {
       return null;
     }
 
-    final Brightness platformBrightness =
-        MediaQuery.of(context).platformBrightness;
+    final Brightness systemBrightness =
+        WidgetsBinding.instance.platformDispatcher.platformBrightness;
+
     final Color svgColor =
-        platformBrightness == Brightness.dark ? Colors.white : Colors.black;
+        systemBrightness == Brightness.dark ? Colors.white : Colors.black;
 
     final PictureInfo pictureInfo = await vg.loadPicture(
       SvgStringLoader(svgString, colorMapper: _SvgColorMapper(svgColor)),
       context,
     );
     final ui.Image image = await pictureInfo.picture.toImage(width, height);
-    final ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+    final ByteData? byteData =
+        await image.toByteData(format: ui.ImageByteFormat.png);
     if (byteData == null) {
       debugPrint('Error: Unable to convert SVG to PNG');
     }
