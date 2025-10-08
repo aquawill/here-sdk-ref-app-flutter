@@ -189,7 +189,6 @@ class _RoutingScreenState extends State<RoutingScreen>
   @override
   Widget build(BuildContext context) {
     final HereMapOptions options = HereMapOptions()..initialBackgroundColor = Theme.of(context).colorScheme.surface;
-    options.renderMode = MapRenderMode.texture;
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (bool didPop, _) {

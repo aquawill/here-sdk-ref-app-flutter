@@ -164,7 +164,8 @@ class _RouteDetailsScreenState extends State<RouteDetailsScreen> {
   void _addRouteToMap() {
     _mapRoute = MapPolyline.withRepresentation(widget.route.geometry, mapRouteRepresentation());
     _hereMapController.mapScene.addMapPolyline(_mapRoute);
-    MapImage mapImage = MapImage.withFilePathAndWidthAndHeight(HdsAssetsPaths.currentLocation, _markerSize, _markerSize);
+    MapImage mapImage =
+        MapImage.withFilePathAndWidthAndHeight(HdsAssetsPaths.currentLocation, _markerSize, _markerSize);
     widget.route.sections.forEach((section) {
       section.maneuvers.forEach((maneuver) {
         if (maneuver.action == Routing.ManeuverAction.depart || maneuver.action == Routing.ManeuverAction.arrive) {
@@ -224,7 +225,6 @@ class _RouteDetailsScreenState extends State<RouteDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     final HereMapOptions options = HereMapOptions()..initialBackgroundColor = Theme.of(context).colorScheme.surface;
-    options.renderMode = MapRenderMode.texture;
     return PopScope(
       canPop: !_hasBeenZoomedToManeuver,
       onPopInvokedWithResult: (_, __) {

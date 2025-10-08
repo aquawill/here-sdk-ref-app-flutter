@@ -114,7 +114,6 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
   @override
   Widget build(BuildContext context) {
     final HereMapOptions options = HereMapOptions()..initialBackgroundColor = Theme.of(context).colorScheme.surface;
-    options.renderMode = MapRenderMode.texture;
     return ConnectionStateMonitor(
       mapLoaderController: Provider.of<MapLoaderController>(context, listen: false),
       child: Consumer2<AppPreferences, CustomMapStyleSettings>(
