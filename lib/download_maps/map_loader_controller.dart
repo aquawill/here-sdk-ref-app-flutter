@@ -108,12 +108,12 @@ enum MapUpdateState {
 /// Data controller that manages offline maps.
 class MapLoaderController extends ChangeNotifier implements MapCatalogUpdateListener {
   MapUpdater? _mapUpdater;
-  final Completer<MapUpdater> _mapUpdaterCompleter = Completer();
+  Completer<MapUpdater> _mapUpdaterCompleter = Completer();
 
   Future<MapUpdater> get mapUpdater async => await _mapUpdaterCompleter.future;
 
   MapDownloader? _mapDownloader;
-  final Completer<MapDownloader> _mapDownloaderCompleter = Completer();
+  Completer<MapDownloader> _mapDownloaderCompleter = Completer();
 
   Future<MapDownloader> get mapDownloader async => await _mapDownloaderCompleter.future;
 
@@ -131,15 +131,34 @@ class MapLoaderController extends ChangeNotifier implements MapCatalogUpdateList
 
   /// Default constructor
   MapLoaderController() {
+    init();
+  }
+
+  /// Initializes the MapDownloader and MapUpdater instances asynchronously.
+  Future<void> init() async {
+    // Create MapDownloader from the SDK engine and complete the downloader future.
     MapDownloader.fromSdkEngineAsync(SDKNativeEngine.sharedInstance!, (MapDownloader downloader) {
       _mapDownloader = downloader;
       _mapDownloaderCompleter.complete(_mapDownloader);
     });
 
+    // Create MapUpdater from the SDK engine and complete the updater future.
     MapUpdater.fromSdkEngineAsync(SDKNativeEngine.sharedInstance!, (MapUpdater updater) {
       _mapUpdater = updater;
       _mapUpdaterCompleter.complete(_mapUpdater);
     });
+  }
+
+  /// Re-initializes the map downloader and updater instances.
+  /// then calls `init()` to reinitialize the SDK components.
+  /// Notifies listeners after reinitialization.
+  Future<void> restartMapLoader() async {
+    _mapDownloader = null;
+    _mapUpdater = null;
+    _mapDownloaderCompleter = Completer();
+    _mapUpdaterCompleter = Completer();
+    init();
+    notifyListeners();
   }
 
   /// Returns a list of [Region] objects that can be used to download the actual map data in a separate request.

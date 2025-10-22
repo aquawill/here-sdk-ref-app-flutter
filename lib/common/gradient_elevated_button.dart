@@ -27,7 +27,7 @@ class GradientElevatedButton extends StatelessWidget {
   final Widget title;
 
   /// Called when the button is tapped or otherwise activated.
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   /// Background primary color.
   final Color primaryColor;

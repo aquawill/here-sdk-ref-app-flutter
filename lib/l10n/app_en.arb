@@ -1,7 +1,19 @@
 {
+  "addCatalogConfiguration": "Add Catalog Configuration",
+  "@addCatalogConfiguration": {
+    "description": "Title of the add catalog configuration button"
+  },
+  "addedConfigurations": "Added Configurations",
+  "@addedConfigurations": {
+    "description": "Configuration list title"
+  },
   "addToRouteButton": "Add",
   "@addToRouteButton": {
     "description": "Title of the add to route button"
+  },
+  "allowDownload": "Allow Download",
+  "@allowDownload": {
+    "description": "Title text for allow download switcher"
   },
   "allowHighwayTitle": "Allow highway",
   "@allowHighwayTitle": {
@@ -59,6 +71,14 @@
   "@byteAbbreviationText": {
     "description": "Text for the abbreviation of the bytes"
   },
+  "cacheExpirationPeriod": "Cache Expiration Period",
+  "@cacheExpirationPeriod": {
+    "description": "Title text for cache expiration period setting"
+  },
+  "cacheExpirationPeriodHint": "optional duration in s",
+  "@cacheExpirationPeriodHint": {
+    "description": "Hint text for cache expiration period setting"
+  },
   "cancelTitle": "Cancel",
   "@cancelTitle": {
     "description": "Cancel button title"
@@ -66,6 +86,18 @@
   "carShuttleTrain": "Car shuttle train",
   "@carShuttleTrain": {
     "description": "Avoid road feature name for route preferences"
+  },
+  "catalogConfiguration": "Catalog Configuration",
+  "@catalogConfiguration":  {
+    "description": "Text for Catalog Configuration"
+  },
+  "catalogErrorMessage": "Catalog already added",
+  "@catalogErrorMessage":  {
+    "description": "Message text shown when a catalog configuration already exists"
+  },
+  "clearAll": "Clear All",
+  "@clearAll": {
+    "description": "Text for clear all action"
   },
   "clearPersistentMapStorage": "Clear Persistent Map Storage",
   "@clearPersistentMapStorage": {
@@ -1277,6 +1309,18 @@
   "@hourAbbreviationText": {
     "description": "Text for the abbreviation of the hour"
   },
+  "hrn": "HRN",
+  "@hrn": {
+    "description": "HRN title text"
+  },
+  "hrnAsStringHint": "hrn as string",
+  "@hrnAsStringHint": {
+    "description": "Text hint for hrn as string"
+  },
+  "ignoreCachedData": "Ignore Cached Data",
+  "@ignoreCachedData": {
+    "description": "Title text for ignore cached data option"
+  },
   "incompleteDownloadMessage": "Download is not completed",
   "@incompleteDownloadMessage": {
     "description": "Text means that download is not completed"
@@ -1332,6 +1376,10 @@
   "languageCodeZhCn": "Chinese (Simplified China)",
   "@languageCodeZhCn": {
     "description": "Language code for Chinese (Simplified China)"
+  },
+  "latest": "latest",
+  "@latest": {
+    "description": "Text label for latest"
   },
   "leftExitActionNextRoadText": "Take the left exit to '{{0}}'",
   "@leftExitActionNextRoadText": {
@@ -1504,6 +1552,14 @@
   "optimizationModeTitle": "Optimization mode",
   "@optimizationModeTitle": {
     "description": "Title of optimization mode setting in route options"
+  },
+  "patchHrn": "Patch HRN",
+  "@patchHrn": {
+    "description": "Title of the settings for Patch HRN"
+  },
+  "patchHrnHint": "optional patch catalog as string",
+  "@patchHrnHint": {
+    "description": "Hint text for Patch HRN"
   },
   "poiSettingsTitle": "Points of interest",
   "@poiSettingsTitle": {
@@ -1920,6 +1976,14 @@
   "uTurns": "U-turns",
   "@uTurns": {
     "description": "Avoid road feature name for route preferences"
+  },
+  "version": "Version",
+  "@version": {
+    "description": "Title of the version input"
+  },
+  "versionHintAsLong": "version hint as long",
+  "@versionHintAsLong": {
+    "description": "Text hint for version as long"
   },
   "walkSpeedTitle": "Walk Speed",
   "@walkSpeedTitle": {

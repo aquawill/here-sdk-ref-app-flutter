@@ -17,7 +17,10 @@
  * License-Filename: LICENSE
  */
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:here_sdk_reference_application_flutter/sdk_engine_configuration/catalog_configuration_data.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// A class that implements application preferences.
@@ -27,6 +30,9 @@ class AppPreferences extends ChangeNotifier {
 
   /// Key to track if the HERE Privacy Notice dialog was shown on first launch.
   static final String _kIsHerePrivacyDialogShown = 'is_here_privacy_dialog_shown';
+
+  /// Key used to store and retrieve SDK options catalog configurations in shared preferences.
+  static const String _kSdkOptionsCatalogConfigurations = 'sdk_options_catalog_configurations';
 
   SharedPreferences? _sharedPreferences;
 
@@ -71,5 +77,33 @@ class AppPreferences extends ChangeNotifier {
       _sharedPreferences?.setBool(_kIsHerePrivacyDialogShown, value);
       notifyListeners();
     }
+  }
+
+  /// Saves or removes the SDK options catalog configuration in shared preferences.
+  /// Returns `true` if successful, otherwise `false`.
+  Future<bool> saveSdkOptionsCatalogConfiguration(List<CatalogConfigurationData>? configs) async {
+    if (configs != null && configs.isNotEmpty) {
+      final String serialized = const JsonEncoder().convert(CatalogConfigurationData.toDynamicListFromList(configs));
+      return (await _sharedPreferences?.setString(_kSdkOptionsCatalogConfigurations, serialized)) ?? false;
+    }
+    return await _sharedPreferences?.remove(_kSdkOptionsCatalogConfigurations) ?? false;
+  }
+
+  /// Retrieves the SDK options catalog configuration from shared preferences.
+  /// Returns a `List<CatalogConfigurationData>` if the configuration exists, otherwise `null`.
+  List<CatalogConfigurationData>? loadSdkOptionsCatalogConfiguration() {
+    return loadSdkOptionsCatalogConfigurationFromPrefs(_sharedPreferences!);
+  }
+
+  /// Retrieves the SDK options catalog configuration from the provided [SharedPreferences] instance.
+  /// Returns a `List<CatalogConfigurationData>` if the configuration exists, otherwise `null`.
+  static List<CatalogConfigurationData>? loadSdkOptionsCatalogConfigurationFromPrefs(SharedPreferences prefs) {
+    try {
+      final String? jsonString = prefs.getString(_kSdkOptionsCatalogConfigurations);
+      return CatalogConfigurationData.fromDynamicListToList(jsonString == null ? null : jsonDecode(jsonString));
+    } catch (error) {
+      print('Error while fetching CatalogConfiguration $error');
+    }
+    return null;
   }
 }

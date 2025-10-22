@@ -36,6 +36,7 @@ import 'package:here_sdk_reference_application_flutter/common/file_utility.dart'
 import 'package:here_sdk_reference_application_flutter/common/hds_icons/hds_assets_paths.dart';
 import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
 import 'package:here_sdk_reference_application_flutter/routing/routing_screen.dart';
+import 'package:here_sdk_reference_application_flutter/sdk_engine_configuration/custom_catalog_configuration_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 
@@ -76,7 +77,7 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
   bool _didBackPressedAndPositionStopped = false;
   late HereMapController _hereMapController;
   late PositioningEngine _positioningEngine;
-  GlobalKey _hereMapKey = GlobalKey();
+  GlobalKey _hereMapWidgetKey = GlobalKey();
   OverlayEntry? _locationWarningOverlay;
   OverlayEntry? _loadCustomSceneResultOverlay;
   MapMarker? _routeFromMarker;
@@ -117,23 +118,25 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
     return ConnectionStateMonitor(
       mapLoaderController: Provider.of<MapLoaderController>(context, listen: false),
       child: Consumer2<AppPreferences, CustomMapStyleSettings>(
-        builder: (context, preferences, customStyleSettings, child) => Scaffold(
-          resizeToAvoidBottomInset: false,
-          body: Stack(
-            children: [
-              HereMap(
-                key: _hereMapKey,
-                options: options,
-                onMapCreated: _onMapCreated,
-              ),
-              _buildMenuButton(),
-            ],
-          ),
-          floatingActionButton: _mapInitSuccess ? _buildFAB(context) : null,
-          drawer: _buildDrawer(context, preferences),
-          extendBodyBehindAppBar: true,
-          onDrawerChanged: (isOpened) => _dismissLocationWarningPopup(),
-        ),
+        builder: (context, preferences, customStyleSettings, child) {
+          return Scaffold(
+            resizeToAvoidBottomInset: false,
+            body: Stack(
+              children: [
+                HereMap(
+                  key: _hereMapWidgetKey,
+                  options: options,
+                  onMapCreated: _onMapCreated,
+                ),
+                _buildMenuButton(),
+              ],
+            ),
+            floatingActionButton: _mapInitSuccess ? _buildFAB(context) : null,
+            drawer: _buildDrawer(context, preferences),
+            extendBodyBehindAppBar: true,
+            onDrawerChanged: (isOpened) => _dismissLocationWarningPopup(),
+          );
+        },
       ),
     );
   }
@@ -347,11 +350,17 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
                     color: colorScheme.onPrimary,
                   ),
                 ),
+                trailing: HdsIconWidget(HdsAssetsPaths.chevronRightIcon, color: colorScheme.onPrimary),
                 onTap: () {
                   Navigator.of(context)
                     ..pop()
                     ..pushNamed(DownloadMapsScreen.navRoute);
                 }),
+            ListTile(
+              title: Text(appLocalizations.catalogConfiguration, style: TextStyle(color: colorScheme.onPrimary)),
+              trailing: HdsIconWidget(HdsAssetsPaths.chevronRightIcon, color: colorScheme.onPrimary),
+              onTap: _openAndHandleCatalogConfiguration,
+            ),
             ..._buildLoadCustomSceneItem(context),
             SwitchListTile(
               title: Text(
@@ -594,7 +603,7 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
       context: context,
       currentPosition: currentPosition,
       hereMapController: _hereMapController,
-      hereMapKey: _hereMapKey,
+      hereMapKey: _hereMapWidgetKey,
     );
     if (result != null) {
       SearchResult searchResult = result;
@@ -633,6 +642,22 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
     _removeRouteFromMarker();
     if (shouldRestartLocationEngine) {
       _positioningEngine.restartLocationEngine();
+    }
+  }
+
+  /// Opens the catalog configuration screen and reloads the map if needed.
+  /// Resets widget keys to force a rebuild when configuration changes
+  void _openAndHandleCatalogConfiguration() async {
+    Navigator.of(context).pop();
+    bool reloadNeeded = await Navigator.of(context).pushNamed(
+          CustomCatalogConfigurationScreen.navRoute,
+        ) as bool? ??
+        false;
+
+    if (reloadNeeded) {
+      setState(() {
+        _hereMapWidgetKey = GlobalKey();
+      });
     }
   }
 }

@@ -21,13 +21,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/core.engine.dart';
-import 'package:here_sdk/core.errors.dart';
 import 'package:here_sdk/maploader.dart';
 import 'package:here_sdk/routing.dart' as Routing;
 import 'package:here_sdk/search.dart';
 import 'package:here_sdk_reference_application_flutter/environment.dart';
 import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
+import 'package:here_sdk_reference_application_flutter/sdk_engine_configuration/catalog_configuration_data.dart';
+import 'package:here_sdk_reference_application_flutter/sdk_engine_configuration/custom_catalog_configuration_screen.dart';
+import 'package:here_sdk_reference_application_flutter/sdk_engine_configuration/sdk_engine_utils.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'common/application_preferences.dart';
 import 'common/custom_map_style_settings.dart';
@@ -48,33 +51,32 @@ import 'search/recent_search_data_model.dart';
 import 'search/search_results_screen.dart';
 
 /// The entry point of the application.
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SdkContext.init();
 
-  _createSDKNativeEngine(
-    sdkOptions: SDKOptions.withAuthenticationMode(
-      AuthenticationMode.withKeySecret(Environment.accessKeyId, Environment.accessKeySecret),
-    ),
+  // Obtain an instance of SharedPreferences for persistent storage.
+  final SharedPreferences _sharedPreferences = await SharedPreferences.getInstance();
+
+  // Load catalog configurations data from preferences and convert to CatalogConfiguration format.
+  final List<CatalogConfiguration>? catalogConfigurations =
+      AppPreferences.loadSdkOptionsCatalogConfigurationFromPrefs(_sharedPreferences)?.toSdkCatalogConfigurations();
+
+  // Create SDKOptions with authentication using access key and secret.
+  final SDKOptions sdkOptions = SDKOptions.withAuthenticationMode(
+    AuthenticationMode.withKeySecret(Environment.accessKeyId, Environment.accessKeySecret),
+  );
+
+  // If catalog configurations are available, assign them to sdkOptions.
+  if (catalogConfigurations != null && catalogConfigurations.isNotEmpty) {
+    sdkOptions.catalogConfigurations = catalogConfigurations;
+  }
+
+  createSDKNativeEngine(
+    sdkOptions: sdkOptions,
     onSuccess: () => runApp(MyApp()),
     onFailure: (_) => runApp(const InitErrorScreen()),
   );
-}
-
-Future<void> _createSDKNativeEngine({
-  required SDKOptions sdkOptions,
-  VoidCallback? onSuccess,
-  Function(String)? onFailure,
-}) async {
-  try {
-    await SDKNativeEngine.makeSharedInstance(sdkOptions);
-    print('SDKNativeEngine created successfully!');
-    onSuccess?.call();
-  } on Exception catch (e) {
-    final String error = e is InstantiationException ? '${e.error}' : e.toString();
-    print('Failed to create SDKNativeEngine: $error');
-    onFailure?.call(error);
-  }
 }
 
 /// Application root widget.
@@ -162,6 +164,7 @@ class _MyAppState extends State<MyApp> {
                 regions: arguments[0] as List<Region>,
               );
             },
+            CustomCatalogConfigurationScreen.navRoute: (BuildContext context) => CustomCatalogConfigurationScreen(),
           };
 
           WidgetBuilder builder = routes[settings.name]!;
