@@ -95,6 +95,10 @@
   "@catalogErrorMessage":  {
     "description": "Message text shown when a catalog configuration already exists"
   },
+  "catalogHrnErrorMessage": "Please specify at least the HERE resource name (HRN) to proceed",
+  "@catalogHrnErrorMessage":  {
+    "description": "Catalog Hrn empty error message"
+  },
   "clearAll": "Clear All",
   "@clearAll": {
     "description": "Text for clear all action"

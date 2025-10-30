@@ -340,16 +340,8 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
               },
             ),
             ListTile(
-                leading: HdsIconWidget(
-                  HdsAssetsPaths.downloadIcon,
-                  color: colorScheme.onPrimary,
-                ),
-                title: Text(
-                  appLocalizations.downloadMapsTitle,
-                  style: TextStyle(
-                    color: colorScheme.onPrimary,
-                  ),
-                ),
+                leading: HdsIconWidget(HdsAssetsPaths.downloadIcon, color: colorScheme.onPrimary),
+                title: Text(appLocalizations.downloadMapsTitle, style: TextStyle(color: colorScheme.onPrimary)),
                 trailing: HdsIconWidget(HdsAssetsPaths.chevronRightIcon, color: colorScheme.onPrimary),
                 onTap: () {
                   Navigator.of(context)
@@ -357,6 +349,7 @@ class _LandingScreenState extends State<LandingScreen> with Positioning, Widgets
                     ..pushNamed(DownloadMapsScreen.navRoute);
                 }),
             ListTile(
+              leading: HdsIconWidget(HdsAssetsPaths.catalogIcon, color: colorScheme.onPrimary),
               title: Text(appLocalizations.catalogConfiguration, style: TextStyle(color: colorScheme.onPrimary)),
               trailing: HdsIconWidget(HdsAssetsPaths.chevronRightIcon, color: colorScheme.onPrimary),
               onTap: _openAndHandleCatalogConfiguration,

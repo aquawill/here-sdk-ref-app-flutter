@@ -35,6 +35,8 @@ class HdsAssetsPaths {
 
   static const String carDrivingIcon = '$_traveTransportTracking/driving_solid_24px.svg';
 
+  static const String catalogIcon = '$_dataAssets/catalog_solid_24px.svg';
+
   static const String chevronDown = '$_coreUiAssets/chevron-down_solid_24px.svg';
 
   static const String chevronLeftIcon = '$_coreUiAssets/chevron-left_solid_24px.svg';
@@ -205,6 +207,7 @@ class HdsAssetsPaths {
 
   static const String _assets = 'assets/here-icons/icons';
   static const String _coreUiAssets = '$_assets/core-ui/SVG';
+  static const String _dataAssets = '$_assets/data/SVG';
   static const String _deviceSensors = '$_assets/devices-sensors/SVG';
   static const String _discoverySharing = '$_assets/discovery-sharing/SVG';
   static const String _directionsSet1 = '$_assets/guidance-icons/lane-assistance/directions/set-1';

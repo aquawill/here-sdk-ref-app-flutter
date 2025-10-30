@@ -319,7 +319,9 @@ class _CustomCatalogConfigurationScreenState extends State<CustomCatalogConfigur
                         Spacer(),
                         GradientElevatedButton(
                           title: Text(localized.addCatalogConfiguration),
-                          onPressed: _isCatalogHrnAddButtonEnabled ? _onAddCatalogConfig : null,
+                          onPressed: _isCatalogHrnAddButtonEnabled
+                              ? _onAddCatalogConfig
+                              : () => _showErrorMessage(localized.catalogHrnErrorMessage),
                         ),
                         Spacer(),
                       ],
