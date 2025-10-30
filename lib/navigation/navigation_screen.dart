@@ -21,6 +21,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/gestures.dart';
@@ -40,7 +41,6 @@ import 'package:here_sdk_reference_application_flutter/common/utils/navigation/p
 import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:ringtone_player/ringtone_player.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../common/application_preferences.dart';
@@ -70,11 +70,7 @@ class NavigationScreen extends StatefulWidget {
   final List<Routing.Waypoint> wayPoints;
 
   /// Constructs a widget.
-  NavigationScreen({
-    Key? key,
-    required this.route,
-    required this.wayPoints,
-  }) : super(key: key);
+  NavigationScreen({Key? key, required this.route, required this.wayPoints}) : super(key: key);
 
   @override
   _NavigationScreenState createState() => _NavigationScreenState();
@@ -189,16 +185,10 @@ class _NavigationScreenState extends State<NavigationScreen>
         resizeToAvoidBottomInset: false,
         appBar: topBarWidget,
         body: Padding(
-          padding: EdgeInsets.only(
-            top: topBarWidget != null ? _kTopBarHeight + topOffset : 0,
-          ),
+          padding: EdgeInsets.only(top: topBarWidget != null ? _kTopBarHeight + topOffset : 0),
           child: Stack(
             children: [
-              HereMap(
-                key: _mapKey,
-                options: options,
-                onMapCreated: _onMapCreated,
-              ),
+              HereMap(key: _mapKey, options: options, onMapCreated: _onMapCreated),
               if (nextManeuverWidget != null) nextManeuverWidget,
               if (_navigationStarted) _buildNavigationControls(context),
             ],
@@ -228,14 +218,10 @@ class _NavigationScreenState extends State<NavigationScreen>
 
   Future<void> _configTextSpeakerForIOS() async {
     await _flutterTts.setSharedInstance(true);
-    await _flutterTts.setIosAudioCategory(
-      IosTextToSpeechAudioCategory.playback,
-      <IosTextToSpeechAudioCategoryOptions>[
-        IosTextToSpeechAudioCategoryOptions.mixWithOthers,
-        IosTextToSpeechAudioCategoryOptions.duckOthers,
-      ],
-      IosTextToSpeechAudioMode.voicePrompt,
-    );
+    await _flutterTts.setIosAudioCategory(IosTextToSpeechAudioCategory.playback, <IosTextToSpeechAudioCategoryOptions>[
+      IosTextToSpeechAudioCategoryOptions.mixWithOthers,
+      IosTextToSpeechAudioCategoryOptions.duckOthers,
+    ], IosTextToSpeechAudioMode.voicePrompt);
   }
 
   void _onMapCreated(HereMapController hereMapController) {
@@ -256,10 +242,7 @@ class _NavigationScreenState extends State<NavigationScreen>
 
       hereMapController.setWatermarkLocation(
         Anchor2D.withHorizontalAndVertical(0, 1),
-        Point2D(
-          -hereMapController.watermarkSize.width / 2,
-          -hereMapController.watermarkSize.height / 2,
-        ),
+        Point2D(-hereMapController.watermarkSize.width / 2, -hereMapController.watermarkSize.height / 2),
       );
 
       Util.setTrafficLayersVisibilityOnMap(context, hereMapController);
@@ -311,12 +294,15 @@ class _NavigationScreenState extends State<NavigationScreen>
 
   void _addGestureListeners() {
     _hereMapController.gestures.doubleTapListener = DoubleTapListener((origin) => _enableTracking(false));
-    _hereMapController.gestures.panListener =
-        PanListener((state, origin, translation, velocity) => _enableTracking(false));
+    _hereMapController.gestures.panListener = PanListener(
+      (state, origin, translation, velocity) => _enableTracking(false),
+    );
     _hereMapController.gestures.pinchRotateListener = PinchRotateListener(
-        (state, pinchOrigin, rotationOrigin, twoFingerDistance, rotation) => _enableTracking(false));
-    _hereMapController.gestures.twoFingerPanListener =
-        TwoFingerPanListener((state, origin, translation, velocity) => _enableTracking(false));
+      (state, pinchOrigin, rotationOrigin, twoFingerDistance, rotation) => _enableTracking(false),
+    );
+    _hereMapController.gestures.twoFingerPanListener = TwoFingerPanListener(
+      (state, origin, translation, velocity) => _enableTracking(false),
+    );
     _hereMapController.gestures.twoFingerTapListener = TwoFingerTapListener((origin) => _enableTracking(false));
   }
 
@@ -432,7 +418,12 @@ class _NavigationScreenState extends State<NavigationScreen>
       _visualNavigator.speedWarningOptions = Navigation.SpeedWarningOptions(offset);
       _visualNavigator.speedWarningListener = Navigation.SpeedWarningListener((status) {
         if (status == Navigation.SpeedWarningStatus.speedLimitExceeded && _soundEnabled) {
-          RingtonePlayer.play(android: Android.notification, ios: Ios.triTone);
+          FlutterRingtonePlayer().play(
+            android: AndroidSounds.notification,
+            ios: IosSounds.triTone,
+            looping: false,
+            asAlarm: false,
+          );
         }
         setState(() => _speedWarningStatus = status);
       });
@@ -486,7 +477,8 @@ class _NavigationScreenState extends State<NavigationScreen>
   }
 
   String _getRemainingTimeString() {
-    String arrivalInfo = AppLocalizations.of(context)!.arrivalTimeTitle +
+    String arrivalInfo =
+        AppLocalizations.of(context)!.arrivalTimeTitle +
         ": " +
         DateFormat.Hm().format(DateTime.now().add(Duration(seconds: _remainingDurationInSeconds)));
     return arrivalInfo;
@@ -580,9 +572,7 @@ class _NavigationScreenState extends State<NavigationScreen>
         shape: UIStyle.bottomRoundedBorder(),
         automaticallyImplyLeading: false,
         backgroundColor: Theme.of(context).colorScheme.secondary,
-        flexibleSpace: SafeArea(
-          child: child,
-        ),
+        flexibleSpace: SafeArea(child: child),
       ),
     );
   }
@@ -607,14 +597,8 @@ class _NavigationScreenState extends State<NavigationScreen>
         shape: UIStyle.bottomRoundedBorder(),
         elevation: 2,
         child: Padding(
-          padding: EdgeInsets.only(
-            top: UIStyle.popupsBorderRadius,
-          ),
-          child: NextManeuver(
-            action: action,
-            distance: _nextManeuverDistance,
-            text: text,
-          ),
+          padding: EdgeInsets.only(top: UIStyle.popupsBorderRadius),
+          child: NextManeuver(action: action, distance: _nextManeuverDistance, text: text),
         ),
       ),
     );
@@ -630,9 +614,7 @@ class _NavigationScreenState extends State<NavigationScreen>
             padding: EdgeInsets.only(bottom: UIStyle.contentMarginLarge),
             child: FloatingActionButton(
               heroTag: null,
-              child: HdsIconWidget(
-                HdsAssetsPaths.cameraVideoIcon,
-              ),
+              child: HdsIconWidget(HdsAssetsPaths.cameraVideoIcon),
               backgroundColor: Theme.of(context).colorScheme.surface,
               onPressed: () {
                 _enableTracking(true);
@@ -641,24 +623,17 @@ class _NavigationScreenState extends State<NavigationScreen>
           ),
         FloatingActionButton(
           heroTag: null,
-          child: HdsIconWidget(
-            _soundEnabled ? HdsAssetsPaths.volumeHighIcon : HdsAssetsPaths.volumeOffIcon,
-          ),
+          child: HdsIconWidget(_soundEnabled ? HdsAssetsPaths.volumeHighIcon : HdsAssetsPaths.volumeOffIcon),
           backgroundColor: Theme.of(context).colorScheme.surface,
           onPressed: () async {
             await _flutterTts.stop();
             setState(() => _soundEnabled = !_soundEnabled);
           },
         ),
-        Container(
-          height: UIStyle.contentMarginLarge,
-        ),
+        Container(height: UIStyle.contentMarginLarge),
         FloatingActionButton(
           heroTag: null,
-          child: HdsIconWidget(
-            HdsAssetsPaths.crossIcon,
-            color: UIStyle.stopNavigationButtonIconColor,
-          ),
+          child: HdsIconWidget(HdsAssetsPaths.crossIcon, color: UIStyle.stopNavigationButtonIconColor),
           backgroundColor: UIStyle.stopNavigationButtonColor,
           onPressed: () async {
             if (await Dialogs.askForExitFromNavigation(context)) {
@@ -679,8 +654,10 @@ class _NavigationScreenState extends State<NavigationScreen>
       Point2D(0, -(_hereMapController.watermarkSize.height / 2) - margin),
     );
 
-    _hereMapController.camera.principalPoint = Point2D(_hereMapController.viewportSize.width / 2,
-        _hereMapController.viewportSize.height - _kPrincipalPointOffset * _hereMapController.pixelScale);
+    _hereMapController.camera.principalPoint = Point2D(
+      _hereMapController.viewportSize.width / 2,
+      _hereMapController.viewportSize.height - _kPrincipalPointOffset * _hereMapController.pixelScale,
+    );
   }
 
   Widget _buildNavigationControls(BuildContext context) {
@@ -691,8 +668,12 @@ class _NavigationScreenState extends State<NavigationScreen>
     return Align(
       alignment: Alignment.bottomCenter,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(UIStyle.contentMarginLarge, UIStyle.contentMarginLarge, UIStyle.contentMarginLarge,
-            UIStyle.contentMarginLarge + UIStyle.popupsBorderRadius),
+        padding: EdgeInsets.fromLTRB(
+          UIStyle.contentMarginLarge,
+          UIStyle.contentMarginLarge,
+          UIStyle.contentMarginLarge,
+          UIStyle.contentMarginLarge + UIStyle.popupsBorderRadius,
+        ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisSize: MainAxisSize.max,
@@ -707,29 +688,20 @@ class _NavigationScreenState extends State<NavigationScreen>
             if (_currentStreetName != null)
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.only(
-                    left: UIStyle.contentMarginLarge,
-                    right: UIStyle.contentMarginLarge,
-                  ),
+                  padding: EdgeInsets.only(left: UIStyle.contentMarginLarge, right: UIStyle.contentMarginLarge),
                   child: Material(
                     elevation: 2,
                     color: colorScheme.surface,
                     borderRadius: BorderRadius.circular(UIStyle.bigButtonHeight),
                     child: Padding(
-                      padding: EdgeInsets.only(
-                        left: UIStyle.contentMarginMedium,
-                        right: UIStyle.contentMarginMedium,
-                      ),
+                      padding: EdgeInsets.only(left: UIStyle.contentMarginMedium, right: UIStyle.contentMarginMedium),
                       child: Container(
                         height: UIStyle.bigButtonHeight,
                         child: Center(
                           child: MarqueeWidget(
                             child: Text(
                               _currentStreetName!,
-                              style: TextStyle(
-                                fontSize: UIStyle.hugeFontSize,
-                                color: colorScheme.onSecondary,
-                              ),
+                              style: TextStyle(fontSize: UIStyle.hugeFontSize, color: colorScheme.onSecondary),
                               maxLines: 1,
                             ),
                           ),
@@ -772,10 +744,7 @@ class _NavigationScreenState extends State<NavigationScreen>
   }
 
   @override
-  void didDevicePositioningStatusUpdated({
-    required bool isPositioningAvailable,
-    required bool hasPermissionsGranted,
-  }) {
+  void didDevicePositioningStatusUpdated({required bool isPositioningAvailable, required bool hasPermissionsGranted}) {
     if (mounted) {
       setState(() {
         _canLocateUserPosition = isPositioningAvailable && hasPermissionsGranted;
@@ -797,11 +766,7 @@ class _NavigationScreenState extends State<NavigationScreen>
     bool simulated = false,
     Navigation.LocationSimulatorOptions? options,
   }) async {
-    _locationProvider = createLocationProvider(
-      route: widget.route,
-      simulated: simulated,
-      simulatorOptions: options,
-    );
+    _locationProvider = createLocationProvider(route: widget.route, simulated: simulated, simulatorOptions: options);
     _locationProvider?.addListener(this);
     _locationProvider?.addListener(_visualNavigator);
     _locationProvider?.start();

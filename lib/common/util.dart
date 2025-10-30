@@ -40,7 +40,9 @@ const double _paddingFactor = 0.10;
 String formatString(String template, List replacements) {
   final regExp = RegExp(_placeholderPattern);
   assert(
-      regExp.allMatches(template).length == replacements.length, "Template and Replacements length are incompatible");
+    regExp.allMatches(template).length == replacements.length,
+    "Template and Replacements length are incompatible",
+  );
 
   for (final replacement in replacements) {
     template = template.replaceFirst(regExp, replacement.toString());
@@ -72,6 +74,12 @@ String makeStorageSizeString(BuildContext context, int size) {
     return "${(size / 1048576.0).toStringAsFixed(2)} ${AppLocalizations.of(context)!.megabyteAbbreviationText}";
   } else {
     return "${(size / 1073741824).toStringAsFixed(2)} ${AppLocalizations.of(context)!.gigabyteAbbreviationText}";
+  }
+}
+
+extension Utils on String {
+  String capitalize() {
+    return '${this[0].toUpperCase()}${substring(1)}';
   }
 }
 
@@ -107,12 +115,7 @@ MapMarker createMarkerWithImagePath(
 }
 
 /// Creates [MapMarker] in [coordinates] using an [image], [drawOrder] and [anchor].
-MapMarker createMarkerWithImage(
-  GeoCoordinates coordinates,
-  MapImage image, {
-  int? drawOrder,
-  Anchor2D? anchor,
-}) {
+MapMarker createMarkerWithImage(GeoCoordinates coordinates, MapImage image, {int? drawOrder, Anchor2D? anchor}) {
   MapMarker mapMarker = MapMarker(coordinates, image);
   if (drawOrder != null) {
     mapMarker.drawOrder = drawOrder;
@@ -140,27 +143,27 @@ extension LogicalCoords on HereMapController {
     double margin = UIStyle.contentMarginExtraHuge,
   }) {
     this.camera.lookAtAreaWithGeoOrientationAndViewRectangle(
-        geoBox.expandedByPercentage(_paddingFactor),
-        GeoOrientationUpdate(double.nan, double.nan),
-        Rectangle2D(
-            Point2D(viewPort.left + margin, viewPort.top + margin) * this.pixelScale,
-            Size2D(
-              (viewPort.width - margin * 2) * this.pixelScale,
-              (viewPort.height - margin * 2) * this.pixelScale,
-            )));
+      geoBox.expandedByPercentage(_paddingFactor),
+      GeoOrientationUpdate(double.nan, double.nan),
+      Rectangle2D(
+        Point2D(viewPort.left + margin, viewPort.top + margin) * this.pixelScale,
+        Size2D((viewPort.width - margin * 2) * this.pixelScale, (viewPort.height - margin * 2) * this.pixelScale),
+      ),
+    );
   }
 
   /// Zooms map area specified by [geoBox] into entire map area.
-  void zoomToLogicalViewPort({
-    required GeoBox geoBox,
-    required BuildContext context,
-  }) {
+  void zoomToLogicalViewPort({required GeoBox geoBox, required BuildContext context}) {
     final RenderBox box = context.findRenderObject() as RenderBox;
 
     zoomGeoBoxToLogicalViewPort(
       geoBox: geoBox,
-      viewPort: Rect.fromLTRB(0, MediaQuery.of(context).padding.top, box.size.width, box.size.height)
-          .deflate(UIStyle.locationMarkerSize.toDouble()),
+      viewPort: Rect.fromLTRB(
+        0,
+        MediaQuery.of(context).padding.top,
+        box.size.width,
+        box.size.height,
+      ).deflate(UIStyle.locationMarkerSize.toDouble()),
     );
   }
 }
@@ -187,47 +190,46 @@ extension Size2DExtensions on Size2D {
 
 /// Utility function that shows [SnackBar] with [errorMessage]
 void displayErrorSnackBar(BuildContext context, String errorMessage) {
-  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-    backgroundColor: Colors.red,
-    content: Row(
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        Padding(
-          padding: EdgeInsets.all(UIStyle.contentMarginMedium),
-          child: HdsIconWidget(HdsAssetsPaths.attentionCircleIcon),
-        ),
-        Expanded(
-          child: Padding(
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      backgroundColor: Colors.red,
+      content: Row(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Padding(
             padding: EdgeInsets.all(UIStyle.contentMarginMedium),
-            child: Text(
-              errorMessage,
-              style: TextStyle(fontSize: UIStyle.hugeFontSize),
+            child: HdsIconWidget(HdsAssetsPaths.attentionCircleIcon),
+          ),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(UIStyle.contentMarginMedium),
+              child: Text(errorMessage, style: TextStyle(fontSize: UIStyle.hugeFontSize)),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     ),
-  ));
+  );
 }
 
 /// Utility function that builds cancel button for application dialogs
 Widget buildDialogCancelButton(BuildContext context) => SimpleDialogOption(
-      child: Padding(
-        padding: EdgeInsets.all(UIStyle.contentMarginLarge),
-        child: Center(
-          child: Text(
-            AppLocalizations.of(context)!.cancelTitle,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: UIStyle.bigFontSize,
-              fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.onSecondary,
-            ),
-          ),
+  child: Padding(
+    padding: EdgeInsets.all(UIStyle.contentMarginLarge),
+    child: Center(
+      child: Text(
+        AppLocalizations.of(context)!.cancelTitle,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: UIStyle.bigFontSize,
+          fontWeight: FontWeight.bold,
+          color: Theme.of(context).colorScheme.onSecondary,
         ),
       ),
-      onPressed: () => Navigator.of(context).pop(false),
-    );
+    ),
+  ),
+  onPressed: () => Navigator.of(context).pop(false),
+);
 
 /// Creates a common confirmation dialog.
 Future<bool> showCommonConfirmationDialog({
@@ -245,12 +247,7 @@ Future<bool> showCommonConfirmationDialog({
         vertical: UIStyle.contentMarginLarge,
         horizontal: UIStyle.contentMarginExtraLarge,
       ),
-      title: title != null
-          ? Text(
-              title,
-              textAlign: TextAlign.center,
-            )
-          : null,
+      title: title != null ? Text(title, textAlign: TextAlign.center) : null,
       children: [
         if (message != null)
           Padding(
@@ -262,9 +259,7 @@ Future<bool> showCommonConfirmationDialog({
             child: Text(
               message,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: UIStyle.bigFontSize,
-              ),
+              style: TextStyle(fontSize: UIStyle.bigFontSize),
             ),
           ),
         if (actionTitle != null)
@@ -272,12 +267,7 @@ Future<bool> showCommonConfirmationDialog({
             children: [
               Spacer(),
               GradientElevatedButton(
-                title: Text(
-                  actionTitle,
-                  style: TextStyle(
-                    color: actionTextColor,
-                  ),
-                ),
+                title: Text(actionTitle, style: TextStyle(color: actionTextColor)),
                 onPressed: () => Navigator.of(context).pop(true),
                 primaryColor: actionBackgroundColor ?? UIStyle.buttonPrimaryColor,
                 secondaryColor: actionBackgroundColor ?? UIStyle.buttonSecondaryColor,
@@ -301,7 +291,7 @@ void setTrafficLayersVisibilityOnMap(BuildContext context, HereMapController her
   if (enableTraffic) {
     hereMapController.mapScene.enableFeatures({
       MapFeatures.trafficFlow: MapFeatureModes.trafficFlowWithFreeFlow,
-      MapFeatures.trafficIncidents: MapFeatureModes.trafficIncidentsAll
+      MapFeatures.trafficIncidents: MapFeatureModes.trafficIncidentsAll,
     });
   } else {
     hereMapController.mapScene.disableFeatures([MapFeatures.trafficFlow, MapFeatures.trafficIncidents]);
@@ -320,10 +310,7 @@ void loadMapScene(
           customMapStyleSettings.customMapStyleFilepath!,
           mapSceneLoadSceneCallback,
         )
-      : hereMapController.mapScene.loadSceneForMapScheme(
-          MapScheme.normalDay,
-          mapSceneLoadSceneCallback,
-        );
+      : hereMapController.mapScene.loadSceneForMapScheme(MapScheme.normalDay, mapSceneLoadSceneCallback);
 }
 
 /// Function provides a MapPolylineRepresentation which is to be applied on a polyline for displaying a route on map

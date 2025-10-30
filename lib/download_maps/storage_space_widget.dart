@@ -29,9 +29,7 @@ import '../common/util.dart' as Util;
 /// A widget displaying the available space in local storage.
 class StorageSpace extends StatefulWidget {
   /// Constructs the widget.
-  StorageSpace({
-    Key? key,
-  }) : super(key: key);
+  StorageSpace({Key? key}) : super(key: key);
 
   @override
   _StorageSpaceState createState() => _StorageSpaceState();
@@ -70,50 +68,35 @@ class _StorageSpaceState extends State<StorageSpace> {
             child: RichText(
               text: TextSpan(
                 text: "${appLocalizations.internalStorageText} (",
-                style: TextStyle(
-                  color: colorScheme.primary,
-                  fontSize: UIStyle.bigFontSize,
-                ),
+                style: TextStyle(color: colorScheme.primary, fontSize: UIStyle.bigFontSize),
                 children: [
                   TextSpan(
                     text: Util.makeStorageSizeString(context, _totalSpace),
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  TextSpan(
-                    text: ")",
-                  ),
+                  TextSpan(text: ")"),
                 ],
               ),
             ),
           ),
-          Container(
-            height: UIStyle.contentMarginMedium,
-          ),
+          Container(height: UIStyle.contentMarginMedium),
           if (_totalSpace > 0)
             LinearProgressIndicator(
               value: 1 - _availableSpace / _totalSpace,
               valueColor: AlwaysStoppedAnimation(colorScheme.secondary),
               backgroundColor: Theme.of(context).dividerColor,
             ),
-          Container(
-            height: UIStyle.contentMarginMedium,
-          ),
+          Container(height: UIStyle.contentMarginMedium),
           Align(
             alignment: Alignment.centerRight,
             child: RichText(
               text: TextSpan(
                 text: "${appLocalizations.availableStorageText}: ",
-                style: TextStyle(
-                  color: colorScheme.onSecondary,
-                ),
+                style: TextStyle(color: colorScheme.onSecondary),
                 children: [
                   TextSpan(
                     text: Util.makeStorageSizeString(context, _availableSpace),
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -125,16 +108,14 @@ class _StorageSpaceState extends State<StorageSpace> {
   }
 
   Future<void> _updateDiskSpace() async {
-    double? freeDiskSpace = await DiskSpacePlus.getFreeDiskSpace;
-    double? totalDiskSpace = await DiskSpacePlus.getTotalDiskSpace;
+    final DiskSpacePlus diskSpace = DiskSpacePlus();
+    final double freeDiskSpace = await diskSpace.getFreeDiskSpace ?? 0.0;
+    final double totalDiskSpace = await diskSpace.getTotalDiskSpace ?? 0.0;
+
     if (mounted) {
       setState(() {
-        if (freeDiskSpace != null) {
-          _availableSpace = (freeDiskSpace * 1048576).toInt();
-        }
-        if (totalDiskSpace != null) {
-          _totalSpace = (totalDiskSpace * 1048576).toInt();
-        }
+        _availableSpace = (freeDiskSpace * 1048576).toInt();
+        _totalSpace = (totalDiskSpace * 1048576).toInt();
       });
     }
   }

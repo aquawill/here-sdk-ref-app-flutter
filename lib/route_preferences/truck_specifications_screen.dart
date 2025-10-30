@@ -22,10 +22,12 @@ import 'package:here_sdk/routing.dart';
 import 'package:here_sdk/transport.dart' as Transport;
 import 'package:here_sdk_reference_application_flutter/common/extensions/truck_specification_extensions.dart';
 import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
+import 'package:here_sdk_reference_application_flutter/route_preferences/dropdown_widget.dart';
 import 'package:here_sdk_reference_application_flutter/route_preferences/preferences_section_title_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../common/ui_style.dart';
+import 'enum_string_helper.dart' show EnumStringHelper;
 import 'numeric_text_field_widget.dart';
 import 'preferences_row_title_widget.dart';
 import 'route_preferences_model.dart';
@@ -40,9 +42,7 @@ class TruckSpecificationsScreen extends StatelessWidget {
     AppLocalizations localizations = AppLocalizations.of(context)!;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(localizations.truckSpecificationsTitle),
-      ),
+      appBar: AppBar(title: Text(localizations.truckSpecificationsTitle)),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(new FocusNode()),
         child: Container(
@@ -54,17 +54,75 @@ class TruckSpecificationsScreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    PreferencesRowTitle(title: localizations.truckWidthRowTitle),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        PreferencesRowTitle(title: localizations.isLightTruck),
+                        Switch.adaptive(
+                          value: _specs.isTruckLight,
+                          onChanged: (value) {
+                            context.read<RoutePreferencesModel>().truckOptions = _truckOptions.copyTruckOptionsWith(
+                              truckSpecifications: _specs.copyTruckSpecificationsWith(isTruckLight: value),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                    PreferencesRowTitle(title: localizations.truckType),
+                    Container(
+                      decoration: UIStyle.roundedRectDecoration(),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownWidget(
+                          data: EnumStringHelper.truckTypeDisplayNames(),
+                          selectedValue: _specs.truckType.index,
+                          onChanged: (type) {
+                            context.read<RoutePreferencesModel>().truckOptions = _truckOptions.copyTruckOptionsWith(
+                              truckSpecifications: _specs.copyTruckSpecificationsWith(
+                                truckType: Transport.TruckType.values[type],
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                    PreferencesRowTitle(title: localizations.truckAxleCountRowTitle),
                     NumericTextField(
-                      initialValue: _specs.widthInCentimeters == null ? "" : _specs.widthInCentimeters.toString(),
-                      hintText: localizations.truckWidthHint,
+                      initialValue: _specs.axleCount == null ? "" : _specs.axleCount.toString(),
+                      hintText: localizations.truckAxlesCountHint,
                       isInteger: true,
                       onChanged: (text) {
                         context.read<RoutePreferencesModel>().truckOptions = _truckOptions.copyTruckOptionsWith(
-                          truckSpecifications: _specs.copyTruckSpecificationsWith(widthInCentimeters: text),
+                          truckSpecifications: _specs.copyTruckSpecificationsWith(axleCount: text),
                         );
                       },
                     ),
+                    PreferencesRowTitle(title: localizations.truckCurrentWeightRowTitle),
+                    NumericTextField(
+                      initialValue: _specs.currentWeightInKilograms == null
+                          ? ""
+                          : _specs.currentWeightInKilograms.toString(),
+                      hintText: localizations.weightInKg,
+                      isInteger: true,
+                      onChanged: (text) {
+                        context.read<RoutePreferencesModel>().truckOptions = _truckOptions.copyTruckOptionsWith(
+                          truckSpecifications: _specs.copyTruckSpecificationsWith(currentWeightInKilograms: text),
+                        );
+                      },
+                    ),
+                    PreferencesRowTitle(title: localizations.truckGrossWeightRowTitle),
+                    NumericTextField(
+                      initialValue: _specs.grossWeightInKilograms == null
+                          ? ""
+                          : _specs.grossWeightInKilograms.toString(),
+                      hintText: localizations.truckTotalWeightHint,
+                      isInteger: true,
+                      onChanged: (text) {
+                        context.read<RoutePreferencesModel>().truckOptions = _truckOptions.copyTruckOptionsWith(
+                          truckSpecifications: _specs.copyTruckSpecificationsWith(grossWeightInKilograms: text),
+                        );
+                      },
+                    ),
+
                     PreferencesRowTitle(title: localizations.truckHeightRowTitle),
                     NumericTextField(
                       initialValue: _specs.heightInCentimeters == null ? "" : _specs.heightInCentimeters.toString(),
@@ -87,21 +145,47 @@ class TruckSpecificationsScreen extends StatelessWidget {
                         );
                       },
                     ),
-                    PreferencesRowTitle(title: localizations.truckAxleCountRowTitle),
+                    PreferencesRowTitle(title: localizations.payloadCapacity),
                     NumericTextField(
-                      initialValue: _specs.axleCount == null ? "" : _specs.axleCount.toString(),
-                      hintText: localizations.truckAxlesCountHint,
+                      initialValue: _specs.payloadCapacityInKilograms == null
+                          ? ""
+                          : _specs.payloadCapacityInKilograms.toString(),
+                      hintText: localizations.payloadCapacityHint,
                       isInteger: true,
                       onChanged: (text) {
                         context.read<RoutePreferencesModel>().truckOptions = _truckOptions.copyTruckOptionsWith(
-                          truckSpecifications: _specs.copyTruckSpecificationsWith(axleCount: text),
+                          truckSpecifications: _specs.copyTruckSpecificationsWith(payloadCapacityInKilograms: text),
+                        );
+                      },
+                    ),
+                    PreferencesRowTitle(title: localizations.truckSpecTrailerAxleCount),
+                    NumericTextField(
+                      initialValue: _specs.trailerAxleCount == null ? "" : _specs.trailerAxleCount.toString(),
+                      hintText: localizations.truckSpecTrailerAxleCountHint,
+                      isInteger: true,
+                      onChanged: (text) {
+                        context.read<RoutePreferencesModel>().truckOptions = _truckOptions.copyTruckOptionsWith(
+                          truckSpecifications: _specs.copyTruckSpecificationsWith(trailerAxleCount: text),
+                        );
+                      },
+                    ),
+
+                    PreferencesRowTitle(title: localizations.truckSpecTrailerCount),
+                    NumericTextField(
+                      initialValue: _specs.trailerCount == null ? "" : _specs.trailerCount.toString(),
+                      hintText: localizations.truckSpecTrailerCountHint,
+                      isInteger: true,
+                      onChanged: (text) {
+                        context.read<RoutePreferencesModel>().truckOptions = _truckOptions.copyTruckOptionsWith(
+                          truckSpecifications: _specs.copyTruckSpecificationsWith(trailerCount: text),
                         );
                       },
                     ),
                     PreferencesRowTitle(title: localizations.truckWeightPerAxleRowTitle),
                     NumericTextField(
-                      initialValue:
-                          _specs.weightPerAxleInKilograms == null ? "" : _specs.weightPerAxleInKilograms.toString(),
+                      initialValue: _specs.weightPerAxleInKilograms == null
+                          ? ""
+                          : _specs.weightPerAxleInKilograms.toString(),
                       hintText: localizations.truckAxleWeightHint,
                       isInteger: true,
                       onChanged: (text) {
@@ -110,15 +194,14 @@ class TruckSpecificationsScreen extends StatelessWidget {
                         );
                       },
                     ),
-                    PreferencesRowTitle(title: localizations.truckGrossWeightRowTitle),
+                    PreferencesRowTitle(title: localizations.truckWidthRowTitle),
                     NumericTextField(
-                      initialValue:
-                          _specs.grossWeightInKilograms == null ? "" : _specs.grossWeightInKilograms.toString(),
-                      hintText: localizations.truckTotalWeightHint,
+                      initialValue: _specs.widthInCentimeters == null ? "" : _specs.widthInCentimeters.toString(),
+                      hintText: localizations.truckWidthHint,
                       isInteger: true,
                       onChanged: (text) {
                         context.read<RoutePreferencesModel>().truckOptions = _truckOptions.copyTruckOptionsWith(
-                          truckSpecifications: _specs.copyTruckSpecificationsWith(grossWeightInKilograms: text),
+                          truckSpecifications: _specs.copyTruckSpecificationsWith(widthInCentimeters: text),
                         );
                       },
                     ),

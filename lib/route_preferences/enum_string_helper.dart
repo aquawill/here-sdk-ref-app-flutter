@@ -23,11 +23,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/routing.dart';
 import 'package:here_sdk/transport.dart' as Transport;
+import 'package:here_sdk_reference_application_flutter/common/util.dart';
 import 'package:here_sdk_reference_application_flutter/l10n/generated/app_localizations.dart';
 
 /// Helper class for the routing options strings.
 class EnumStringHelper {
   static int noneValueIndex = -1;
+
+  /// Returns a map of truck type indices to their capitalized display names.
+  static Map<int, String> truckTypeDisplayNames() {
+    return {for (final type in Transport.TruckType.values) type.index: type.name.capitalize()};
+  }
 
   /// Returns the mapping of [OptimizationMode] values to the corresponding strings.
   static Map<int, String> routeOptimizationModeMap(BuildContext context) {

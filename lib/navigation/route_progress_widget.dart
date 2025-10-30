@@ -30,11 +30,8 @@ class RouteProgress extends StatelessWidget {
   final int remainingDistanceInMeters;
 
   /// Constructs a widget.
-  RouteProgress({
-    Key? key,
-    required this.routeLengthInMeters,
-    required this.remainingDistanceInMeters,
-  }) : super(key: key);
+  RouteProgress({Key? key, required this.routeLengthInMeters, required this.remainingDistanceInMeters})
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +71,7 @@ class _RoutePainter extends CustomPainter {
     Paint paint = Paint();
     double currentPosition =
         (routeLengthInMeters - remainingDistanceInMeters) / routeLengthInMeters * (size.width - _kLineWidth * 4) +
-            _kLineWidth * 2;
+        _kLineWidth * 2;
 
     paint.color = travelledColor;
     paint.style = PaintingStyle.stroke;
@@ -87,7 +84,10 @@ class _RoutePainter extends CustomPainter {
     paint.strokeWidth = _kLineWidth;
     paint.color = remainingColor;
     canvas.drawLine(
-        Offset(currentPosition, size.height / 2), Offset(size.width - _kLineWidth * 2, size.height / 2), paint);
+      Offset(currentPosition, size.height / 2),
+      Offset(size.width - _kLineWidth * 2, size.height / 2),
+      paint,
+    );
     paint.strokeWidth = 1;
     canvas.drawCircle(Offset(size.width - _kLineWidth, size.height / 2), _kLineWidth, paint);
 
@@ -98,7 +98,7 @@ class _RoutePainter extends CustomPainter {
       ..lineTo(-_kPositionSize, _kPositionSize)
       ..lineTo(_kPositionSize, 0);
     Matrix4 matrix4 = Matrix4.identity();
-    matrix4.translate(currentPosition, size.height / 2);
+    matrix4.translateByDouble(currentPosition, size.height / 2.0, 0.0, 1.0);
     currentPositionShape = currentPositionShape.transform(matrix4.storage);
 
     paint.style = PaintingStyle.fill;

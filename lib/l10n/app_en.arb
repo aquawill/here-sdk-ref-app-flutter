@@ -1329,6 +1329,10 @@
   "@internalStorageText": {
     "description": "Text for internal storage caption"
   },
+  "isLightTruck": "Is Light Truck",
+  "@isLightTruck": {
+    "description": "Title for truck specification preferences"
+  },
   "kilobyteAbbreviationText": "KB",
   "@kilobyteAbbreviationText": {
     "description": "Text for the abbreviation of the kilo bytes"
@@ -1560,6 +1564,14 @@
   "patchHrnHint": "optional patch catalog as string",
   "@patchHrnHint": {
     "description": "Hint text for Patch HRN"
+  },
+  "payloadCapacity": "Payload Capacity",
+  "@payloadCapacity": {
+    "description": "Title for truck specification preferences"
+  },
+  "payloadCapacityHint": "Payload capacity, incl. trailers, in kg",
+  "@payloadCapacityHint": {
+    "description": "Hint for truck specification preferences"
   },
   "poiSettingsTitle": "Points of interest",
   "@poiSettingsTitle": {
@@ -1845,7 +1857,7 @@
   "@truckAxleCountRowTitle": {
     "description": "Title for truck specification preferences"
   },
-  "truckAxlesCountHint": "Total number of vehicle axles",
+  "truckAxlesCountHint": "Number of axles (min 2)",
   "@truckAxlesCountHint": {
     "description": "Hint for truck specification preferences"
   },
@@ -1855,6 +1867,10 @@
   },
   "truckGrossWeightRowTitle": "Gross weight",
   "@truckGrossWeightRowTitle": {
+    "description": "Title for truck specification preferences"
+  },
+  "truckCurrentWeightRowTitle": "Current weight",
+  "@truckCurrentWeightRowTitle": {
     "description": "Title for truck specification preferences"
   },
   "truckHeightHint": "Height in cm",
@@ -1877,9 +1893,29 @@
   "@truckSpecificationsTitle": {
     "description": "Route truck preferences section title"
   },
+  "truckSpecTrailerAxleCount": "Trailer Axle Count",
+  "@truckSpecTrailerAxleCount": {
+    "description": "Title for truck specification preferences"
+  },
+  "truckSpecTrailerAxleCountHint": "Number of axles",
+  "@truckSpecTrailerAxleCountHint": {
+    "description": "Hint for truck specification preferences"
+  },
+  "truckSpecTrailerCount": "Trailer Count",
+  "@truckSpecTrailerCount": {
+    "description": "Title for truck specification preferences"
+  },
+  "truckSpecTrailerCountHint": "Number of trailers in range of 0-255",
+  "@truckSpecTrailerCountHint": {
+    "description": "Hint for truck specification preferences"
+  },
   "truckTotalWeightHint": "Total weight in kg",
   "@truckTotalWeightHint": {
     "description": "Hint for truck specification preferences"
+  },
+  "truckType": "Truck Type",
+  "@truckType": {
+    "description": "Title for truck type specification"
   },
   "truckWeightPerAxleRowTitle": "Weight per axle",
   "@truckWeightPerAxleRowTitle": {
