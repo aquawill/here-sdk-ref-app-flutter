@@ -79,6 +79,23 @@ android {
         coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
     }
 
+    signingConfigs {
+        debug {
+            // Enable all APK signature schemes for debug builds
+            enableV1Signing = true
+            enableV2Signing = true
+            enableV3Signing = true
+            enableV4Signing = true
+        }
+        release {
+            // Enable all APK signature schemes for release builds
+            enableV1Signing = true
+            enableV2Signing = true
+            enableV3Signing = true
+            enableV4Signing = true
+        }
+    }
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
