@@ -1321,6 +1321,10 @@
   "@hrnAsStringHint": {
     "description": "Text hint for hrn as string"
   },
+  "hrnTitle": "HERE Resource Name (HRN)",
+  "@hrnTitle": {
+    "description": "HRN title text"
+  },
   "ignoreCachedData": "Ignore Cached Data",
   "@ignoreCachedData": {
     "description": "Title text for ignore cached data option"

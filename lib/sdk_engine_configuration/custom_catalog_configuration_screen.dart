@@ -123,8 +123,10 @@ class _CustomCatalogConfigurationScreenState extends State<CustomCatalogConfigur
   /// Shows a progress indicator during the process.
   /// On success, updates the engine and re-initializes the MapLoaderController.
   /// On failure, it resets the engine and shows an error.
-  void _recreateEngineWithCatalogs(List<CatalogConfigurationData> catalogConfigurations,
-      {SDKOptions? sdkOptions}) async {
+  void _recreateEngineWithCatalogs(
+    List<CatalogConfigurationData> catalogConfigurations, {
+    SDKOptions? sdkOptions,
+  }) async {
     _setProgressIndicator(true);
     try {
       SDKOptions options = sdkOptions ?? SDKNativeEngine.sharedInstance!.options;
@@ -238,7 +240,7 @@ class _CustomCatalogConfigurationScreenState extends State<CustomCatalogConfigur
                     padding: _commonPadding,
                     child: Column(
                       children: <Widget>[
-                        PreferencesRowTitle(title: localized.hrn),
+                        PreferencesRowTitle(title: localized.hrnTitle),
                         Container(
                           decoration: UIStyle.roundedRectDecoration(),
                           child: TextFormField(
@@ -348,7 +350,7 @@ class _CustomCatalogConfigurationScreenState extends State<CustomCatalogConfigur
                                 style: TextStyle(color: Theme.of(context).colorScheme.secondary),
                               ),
                               onPressed: () => _onClearAllConfigurations(),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -380,9 +382,7 @@ class _CustomCatalogConfigurationScreenState extends State<CustomCatalogConfigur
           if (_showProgressIndicator)
             Container(
               color: Colors.white54,
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
+              child: Center(child: CircularProgressIndicator()),
             ),
         ],
       ),
