@@ -31,7 +31,10 @@ class SearchEngineProxy {
     if (offline) {
       _offlineSearchEngine = OfflineSearchEngine();
     } else {
-      _onlineSearchEngine = SearchEngine();
+      _onlineSearchEngine = SearchEngine()
+        //provides well-distributed results along the route for corridor area searches.
+        ..setCustomOption('browse.ranking', 'excursionDistance')
+        ..setCustomOption('discover.ranking', 'excursionDistance');
     }
   }
 

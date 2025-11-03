@@ -37,7 +37,7 @@ typedef GetTextForPoiMarkerCallback = String Function(Place);
 
 /// A class that searches for POI along a route, creates and keeps map markers for resulting POIs.
 class RoutePoiHandler {
-  static const int _kGeoCorridorRadius = 20;
+  static const int _kGeoCorridorRadius = 1000;
   static const int _kMaxSearchSuggestion = 100;
 
   static final Map<String, PoiIconType> _categoryPoiTypes = {
@@ -48,7 +48,9 @@ class RoutePoiHandler {
 
   final SearchOptions _searchOptions = SearchOptions()
     ..languageCode = LanguageCode.enUs
-    ..maxItems = _kMaxSearchSuggestion;
+    ..maxItems = _kMaxSearchSuggestion
+    // Enables well-distributed results along the route for corridor area searches.
+    ..distributedResults = true; 
 
   /// [HereMapController] of the map.
   final HereMapController hereMapController;
