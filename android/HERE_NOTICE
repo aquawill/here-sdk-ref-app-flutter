@@ -5,6 +5,7 @@ This software depends on external packages and source code.
 The applicable license information is listed below:
 
 ----
+Copyright (c) 2007 present, Stephen Colebourne & Michael Nascimento Santos
 Copyright (c) 2009, 2011-2024 The Android Open Source Project
 Copyright (c) 2011 Google Inc.
 Copyright (c) 20188 The Android Open Source Project
@@ -12,11 +13,12 @@ Copyright (c) 2020-2025 HERE Europe B.V.
 Copyright 2000-2023 JetBrains s.r.o.
 Copyright 2001 Eric Ford & Hubert Holin
 Copyright 2007, 2011, 2013, 2015, 2018 Google Inc.
-Copyright 2010-2024 JetBrains s.r.o. and Kotlin Programming Language contributors
+Copyright 2010-2025 JetBrains s.r.o. and Kotlin Programming Language contributors
 Copyright 2011 The Guava Authors
-Copyright 2015, 2017-2024 The Android Open Source Project
+Copyright 2015, 2017-2025 The Android Open Source Project
 Copyright 2015-2016 KeepSafe Software, Inc.
 Copyright 2017 Workiva Inc.
+Copyright 2018-2020, 2022 The JSpecify
 
                                  Apache License
                            Version 2.0, January 2004
@@ -260,8 +262,8 @@ Copyright (c) 2020 io.flutter.plugins.batteryexample
 Copyright (c) 2020 The Chromium Authors
 Copyright (c) 2021, 2023 io.flutter.plugins.deviceinfoexample
 Copyright (c) 2021-2023 io.flutter.plugins
+Copyright (c) 2022-2023 com.dexterous
 Copyright (c) 2023-2024 Halil Durmus
-Copyright (c) 2023 com.dexterous
 Copyright (c) 2023 dev.fluttercommunity
 Copyright (c) 2023 dev.fluttercommunity.plus.wakelockexample
 Copyright 2013-2014, 2019 The Flutter Authors
@@ -269,7 +271,7 @@ Copyright 2013-2017, 2019, 2023 the Dart project
 Copyright 2015, 2017-2020 The Chromium Authors
 Copyright 2015 Google Inc.
 Copyright 2017 the Dart project authors
-Copyright 2018, 2020 Michael Bui
+Copyright 2018, 2020, 2024 Michael Bui
 Copyright 2019 Google LLC.
 Copyright 2019 Hansheng Chiu <https://www.linkedin.com/in/hschiu/>
 Copyright 2019 the Chromium project
