@@ -112,6 +112,7 @@ class _MyAppState extends State<MyApp> {
         ],
         supportedLocales: [
           const Locale('en', ''),
+          const Locale('zh', 'TW'),
         ],
         theme: UIStyle.lightTheme,
         onGenerateTitle: (BuildContext context) => AppLocalizations.of(context)!.appTitle,

@@ -18,7 +18,7 @@
  */
 
 import 'dart:io';
-
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
@@ -346,7 +346,6 @@ class _NavigationScreenState extends State<NavigationScreen>
 
   void _startNavigation() {
     _hereMapController.mapScene.removeMapMarker(_startMarker);
-
     _visualNavigator.startRendering(_hereMapController);
 
     _setupListeners();
@@ -438,12 +437,73 @@ class _NavigationScreenState extends State<NavigationScreen>
     _visualNavigator.milestoneStatusListener = _reroutingHandler;
   }
 
+
+  LanguageCode getLanguageCodeForDevice(
+      List<LanguageCode> supportedLanguages,
+      ) {
+    final ui.Locale deviceLocale = ui.PlatformDispatcher.instance.locale;
+    final String lang = deviceLocale.languageCode;
+    final String? country = deviceLocale.countryCode;
+
+    LanguageCode? exactMatch;
+    if (country != null && country.isNotEmpty) {
+      final String tag = '${lang}_${country}'.toLowerCase(); // "zh_tw"
+      exactMatch = _mapLocaleTagToLanguageCode(tag, supportedLanguages);
+    }
+
+    exactMatch ??= _mapLocaleTagToLanguageCode(lang.toLowerCase(), supportedLanguages);
+
+    if (exactMatch == null &&
+        supportedLanguages.contains(LanguageCode.enUs)) {
+      return LanguageCode.enUs;
+    }
+
+    return exactMatch ?? supportedLanguages.first;
+  }
+
+  LanguageCode? _mapLocaleTagToLanguageCode(
+      String tag,
+      List<LanguageCode> supportedLanguages,
+      ) {
+    final Map<String, LanguageCode> mapping = {
+      'zh_tw': LanguageCode.zhTw,
+      'zh': LanguageCode.zhTw,
+      'en_us': LanguageCode.enUs,
+      'en': LanguageCode.enUs,
+    };
+
+    final LanguageCode? candidate = mapping[tag] ?? mapping[tag.split('_').first];
+
+    if (candidate != null && supportedLanguages.contains(candidate)) {
+      return candidate;
+    }
+    return null;
+  }
+
+
   void _setupVoiceTextMessages() async {
-    await _flutterTts.setLanguage("en-US");
+    await _flutterTts.setLanguage("auto");
+
+    final supported = Navigation.VisualNavigator.getAvailableLanguagesForManeuverNotifications();
+    final ttsLanguageCode = getLanguageCodeForDevice(supported);
+
+    final maneuverNotificationOptions = Navigation.ManeuverNotificationOptions.withDefaults();
+    maneuverNotificationOptions.language = ttsLanguageCode;
+    maneuverNotificationOptions.unitSystem = UnitSystem.metric;
+
+    _visualNavigator.maneuverNotificationOptions = maneuverNotificationOptions;
+    print('LanguageCode for maneuver notifications: $ttsLanguageCode.');
 
     _visualNavigator.eventTextListener = Navigation.EventTextListener((Navigation.EventText eventText) {
+
       if (eventText.type == Navigation.TextNotificationType.maneuver) {
         if (_soundEnabled) {
+          final maneuverNotificationDetails = eventText.maneuverNotificationDetails;
+          if(maneuverNotificationDetails != null){
+            print("eventText.maneuverNotificationDetails.maneuverNotificationType: " + maneuverNotificationDetails.maneuverNotificationType.name);
+          }
+          print("eventText.distanceInMeters: " + eventText.distanceInMeters.toString());
+          print("eventText.text: " + eventText.text);
           _flutterTts.speak(eventText.text);
         }
 

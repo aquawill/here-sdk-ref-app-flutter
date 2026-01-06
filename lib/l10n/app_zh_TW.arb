@@ -1,0 +1,2073 @@
+{
+  "addCatalogConfiguration": "新增目錄設定",
+  "@addCatalogConfiguration": {
+    "description": "新增目錄設定按鈕的標題"
+  },
+  "addedConfigurations": "已新增的設定",
+  "@addedConfigurations": {
+    "description": "設定清單標題"
+  },
+  "addToRouteButton": "新增",
+  "@addToRouteButton": {
+    "description": "新增到路線按鈕的標題"
+  },
+  "allowDownload": "允許下載",
+  "@allowDownload": {
+    "description": "允許下載切換器的標題文字"
+  },
+  "allowHighwayTitle": "允許高速公路",
+  "@allowHighwayTitle": {
+    "description": "路線偏好設定切換器標題"
+  },
+  "appTitle": "HERE SDK for Flutter - 參考應用程式",
+  "@appTitle": {
+    "description": "應用程式標題"
+  },
+  "appTitleHeader": "HERE SDK for Flutter '{{0}}' 參考應用程式\n基於 HERE SDK '{{1}}'.'{{2}}'.'{{3}}'",
+  "@appTitleHeader": {
+    "description": "抽屜標頭中的應用程式標題"
+  },
+  "arrivalTimeTitle": "到達時間",
+  "@arrivalTimeTitle": {
+    "description": "到達時間本機通知的標籤"
+  },
+  "arrivalTitle": "到達",
+  "@arrivalTitle": {
+    "description": "到達時間的標籤"
+  },
+  "arriveActionText": "到達目的地",
+  "@arriveActionText": {
+    "description": "到達操作的文字"
+  },
+  "atmTitle": "自動提款機",
+  "@atmTitle": {
+    "description": "自動提款機地點類別的文字"
+  },
+  "availableStorageText": "可用",
+  "@availableStorageText": {
+    "description": "可用儲存空間標題的文字"
+  },
+  "avoidanceOptionsTitle": "迴避選項",
+  "@avoidanceOptionsTitle": {
+    "description": "路線偏好設定中迴避選項區段的標題"
+  },
+  "avoidCountriesTitle": "迴避國家",
+  "@avoidCountriesTitle": {
+    "description": "路線偏好設定中迴避國家列的標題"
+  },
+  "avoidRoadFeaturesTitle": "迴避道路特徵",
+  "@avoidRoadFeaturesTitle": {
+    "description": "路線偏好設定中迴避道路列的標題"
+  },
+  "backgroundPositioningWarning": "背景處理未啟用定位。",
+  "@backgroundPositioningWarning": {
+    "description": "未啟用背景位置服務警告"
+  },
+  "batterySaverWarningText": "已啟用省電模式，可能會影響螢幕鎖定時的背景導航。",
+  "@batterySaverWarningText": {
+    "description": "省電對話方塊的內容訊息"
+  },
+  "byteAbbreviationText": "位元組",
+  "@byteAbbreviationText": {
+    "description": "位元組縮寫的文字"
+  },
+  "cacheExpirationPeriod": "快取過期期間",
+  "@cacheExpirationPeriod": {
+    "description": "快取過期期間設定的標題文字"
+  },
+  "cacheExpirationPeriodHint": "選用的持續時間 (秒)",
+  "@cacheExpirationPeriodHint": {
+    "description": "快取過期期間設定的提示文字"
+  },
+  "cancelTitle": "取消",
+  "@cancelTitle": {
+    "description": "取消按鈕標題"
+  },
+  "carShuttleTrain": "汽車通勤火車",
+  "@carShuttleTrain": {
+    "description": "路線偏好設定的迴避道路特徵名稱"
+  },
+  "catalogConfiguration": "目錄設定",
+  "@catalogConfiguration": {
+    "description": "目錄設定的文字"
+  },
+  "catalogErrorMessage": "目錄已新增",
+  "@catalogErrorMessage": {
+    "description": "目錄設定已存在時顯示的訊息文字"
+  },
+  "catalogHrnErrorMessage": "請至少指定 HERE 資源名稱 (HRN) 以繼續",
+  "@catalogHrnErrorMessage": {
+    "description": "目錄 HRN 空白錯誤訊息"
+  },
+  "clearAll": "全部清除",
+  "@clearAll": {
+    "description": "全部清除動作的文字"
+  },
+  "clearPersistentMapStorage": "清除持久地圖儲存空間",
+  "@clearPersistentMapStorage": {
+    "description": "清除持久地圖儲存空間動作的文字"
+  },
+  "clearPrefetchedCache": "清除預先擷取的快取",
+  "@clearPrefetchedCache": {
+    "description": "清除預先擷取快取動作的文字"
+  },
+  "consentDenied": "已拒絕",
+  "@consentDenied": {
+    "description": "拒絕同意的文字"
+  },
+  "consentGranted": "已接受",
+  "@consentGranted": {
+    "description": "同意授予的文字"
+  },
+  "continueTitle": "繼續",
+  "@continueTitle": {
+    "description": "繼續標題"
+  },
+  "continueOnActionRoadText": "繼續在 '{{0}}' 上",
+  "@continueOnActionRoadText": {
+    "description": "繼續操作的文字"
+  },
+  "continueOnActionText": "繼續",
+  "@continueOnActionText": {
+    "description": "繼續操作的文字"
+  },
+  "controlledAccessHighway": "受控存取高速公路",
+  "@controlledAccessHighway": {
+    "description": "路線偏好設定的迴避道路特徵名稱"
+  },
+  "@countryCode": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeAbw": "阿魯巴",
+  "@countryCodeAbw": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeAfg": "阿富汗",
+  "@countryCodeAfg": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeAgo": "安哥拉",
+  "@countryCodeAgo": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeAia": "安圭拉",
+  "@countryCodeAia": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeAla": "奧蘭群島",
+  "@countryCodeAla": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeAlb": "阿爾巴尼亞",
+  "@countryCodeAlb": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeAnd": "安道爾",
+  "@countryCodeAnd": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeAre": "阿聯酋",
+  "@countryCodeAre": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeArg": "阿根廷",
+  "@countryCodeArg": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeArm": "亞美尼亞",
+  "@countryCodeArm": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeAsm": "美屬薩摩亞",
+  "@countryCodeAsm": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeAta": "南極洲",
+  "@countryCodeAta": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeAtf": "法屬南方領土",
+  "@countryCodeAtf": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeAtg": "安地卡及巴布達",
+  "@countryCodeAtg": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeAus": "澳大利亞",
+  "@countryCodeAus": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeAut": "奧地利",
+  "@countryCodeAut": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeAze": "亞塞拜然",
+  "@countryCodeAze": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBdi": "蒲隆地",
+  "@countryCodeBdi": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBel": "比利時",
+  "@countryCodeBel": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBen": "貝寧",
+  "@countryCodeBen": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBes": "波奈、聖尤斯特謝斯和薩巴",
+  "@countryCodeBes": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBfa": "布吉納法索",
+  "@countryCodeBfa": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBgd": "孟加拉",
+  "@countryCodeBgd": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBgr": "保加利亞",
+  "@countryCodeBgr": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBhr": "巴林",
+  "@countryCodeBhr": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBhs": "巴哈馬",
+  "@countryCodeBhs": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBih": "波士尼亞及赫塞哥維納",
+  "@countryCodeBih": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBlm": "聖巴瑟米",
+  "@countryCodeBlm": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBlr": "白俄羅斯",
+  "@countryCodeBlr": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBlz": "貝里斯",
+  "@countryCodeBlz": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBmu": "百慕達",
+  "@countryCodeBmu": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBol": "玻利維亞 (多民族國)",
+  "@countryCodeBol": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBra": "巴西",
+  "@countryCodeBra": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBrb": "巴巴多斯",
+  "@countryCodeBrb": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBrn": "汶萊",
+  "@countryCodeBrn": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBtn": "不丹",
+  "@countryCodeBtn": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBvt": "布韋島",
+  "@countryCodeBvt": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeBwa": "波札那",
+  "@countryCodeBwa": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCaf": "中非共和國",
+  "@countryCodeCaf": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCan": "加拿大",
+  "@countryCodeCan": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCck": "可可斯 (基林) 群島",
+  "@countryCodeCck": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeChe": "瑞士",
+  "@countryCodeChe": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeChl": "智利",
+  "@countryCodeChl": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeChn": "中國",
+  "@countryCodeChn": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCiv": "象牙海岸",
+  "@countryCodeCiv": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCmr": "喀麥隆",
+  "@countryCodeCmr": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCod": "剛果民主共和國",
+  "@countryCodeCod": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCog": "剛果",
+  "@countryCodeCog": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCok": "庫克群島",
+  "@countryCodeCok": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCol": "哥倫比亞",
+  "@countryCodeCol": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCom": "葛摩",
+  "@countryCodeCom": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCpv": "維德角",
+  "@countryCodeCpv": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCri": "哥斯大黎加",
+  "@countryCodeCri": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCub": "古巴",
+  "@countryCodeCub": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCuw": "庫拉索",
+  "@countryCodeCuw": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCxr": "聖誕島",
+  "@countryCodeCxr": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCym": "開曼群島",
+  "@countryCodeCym": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCyp": "塞浦路斯",
+  "@countryCodeCyp": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeCze": "捷克",
+  "@countryCodeCze": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeDeu": "德國",
+  "@countryCodeDeu": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeDji": "吉布地",
+  "@countryCodeDji": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeDma": "多米尼克",
+  "@countryCodeDma": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeDnk": "丹麥",
+  "@countryCodeDnk": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeDom": "多明尼加共和國",
+  "@countryCodeDom": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeDza": "阿爾及利亞",
+  "@countryCodeDza": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeEcu": "厄瓜多",
+  "@countryCodeEcu": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeEgy": "埃及",
+  "@countryCodeEgy": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeEri": "厄利垂亞",
+  "@countryCodeEri": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeEsh": "西撒哈拉",
+  "@countryCodeEsh": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeEsp": "西班牙",
+  "@countryCodeEsp": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeEst": "愛沙尼亞",
+  "@countryCodeEst": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeEth": "衣索比亞",
+  "@countryCodeEth": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeFin": "芬蘭",
+  "@countryCodeFin": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeFji": "斐濟",
+  "@countryCodeFji": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeFlk": "福克蘭群島 (馬爾維納斯)",
+  "@countryCodeFlk": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeFra": "法國",
+  "@countryCodeFra": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeFro": "法羅群島",
+  "@countryCodeFro": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeFsm": "密克羅尼西亞 (聯邦)",
+  "@countryCodeFsm": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGab": "加彭",
+  "@countryCodeGab": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGbr": "大不列顛及北愛爾蘭聯合王國",
+  "@countryCodeGbr": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGeo": "喬治亞",
+  "@countryCodeGeo": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGgy": "根西島",
+  "@countryCodeGgy": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGha": "加納",
+  "@countryCodeGha": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGib": "直布羅陀",
+  "@countryCodeGib": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGin": "幾內亞",
+  "@countryCodeGin": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGlp": "瓜德魯普",
+  "@countryCodeGlp": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGmb": "甘比亞",
+  "@countryCodeGmb": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGnb": "幾內亞比索",
+  "@countryCodeGnb": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGnq": "赤道幾內亞",
+  "@countryCodeGnq": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGrc": "希臘",
+  "@countryCodeGrc": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGrd": "格瑞那達",
+  "@countryCodeGrd": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGrl": "格陵蘭",
+  "@countryCodeGrl": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGtm": "瓜地馬拉",
+  "@countryCodeGtm": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGuf": "法屬圭亞那",
+  "@countryCodeGuf": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGum": "關島",
+  "@countryCodeGum": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeGuy": "蓋亞那",
+  "@countryCodeGuy": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeHkg": "香港",
+  "@countryCodeHkg": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeHmd": "赫德島及麥克唐納群島",
+  "@countryCodeHmd": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeHnd": "宏都拉斯",
+  "@countryCodeHnd": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeHrv": "克羅埃西亞",
+  "@countryCodeHrv": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeHti": "海地",
+  "@countryCodeHti": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeHun": "匈牙利",
+  "@countryCodeHun": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeIdn": "印尼",
+  "@countryCodeIdn": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeImn": "曼島",
+  "@countryCodeImn": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeInd": "印度",
+  "@countryCodeInd": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeIot": "英屬印度洋領土",
+  "@countryCodeIot": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeIrl": "愛爾蘭",
+  "@countryCodeIrl": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeIrn": "伊朗 (伊斯蘭共和國)",
+  "@countryCodeIrn": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeIrq": "伊拉克",
+  "@countryCodeIrq": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeIsl": "冰島",
+  "@countryCodeIsl": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeIsr": "以色列",
+  "@countryCodeIsr": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeIta": "義大利",
+  "@countryCodeIta": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeJam": "牙買加",
+  "@countryCodeJam": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeJey": "澤西",
+  "@countryCodeJey": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeJor": "約旦",
+  "@countryCodeJor": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeJpn": "日本",
+  "@countryCodeJpn": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeKaz": "哈薩克",
+  "@countryCodeKaz": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeKen": "肯亞",
+  "@countryCodeKen": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeKgz": "吉爾吉斯",
+  "@countryCodeKgz": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeKhm": "柬埔寨",
+  "@countryCodeKhm": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeKir": "吉里巴斯",
+  "@countryCodeKir": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeKna": "聖克里斯多福及尼維斯",
+  "@countryCodeKna": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeKor": "韓國",
+  "@countryCodeKor": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeKwt": "科威特",
+  "@countryCodeKwt": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeLao": "寮國 (人民民主共和國)",
+  "@countryCodeLao": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeLbn": "黎巴嫩",
+  "@countryCodeLbn": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeLbr": "賴比瑞亞",
+  "@countryCodeLbr": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeLby": "利比亞",
+  "@countryCodeLby": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeLca": "聖露西亞",
+  "@countryCodeLca": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeLie": "列支敦斯登",
+  "@countryCodeLie": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeLka": "斯里蘭卡",
+  "@countryCodeLka": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeLso": "賴索托",
+  "@countryCodeLso": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeLtu": "立陶宛",
+  "@countryCodeLtu": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeLux": "盧森堡",
+  "@countryCodeLux": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeLva": "拉脫維亞",
+  "@countryCodeLva": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMac": "澳門",
+  "@countryCodeMac": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMaf": "聖馬丁 (法屬部分)",
+  "@countryCodeMaf": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMar": "摩洛哥",
+  "@countryCodeMar": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMco": "摩納哥",
+  "@countryCodeMco": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMda": "摩爾多瓦共和國",
+  "@countryCodeMda": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMdg": "馬達加斯加",
+  "@countryCodeMdg": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMdv": "馬爾地夫",
+  "@countryCodeMdv": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMex": "墨西哥",
+  "@countryCodeMex": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMhl": "馬紹爾群島",
+  "@countryCodeMhl": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMkd": "北馬其頓",
+  "@countryCodeMkd": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMli": "馬里",
+  "@countryCodeMli": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMlt": "馬爾他",
+  "@countryCodeMlt": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMmr": "緬甸",
+  "@countryCodeMmr": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMne": "蒙特內哥羅",
+  "@countryCodeMne": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMng": "蒙古",
+  "@countryCodeMng": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMnp": "北馬里亞納群島",
+  "@countryCodeMnp": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMoz": "莫桑比克",
+  "@countryCodeMoz": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMrt": "茅利塔尼亞",
+  "@countryCodeMrt": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMsr": "蒙哲臘",
+  "@countryCodeMsr": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMtq": "馬丁尼克",
+  "@countryCodeMtq": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMus": "模里西斯",
+  "@countryCodeMus": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMwi": "馬拉威",
+  "@countryCodeMwi": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMys": "馬來西亞",
+  "@countryCodeMys": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeMyt": "馬約特",
+  "@countryCodeMyt": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeNam": "納米比亞",
+  "@countryCodeNam": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeNcl": "新喀里多尼亞",
+  "@countryCodeNcl": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeNer": "尼日",
+  "@countryCodeNer": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeNfk": "諾福克島",
+  "@countryCodeNfk": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeNga": "奈及利亞",
+  "@countryCodeNga": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeNic": "尼加拉瓜",
+  "@countryCodeNic": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeNiu": "紐埃",
+  "@countryCodeNiu": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeNld": "荷蘭",
+  "@countryCodeNld": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeNor": "挪威",
+  "@countryCodeNor": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeNpl": "尼泊爾",
+  "@countryCodeNpl": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeNru": "瑙魯",
+  "@countryCodeNru": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeNzl": "紐西蘭",
+  "@countryCodeNzl": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeOmn": "阿曼",
+  "@countryCodeOmn": {
+    "description": "國家名稱標題"
+  },
+  "countryCodePak": "巴基斯坦",
+  "@countryCodePak": {
+    "description": "國家名稱標題"
+  },
+  "countryCodePan": "巴拿馬",
+  "@countryCodePan": {
+    "description": "國家名稱標題"
+  },
+  "countryCodePcn": "皮特肯群島",
+  "@countryCodePcn": {
+    "description": "國家名稱標題"
+  },
+  "countryCodePer": "秘魯",
+  "@countryCodePer": {
+    "description": "國家名稱標題"
+  },
+  "countryCodePhl": "菲律賓",
+  "@countryCodePhl": {
+    "description": "國家名稱標題"
+  },
+  "countryCodePlw": "帛琉",
+  "@countryCodePlw": {
+    "description": "國家名稱標題"
+  },
+  "countryCodePng": "巴布亞紐幾內亞",
+  "@countryCodePng": {
+    "description": "國家名稱標題"
+  },
+  "countryCodePol": "波蘭",
+  "@countryCodePol": {
+    "description": "國家名稱標題"
+  },
+  "countryCodePri": "波多黎各",
+  "@countryCodePri": {
+    "description": "國家名稱標題"
+  },
+  "countryCodePrk": "韓國 (朝鮮民主主義人民共和國)",
+  "@countryCodePrk": {
+    "description": "國家名稱標題"
+  },
+  "countryCodePrt": "葡萄牙",
+  "@countryCodePrt": {
+    "description": "國家名稱標題"
+  },
+  "countryCodePry": "巴拉圭",
+  "@countryCodePry": {
+    "description": "國家名稱標題"
+  },
+  "countryCodePse": "巴勒斯坦國",
+  "@countryCodePse": {
+    "description": "國家名稱標題"
+  },
+  "countryCodePyf": "法屬玻里尼西亞",
+  "@countryCodePyf": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeQat": "卡達",
+  "@countryCodeQat": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeReu": "留尼旺",
+  "@countryCodeReu": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeRou": "羅馬尼亞",
+  "@countryCodeRou": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeRus": "俄羅斯聯邦",
+  "@countryCodeRus": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeRwa": "盧安達",
+  "@countryCodeRwa": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSau": "沙烏地阿拉伯",
+  "@countryCodeSau": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSdn": "蘇丹",
+  "@countryCodeSdn": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSen": "塞內加爾",
+  "@countryCodeSen": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSgp": "新加坡",
+  "@countryCodeSgp": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSgs": "南喬治亞及南三明治群島",
+  "@countryCodeSgs": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeShn": "聖赫勒拿、阿森松及特里斯坦達庫尼亞",
+  "@countryCodeShn": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSjm": "斯瓦爾巴及揚馬延",
+  "@countryCodeSjm": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSlb": "所羅門群島",
+  "@countryCodeSlb": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSle": "獅子山",
+  "@countryCodeSle": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSlv": "薩爾瓦多",
+  "@countryCodeSlv": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSmr": "聖馬力諾",
+  "@countryCodeSmr": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSom": "索馬里亞",
+  "@countryCodeSom": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSpm": "聖皮埃爾及密克隆",
+  "@countryCodeSpm": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSrb": "塞爾維亞",
+  "@countryCodeSrb": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSsd": "南蘇丹",
+  "@countryCodeSsd": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeStp": "聖多美及普林西比",
+  "@countryCodeStp": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSur": "蘇利南",
+  "@countryCodeSur": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSvk": "斯洛伐克",
+  "@countryCodeSvk": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSvn": "斯洛維尼亞",
+  "@countryCodeSvn": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSwe": "瑞典",
+  "@countryCodeSwe": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSwz": "史瓦帝尼",
+  "@countryCodeSwz": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSxm": "聖馬丁 (荷屬部分)",
+  "@countryCodeSxm": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSyc": "塞席爾",
+  "@countryCodeSyc": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeSyr": "敘利亞阿拉伯共和國",
+  "@countryCodeSyr": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeTca": "土克斯及開科斯群島",
+  "@countryCodeTca": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeTcd": "乍得",
+  "@countryCodeTcd": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeTgo": "多哥",
+  "@countryCodeTgo": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeTha": "泰國",
+  "@countryCodeTha": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeTjk": "塔吉克",
+  "@countryCodeTjk": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeTkl": "托克勞",
+  "@countryCodeTkl": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeTkm": "土庫曼",
+  "@countryCodeTkm": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeTls": "東巴基斯坦",
+  "@countryCodeTls": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeTon": "湯加",
+  "@countryCodeTon": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeTto": "千里達及托巴哥",
+  "@countryCodeTto": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeTun": "突尼西亞",
+  "@countryCodeTun": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeTur": "土耳其",
+  "@countryCodeTur": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeTuv": "吐瓦魯",
+  "@countryCodeTuv": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeTwn": "臺灣",
+  "@countryCodeTwn": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeTza": "坦尚尼亞聯合共和國",
+  "@countryCodeTza": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeUga": "烏干達",
+  "@countryCodeUga": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeUkr": "烏克蘭",
+  "@countryCodeUkr": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeUmi": "美國本土外小島嶼",
+  "@countryCodeUmi": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeUry": "烏拉圭",
+  "@countryCodeUry": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeUsa": "美利堅合眾國",
+  "@countryCodeUsa": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeUzb": "烏茲別克",
+  "@countryCodeUzb": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeVat": "聖座",
+  "@countryCodeVat": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeVct": "聖文森及格瑞那丁",
+  "@countryCodeVct": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeVen": "委內瑞拉 (玻利瓦爾共和國)",
+  "@countryCodeVen": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeVgb": "英屬維爾京群島",
+  "@countryCodeVgb": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeVir": "美屬維爾京群島",
+  "@countryCodeVir": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeVnm": "越南",
+  "@countryCodeVnm": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeVut": "萬那杜",
+  "@countryCodeVut": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeWlf": "瓦利斯及富圖納",
+  "@countryCodeWlf": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeWsm": "薩摩亞",
+  "@countryCodeWsm": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeYem": "葉門",
+  "@countryCodeYem": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeZaf": "南非",
+  "@countryCodeZaf": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeZmb": "尚比亞",
+  "@countryCodeZmb": {
+    "description": "國家名稱標題"
+  },
+  "countryCodeZwe": "辛巴威",
+  "@countryCodeZwe": {
+    "description": "國家名稱標題"
+  },
+  "dateTimeFormat": "dd/MM/yyyy, hh:mm a",
+  "@dateTimeFormat": {
+    "description": "日期和時間格式"
+  },
+  "defaultLocationTitle": "預設位置",
+  "@defaultLocationTitle": {
+    "description": "預設位置標題"
+  },
+  "deleteMapOptionTitle": "刪除地圖",
+  "@deleteMapOptionTitle": {
+    "description": "刪除地圖選項的標題"
+  },
+  "departActionRoadText": "開始於 '{{0}}'",
+  "@departActionRoadText": {
+    "description": "起程操作的文字"
+  },
+  "departActionText": "開始",
+  "@departActionText": {
+    "description": "起程操作的文字"
+  },
+  "departureTimeTitle": "出發時間",
+  "@departureTimeTitle": {
+    "description": "路線選項中出發時間設定的標題"
+  },
+  "dirtRoad": "土路",
+  "@dirtRoad": {
+    "description": "路線偏好設定的迴避道路特徵名稱"
+  },
+  "doneTitle": "完成",
+  "@doneTitle": {
+    "description": "完成按鈕標題"
+  },
+  "downloadedMapOptionsTitle": "選項",
+  "@downloadedMapOptionsTitle": {
+    "description": "已下載地圖選項的標題"
+  },
+  "downloadedMapsTitle": "已下載",
+  "@downloadedMapsTitle": {
+    "description": "已下載地圖清單的標題"
+  },
+  "downloadMapsButtonTitle": "下載地圖",
+  "@downloadMapsButtonTitle": {
+    "description": "下載地圖按鈕的文字"
+  },
+  "downloadMapsErrorText": "地圖下載失敗，錯誤：'{{error}}'",
+  "@downloadMapsErrorText": {
+    "description": "地圖下載錯誤訊息"
+  },
+  "downloadMapsTitle": "下載地圖",
+  "@downloadMapsTitle": {
+    "description": "下載地圖選單的文字"
+  },
+  "eatAndDrinkTitle": "飲食",
+  "@eatAndDrinkTitle": {
+    "description": "飲食地點類別的文字"
+  },
+  "enterHighwayFromLeftActionText": "從左側進入高速公路",
+  "@enterHighwayFromLeftActionText": {
+    "description": "從左側進入高速公路操作的文字"
+  },
+  "enterHighwayFromRightActionText": "從右側進入高速公路",
+  "@enterHighwayFromRightActionText": {
+    "description": "從右側進入高速公路操作的文字"
+  },
+  "errorAuthenticationFailed": "驗證失敗。請檢查您的認證資訊",
+  "@errorAuthenticationFailed": {
+    "description": "驗證失敗的文字"
+  },
+  "errorMapLoaderErrorOccurred": "發生地圖載入器錯誤",
+  "@errorMapLoaderErrorOccurred": {
+    "description": "地圖載入器錯誤的文字"
+  },
+  "errorMapLoaderErrorOccurredPleaseTryAgain": "發生地圖載入器錯誤，請重試",
+  "@errorMapLoaderErrorOccurredPleaseTryAgain": {
+    "description": "地圖載入器的文字，請重試"
+  },
+  "errorMapLoaderErrorPerformMigration": "呼叫 MapDownloader.repairPersistentMap 以執行遷移",
+  "@errorMapLoaderErrorPerformMigration": {
+    "description": "與遷移相關的地圖載入器錯誤的文字"
+  },
+  "errorNetworkIssueOccurred": "發生網路問題",
+  "@errorNetworkIssueOccurred": {
+    "description": "網路問題的文字"
+  },
+  "errorNoResultFound": "找不到提供的輸入的結果",
+  "@errorNoResultFound": {
+    "description": "找不到提供的輸入結果的文字"
+  },
+  "errorRoutingFailed": "路線規劃失敗",
+  "@errorRoutingFailed": {
+    "description": "路線規劃錯誤的文字"
+  },
+  "errorRoutingFailedPleaseTryAgain": "路線規劃失敗，請重試",
+  "@errorRoutingFailedPleaseTryAgain": {
+    "description": "路線規劃錯誤與請重試的文字"
+  },
+  "errorSearchFailed": "搜尋失敗",
+  "@errorSearchFailed": {
+    "description": "搜尋錯誤的文字"
+  },
+  "errorSearchFailedPleaseTryAgain": "搜尋失敗，請重試",
+  "@errorSearchFailedPleaseTryAgain": {
+    "description": "搜尋錯誤與請重試的文字"
+  },
+  "fastestRouteTitle": "最快路線",
+  "@fastestRouteTitle": {
+    "description": "最快路線模式的標題"
+  },
+  "ferry": "渡輪",
+  "@ferry": {
+    "description": "路線偏好設定的迴避道路特徵名稱"
+  },
+  "ferryActionNextRoadText": "搭乘渡輪前往 '{{0}}'",
+  "@ferryActionNextRoadText": {
+    "description": "渡輪操作的文字"
+  },
+  "ferryActionText": "搭乘渡輪",
+  "@ferryActionText": {
+    "description": "渡輪操作的文字"
+  },
+  "fuelingStationsTitle": "加油站",
+  "@fuelingStationsTitle": {
+    "description": "加油站地點類別的文字"
+  },
+  "gigabyteAbbreviationText": "GB",
+  "@gigabyteAbbreviationText": {
+    "description": "十億位元組縮寫的文字"
+  },
+  "hazardousGoodsCombustible": "易燃",
+  "@hazardousGoodsCombustible": {
+    "description": "危險品易燃"
+  },
+  "hazardousGoodsCorrosive": "腐蝕性",
+  "@hazardousGoodsCorrosive": {
+    "description": "危險品腐蝕性"
+  },
+  "hazardousGoodsExplosive": "易爆",
+  "@hazardousGoodsExplosive": {
+    "description": "危險品易爆"
+  },
+  "hazardousGoodsFlammable": "易燃",
+  "@hazardousGoodsFlammable": {
+    "description": "危險品易燃"
+  },
+  "hazardousGoodsGas": "氣體",
+  "@hazardousGoodsGas": {
+    "description": "危險品氣體"
+  },
+  "hazardousGoodsHarmfulToWater": "有害於水",
+  "@hazardousGoodsHarmfulToWater": {
+    "description": "危險品有害於水"
+  },
+  "hazardousGoodsOrganic": "有機物",
+  "@hazardousGoodsOrganic": {
+    "description": "危險品有機物"
+  },
+  "hazardousGoodsOther": "其他",
+  "@hazardousGoodsOther": {
+    "description": "危險品其他"
+  },
+  "hazardousGoodsPoison": "毒物",
+  "@hazardousGoodsPoison": {
+    "description": "危險品毒物"
+  },
+  "hazardousGoodsPoisonousInhalation": "有毒吸入",
+  "@hazardousGoodsPoisonousInhalation": {
+    "description": "危險品有毒吸入"
+  },
+  "hazardousGoodsRadioactive": "放射性",
+  "@hazardousGoodsRadioactive": {
+    "description": "危險品放射性"
+  },
+  "hazardousGoodsTitle": "危險品",
+  "@hazardousGoodsTitle": {
+    "description": "路線卡車危險品偏好設定列標題"
+  },
+  "herePrivacyNotice": "此應用程式使用由 HERE Technologies 提供的位置服務。為了維護、改進和提供這些服務，HERE Technologies 偶爾會收集有關附近行動和 Wi-Fi 網路訊號的特性資訊。如需詳細資訊，請參閱 HERE 隱私聲明：",
+  "@herePrivacyNotice": {
+    "description": "HERE 隱私聲明範例的文字"
+  },
+  "highwayTitle": "高速公路",
+  "@highwayTitle": {
+    "description": "路線偏好設定區段標題"
+  },
+  "hourAbbreviationText": "小時",
+  "@hourAbbreviationText": {
+    "description": "小時縮寫的文字"
+  },
+  "hrn": "HRN",
+  "@hrn": {
+    "description": "HRN 標題文字"
+  },
+  "hrnAsStringHint": "HRN 作為字串",
+  "@hrnAsStringHint": {
+    "description": "HRN 作為字串的文字提示"
+  },
+  "hrnTitle": "HERE 資源名稱 (HRN)",
+  "@hrnTitle": {
+    "description": "HRN 標題文字"
+  },
+  "ignoreCachedData": "忽略快取資料",
+  "@ignoreCachedData": {
+    "description": "忽略快取資料選項的標題文字"
+  },
+  "incompleteDownloadMessage": "下載未完成",
+  "@incompleteDownloadMessage": {
+    "description": "表示下載未完成的文字"
+  },
+  "internalStorageText": "內部儲存空間",
+  "@internalStorageText": {
+    "description": "內部儲存空間標題的文字"
+  },
+  "isLightTruck": "輕型卡車",
+  "@isLightTruck": {
+    "description": "卡車規格偏好設定的標題"
+  },
+  "kilobyteAbbreviationText": "KB",
+  "@kilobyteAbbreviationText": {
+    "description": "千位元組縮寫的文字"
+  },
+  "kilometerAbbreviationText": "公里",
+  "@kilometerAbbreviationText": {
+    "description": "公里縮寫的文字"
+  },
+  "kmhAbbreviationText": "KM/H",
+  "@kmhAbbreviationText": {
+    "description": "公里/小時縮寫的文字"
+  },
+  "languageCodeArSa": "阿拉伯文 (沙烏地阿拉伯)",
+  "@languageCodeArSa": {
+    "description": "阿拉伯文 (沙烏地阿拉伯) 的語言代碼"
+  },
+  "languageCodeDeDe": "德文",
+  "@languageCodeDeDe": {
+    "description": "德文的語言代碼"
+  },
+  "languageCodeEnUs": "英文 (美國)",
+  "@languageCodeEnUs": {
+    "description": "英文 (美國) 的語言代碼"
+  },
+  "languageCodeEsEs": "西班牙文 (西班牙)",
+  "@languageCodeEsEs": {
+    "description": "西班牙文 (西班牙) 的語言代碼"
+  },
+  "languageCodeFrFr": "法文",
+  "@languageCodeFrFr": {
+    "description": "法文的語言代碼"
+  },
+  "languageCodeHiIn": "印地文",
+  "@languageCodeHiIn": {
+    "description": "印地文的語言代碼"
+  },
+  "languageCodePtPt": "葡萄牙文 (葡萄牙)",
+  "@languageCodePtPt": {
+    "description": "葡萄牙文 (葡萄牙) 的語言代碼"
+  },
+  "languageCodeTitle": "語言代碼",
+  "@languageCodeTitle": {
+    "description": "路線文字選項中語言代碼設定的標題"
+  },
+  "languageCodeZhCn": "中文 (簡體中國)",
+  "@languageCodeZhCn": {
+    "description": "中文 (簡體中國) 的語言代碼"
+  },
+  "latest": "最新",
+  "@latest": {
+    "description": "最新的文字標籤"
+  },
+  "leftExitActionNextRoadText": "走左邊出口前往 '{{0}}'",
+  "@leftExitActionNextRoadText": {
+    "description": "左邊出口操作的文字"
+  },
+  "leftExitActionText": "走左邊出口",
+  "@leftExitActionText": {
+    "description": "左邊出口操作的文字"
+  },
+  "leftForkActionNextRoadText": "走左邊岔路進入 '{{0}}'",
+  "@leftForkActionNextRoadText": {
+    "description": "左邊分岔操作的文字"
+  },
+  "leftForkActionText": "走左邊岔路",
+  "@leftForkActionText": {
+    "description": "左邊分岔操作的文字"
+  },
+  "leftRampActionNextRoadText": "走左邊匝道進入 '{{0}}'",
+  "@leftRampActionNextRoadText": {
+    "description": "左邊匝道操作的文字"
+  },
+  "leftRampActionText": "走左邊匝道",
+  "@leftRampActionText": {
+    "description": "左邊匝道操作的文字"
+  },
+  "leftRoundaboutEnterActionText": "進入圓環",
+  "@leftRoundaboutEnterActionText": {
+    "description": "左邊圓環進入操作的文字"
+  },
+  "leftRoundaboutExit10ActionText": "走圓環第 10 出口",
+  "@leftRoundaboutExit10ActionText": {
+    "description": "左邊圓環第 10 出口操作的文字"
+  },
+  "leftRoundaboutExit11ActionText": "走圓環第 11 出口",
+  "@leftRoundaboutExit11ActionText": {
+    "description": "左邊圓環第 11 出口操作的文字"
+  },
+  "leftRoundaboutExit12ActionText": "走圓環第 12 出口",
+  "@leftRoundaboutExit12ActionText": {
+    "description": "左邊圓環第 12 出口操作的文字"
+  },
+  "leftRoundaboutExit1ActionText": "走圓環第 1 出口",
+  "@leftRoundaboutExit1ActionText": {
+    "description": "左邊圓環第 1 出口操作的文字"
+  },
+  "leftRoundaboutExit2ActionText": "走圓環第 2 出口",
+  "@leftRoundaboutExit2ActionText": {
+    "description": "左邊圓環第 2 出口操作的文字"
+  },
+  "leftRoundaboutExit3ActionText": "走圓環第 3 出口",
+  "@leftRoundaboutExit3ActionText": {
+    "description": "左邊圓環第 3 出口操作的文字"
+  },
+  "leftRoundaboutExit4ActionText": "走圓環第 4 出口",
+  "@leftRoundaboutExit4ActionText": {
+    "description": "左邊圓環第 4 出口操作的文字"
+  },
+  "leftRoundaboutExit5ActionText": "走圓環第 5 出口",
+  "@leftRoundaboutExit5ActionText": {
+    "description": "左邊圓環第 5 出口操作的文字"
+  },
+  "leftRoundaboutExit6ActionText": "走圓環第 6 出口",
+  "@leftRoundaboutExit6ActionText": {
+    "description": "左邊圓環第 6 出口操作的文字"
+  },
+  "leftRoundaboutExit7ActionText": "走圓環第 7 出口",
+  "@leftRoundaboutExit7ActionText": {
+    "description": "左邊圓環第 7 出口操作的文字"
+  },
+  "leftRoundaboutExit8ActionText": "走圓環第 8 出口",
+  "@leftRoundaboutExit8ActionText": {
+    "description": "左邊圓環第 8 出口操作的文字"
+  },
+  "leftRoundaboutExit9ActionText": "走圓環第 9 出口",
+  "@leftRoundaboutExit9ActionText": {
+    "description": "左邊圓環第 9 出口操作的文字"
+  },
+  "leftRoundaboutPassActionText": "通過圓環",
+  "@leftRoundaboutPassActionText": {
+    "description": "左邊圓環通過操作的文字"
+  },
+  "leftTurnActionNextRoadText": "左轉進入 '{{0}}'",
+  "@leftTurnActionNextRoadText": {
+    "description": "左轉操作的文字"
+  },
+  "leftTurnActionText": "左轉",
+  "@leftTurnActionText": {
+    "description": "左轉操作的文字"
+  },
+  "leftUTurnActionNextRoadText": "在 '{{0}}' 處左邊迴轉",
+  "@leftUTurnActionNextRoadText": {
+    "description": "左邊迴轉操作的文字"
+  },
+  "leftUTurnActionText": "左邊迴轉",
+  "@leftUTurnActionText": {
+    "description": "左邊迴轉操作的文字"
+  },
+  "loadCustomScene": "載入自訂地圖風格",
+  "@loadCustomScene": {
+    "description": "首頁畫面抽屜選單中載入自訂地圖風格按鈕的文字"
+  },
+  "loadCustomSceneFailure": "地圖風格載入失敗",
+  "@loadCustomSceneFailure": {
+    "description": "當載入自訂地圖風格失敗時顯示的短期訊息文字"
+  },
+  "loadCustomSceneSuccess": "地圖風格載入成功",
+  "@loadCustomSceneSuccess": {
+    "description": "當載入自訂地圖風格成功時顯示的短期訊息文字"
+  },
+  "mapRegionChildrenNumberText": "'{{0}}' 項",
+  "@mapRegionChildrenNumberText": {
+    "description": "地圖區域的子項數量的文字"
+  },
+  "mapUpdateAvailableDialogMessage": "您想將地圖更新至最新版本嗎？",
+  "@mapUpdateAvailableDialogMessage": {
+    "description": "地圖更新可用對話方塊的訊息"
+  },
+  "mapUpdateAvailableDialogTitle": "有可用的地圖更新",
+  "@mapUpdateAvailableDialogTitle": {
+    "description": "地圖更新可用對話方塊的標題"
+  },
+  "matchingResultsTitle": "比對結果",
+  "@matchingResultsTitle": {
+    "description": "比對結果標頭的標題"
+  },
+  "megabyteAbbreviationText": "MB",
+  "@megabyteAbbreviationText": {
+    "description": "百萬位元組縮寫的文字"
+  },
+  "meterAbbreviationText": "公尺",
+  "@meterAbbreviationText": {
+    "description": "公尺縮寫的文字"
+  },
+  "middleForkActionNextRoadText": "走中間岔路進入 '{{0}}'",
+  "@middleForkActionNextRoadText": {
+    "description": "中間分岔操作的文字"
+  },
+  "middleForkActionText": "走中間岔路",
+  "@middleForkActionText": {
+    "description": "中間分岔操作的文字"
+  },
+  "minuteAbbreviationText": "分",
+  "@minuteAbbreviationText": {
+    "description": "分鐘縮寫的文字"
+  },
+  "noLocationWarning": "位置服務不可用。我們無法定位您的位置。",
+  "@noLocationWarning": {
+    "description": "未啟用位置服務警告"
+  },
+  "noneTitle": "無",
+  "@noneTitle": {
+    "description": "路線設定遺漏"
+  },
+  "noResultsFoundText": "抱歉，未找到任何結果",
+  "@noResultsFoundText": {
+    "description": "未找到搜尋結果時的訊息"
+  },
+  "noTrafficDelaysText": "無延遲",
+  "@noTrafficDelaysText": {
+    "description": "無交通延遲文字"
+  },
+  "offlineAppMapsDialogMessage": "使用應用程式離線前，您需要下載您所在區域的地圖。",
+  "@offlineAppMapsDialogMessage": {
+    "description": "要求下載地圖的對話方塊文字。"
+  },
+  "offlineAppMapsDialogTitle": "您所需要的只是地圖",
+  "@offlineAppMapsDialogTitle": {
+    "description": "要求下載地圖的對話方塊標題。"
+  },
+  "optimizationModeTitle": "最佳化模式",
+  "@optimizationModeTitle": {
+    "description": "路線選項中最佳化模式設定的標題"
+  },
+  "patchHrn": "修補程式 HRN",
+  "@patchHrn": {
+    "description": "修補程式 HRN 設定的標題"
+  },
+  "patchHrnHint": "選用的修補程式目錄作為字串",
+  "@patchHrnHint": {
+    "description": "修補程式 HRN 的提示文字"
+  },
+  "payloadCapacity": "承載容量",
+  "@payloadCapacity": {
+    "description": "卡車規格偏好設定的標題"
+  },
+  "payloadCapacityHint": "承載容量，包括拖車，單位為公斤",
+  "@payloadCapacityHint": {
+    "description": "卡車規格偏好設定的提示"
+  },
+  "poiSettingsTitle": "感興趣的地點",
+  "@poiSettingsTitle": {
+    "description": "POI 設定的標題"
+  },
+  "preferencesTitle": "偏好設定",
+  "@preferencesTitle": {
+    "description": "偏好設定按鈕標題"
+  },
+  "privacyNotice": "隱私聲明",
+  "@privacyNotice": {
+    "description": "隱私聲明畫面的標題"
+  },
+  "privacyNoticePlaceholder": "在此放置您的隱私聲明，並包含以下文字：\n",
+  "@privacyNoticePlaceholder": {
+    "description": "提示應用程式包含隱私聲明內容以供顯示的佔位符文字。"
+  },
+  "quadAxleGroup": "四軸組",
+  "@quadAxleGroup": {
+    "description": "卡車規格 WeightPerAxleGroup 偏好設定的標題"
+  },
+  "quintAxleGroup": "五軸組",
+  "@quintAxleGroup": {
+    "description": "卡車規格 WeightPerAxleGroup 偏好設定的標題"
+  },
+  "realLocationSourceTitle": "實際位置事件",
+  "@realLocationSourceTitle": {
+    "description": "實際位置事件來源的標題"
+  },
+  "recentlySearchTitle": "最近搜尋結果",
+  "@recentlySearchTitle": {
+    "description": "最近搜尋標頭的標題"
+  },
+  "reroutingInProgressText": "更新中...",
+  "@reroutingInProgressText": {
+    "description": "重新路由指示器的文字"
+  },
+  "retryDownloadMapOptionTitle": "重試下載",
+  "@retryDownloadMapOptionTitle": {
+    "description": "重試下載地圖選項的標題"
+  },
+  "rightExitActionNextRoadText": "走右邊出口前往 '{{0}}'",
+  "@rightExitActionNextRoadText": {
+    "description": "右邊出口操作的文字"
+  },
+  "rightExitActionText": "走右邊出口",
+  "@rightExitActionText": {
+    "description": "右邊出口操作的文字"
+  },
+  "rightForkActionNextRoadText": "走右邊岔路進入 '{{0}}'",
+  "@rightForkActionNextRoadText": {
+    "description": "右邊分岔操作的文字"
+  },
+  "rightForkActionText": "走右邊岔路",
+  "@rightForkActionText": {
+    "description": "右邊分岔操作的文字"
+  },
+  "rightRampActionNextRoadText": "走右邊匝道進入 '{{0}}'",
+  "@rightRampActionNextRoadText": {
+    "description": "右邊匝道操作的文字"
+  },
+  "rightRampActionText": "走右邊匝道",
+  "@rightRampActionText": {
+    "description": "右邊匝道操作的文字"
+  },
+  "rightRoundaboutEnterActionText": "進入圓環",
+  "@rightRoundaboutEnterActionText": {
+    "description": "右邊圓環進入操作的文字"
+  },
+  "rightRoundaboutExit10ActionText": "走圓環第 10 出口",
+  "@rightRoundaboutExit10ActionText": {
+    "description": "右邊圓環第 10 出口操作的文字"
+  },
+  "rightRoundaboutExit11ActionText": "走圓環第 11 出口",
+  "@rightRoundaboutExit11ActionText": {
+    "description": "右邊圓環第 11 出口操作的文字"
+  },
+  "rightRoundaboutExit12ActionText": "走圓環第 12 出口",
+  "@rightRoundaboutExit12ActionText": {
+    "description": "右邊圓環第 12 出口操作的文字"
+  },
+  "rightRoundaboutExit1ActionText": "走圓環第 1 出口",
+  "@rightRoundaboutExit1ActionText": {
+    "description": "右邊圓環第 1 出口操作的文字"
+  },
+  "rightRoundaboutExit2ActionText": "走圓環第 2 出口",
+  "@rightRoundaboutExit2ActionText": {
+    "description": "右邊圓環第 2 出口操作的文字"
+  },
+  "rightRoundaboutExit3ActionText": "走圓環第 3 出口",
+  "@rightRoundaboutExit3ActionText": {
+    "description": "右邊圓環第 3 出口操作的文字"
+  },
+  "rightRoundaboutExit4ActionText": "走圓環第 4 出口",
+  "@rightRoundaboutExit4ActionText": {
+    "description": "右邊圓環第 4 出口操作的文字"
+  },
+  "rightRoundaboutExit5ActionText": "走圓環第 5 出口",
+  "@rightRoundaboutExit5ActionText": {
+    "description": "右邊圓環第 5 出口操作的文字"
+  },
+  "rightRoundaboutExit6ActionText": "走圓環第 6 出口",
+  "@rightRoundaboutExit6ActionText": {
+    "description": "右邊圓環第 6 出口操作的文字"
+  },
+  "rightRoundaboutExit7ActionText": "走圓環第 7 出口",
+  "@rightRoundaboutExit7ActionText": {
+    "description": "右邊圓環第 7 出口操作的文字"
+  },
+  "rightRoundaboutExit8ActionText": "走圓環第 8 出口",
+  "@rightRoundaboutExit8ActionText": {
+    "description": "右邊圓環第 8 出口操作的文字"
+  },
+  "rightRoundaboutExit9ActionText": "走圓環第 9 出口",
+  "@rightRoundaboutExit9ActionText": {
+    "description": "右邊圓環第 9 出口操作的文字"
+  },
+  "rightRoundaboutPassActionText": "走圓環第 10 出口",
+  "@rightRoundaboutPassActionText": {
+    "description": "右邊圓環通過操作的文字"
+  },
+  "rightTurnActionNextRoadText": "右轉進入 '{{0}}'",
+  "@rightTurnActionNextRoadText": {
+    "description": "右轉操作的文字"
+  },
+  "rightTurnActionText": "右轉",
+  "@rightTurnActionText": {
+    "description": "右轉操作的文字"
+  },
+  "rightUTurnActionNextRoadText": "在 '{{0}}' 處右邊迴轉",
+  "@rightUTurnActionNextRoadText": {
+    "description": "右邊迴轉操作的文字"
+  },
+  "rightUTurnActionText": "右邊迴轉",
+  "@rightUTurnActionText": {
+    "description": "右邊迴轉操作的文字"
+  },
+  "routeAlternativesTitle": "路線替代方案",
+  "@routeAlternativesTitle": {
+    "description": "路線選項中路線替代方案設定的標題"
+  },
+  "routeOptionsTitle": "路線選項",
+  "@routeOptionsTitle": {
+    "description": "偏好設定中路線選項區段的標題"
+  },
+  "routePreferencesScreenTitle": "路線偏好設定",
+  "@routePreferencesScreenTitle": {
+    "description": "路線偏好設定畫面的標題"
+  },
+  "routeTextOptionsTitle": "路線文字選項",
+  "@routeTextOptionsTitle": {
+    "description": "偏好設定中路線文字選項區段的標題"
+  },
+  "routeToButtonTitle": "路線",
+  "@routeToButtonTitle": {
+    "description": "路線按鈕的標題"
+  },
+  "routingErrorText": "路線規劃失敗，錯誤：'{{error}}'",
+  "@routingErrorText": {
+    "description": "路線規劃錯誤訊息"
+  },
+  "sdkInitFailError": "HERE SDK 的初始化失敗。請檢查您的程式碼和/或使用預設選項啟動原生引擎。",
+  "@sdkInitFailError": {
+    "description": "HERE SDK 初始化失敗訊息"
+  },
+  "searchErrorText": "搜尋失敗，錯誤：'{{error}}'",
+  "@searchErrorText": {
+    "description": "搜尋錯誤訊息"
+  },
+  "searchHint": "要去哪裡？",
+  "@searchHint": {
+    "description": "搜尋文字欄位的提示"
+  },
+  "seasonalClosure": "季節性關閉",
+  "@seasonalClosure": {
+    "description": "路線偏好設定的迴避道路特徵名稱"
+  },
+  "selectDateTimeTitle": "選取日期和時間",
+  "@selectDateTimeTitle": {
+    "description": "日期時間選擇器的標題"
+  },
+  "selectPositioningDialogTitle": "選擇定位方法",
+  "@selectPositioningDialogTitle": {
+    "description": "導航定位來源對話方塊的標題"
+  },
+  "sharpLeftTurnActionNextRoadText": "硬左轉進入 '{{0}}'",
+  "@sharpLeftTurnActionNextRoadText": {
+    "description": "硬左轉操作的文字"
+  },
+  "sharpLeftTurnActionText": "硬左轉",
+  "@sharpLeftTurnActionText": {
+    "description": "硬左轉操作的文字"
+  },
+  "sharpRightTurnActionNextRoadText": "硬右轉進入 '{{0}}'",
+  "@sharpRightTurnActionNextRoadText": {
+    "description": "硬右轉操作的文字"
+  },
+  "sharpRightTurnActionText": "硬右轉",
+  "@sharpRightTurnActionText": {
+    "description": "硬右轉操作的文字"
+  },
+  "shortestRouteTitle": "最短路線",
+  "@shortestRouteTitle": {
+    "description": "最短路線模式的標題"
+  },
+  "simulatedLocationSourceTitle": "模擬位置事件 (沿著路線)",
+  "@simulatedLocationSourceTitle": {
+    "description": "模擬位置事件來源的標題"
+  },
+  "singleAxleGroup": "單軸組",
+  "@singleAxleGroup": {
+    "description": "卡車規格 WeightPerAxleGroup 偏好設定的標題"
+  },
+  "sizeOfWholeAreaOfRegion": "整個區域 '{{0}}'",
+  "@sizeOfWholeAreaOfRegion": {
+    "description": "地圖區域整個區域大小的文字"
+  },
+  "slightLeftTurnActionNextRoadText": "向左靠進入 '{{0}}'",
+  "@slightLeftTurnActionNextRoadText": {
+    "description": "輕微左轉操作的文字"
+  },
+  "slightLeftTurnActionText": "向左靠",
+  "@slightLeftTurnActionText": {
+    "description": "輕微左轉操作的文字"
+  },
+  "slightRightTurnActionNextRoadText": "向右靠進入 '{{0}}'",
+  "@slightRightTurnActionNextRoadText": {
+    "description": "輕微右轉操作的文字"
+  },
+  "slightRightTurnActionText": "向右靠",
+  "@slightRightTurnActionText": {
+    "description": "從右側進入高速公路操作的文字"
+  },
+  "specificationsTitle": "規格",
+  "@specificationsTitle": {
+    "description": "路線卡車規格偏好設定列標題"
+  },
+  "stopMapDownloadButtonTitle": "停止下載",
+  "@stopMapDownloadButtonTitle": {
+    "description": "停止下載地圖按鈕的標題文字"
+  },
+  "stopMapDownloadDialogTitle": "停止下載 '{{0}}'？",
+  "@stopMapDownloadDialogTitle": {
+    "description": "停止下載地圖確認對話方塊的標題文字"
+  },
+  "stopNavigationAcceptButtonCaption": "結束導航模式",
+  "@stopNavigationAcceptButtonCaption": {
+    "description": "導航停止對話方塊的標題"
+  },
+  "stopNavigationDialogSubtitle": "您將永久失去您的進度和目的地歷史記錄",
+  "@stopNavigationDialogSubtitle": {
+    "description": "導航停止對話方塊的標題"
+  },
+  "stopNavigationDialogTitle": "您想結束導航模式嗎？",
+  "@stopNavigationDialogTitle": {
+    "description": "導航停止對話方塊的標題"
+  },
+  "tandemAxleGroup": "雙軸組",
+  "@tandemAxleGroup": {
+    "description": "卡車規格 WeightPerAxleGroup 偏好設定的標題"
+  },
+  "textFormatHtml": "Html",
+  "@textFormatHtml": {
+    "description": "路線文字選項中文字指示 HTML 格式設定的標題"
+  },
+  "textFormatPlain": "純文字",
+  "@textFormatPlain": {
+    "description": "路線文字選項中文字指示純文字格式設定的標題"
+  },
+  "tollRoad": "收費路",
+  "@tollRoad": {
+    "description": "路線偏好設定的迴避道路特徵名稱"
+  },
+  "trafficDelayText": "包括 '{{0}}' 延遲",
+  "@trafficDelayText": {
+    "description": "交通延遲文字的範本"
+  },
+  "tripleAxleGroup": "三軸組",
+  "@tripleAxleGroup": {
+    "description": "卡車規格 WeightPerAxleGroup 偏好設定的標題"
+  },
+  "truckAxleCountRowTitle": "車軸數量",
+  "@truckAxleCountRowTitle": {
+    "description": "卡車規格偏好設定的標題"
+  },
+  "truckAxlesCountHint": "車軸數量 (最少 2)",
+  "@truckAxlesCountHint": {
+    "description": "卡車規格偏好設定的提示"
+  },
+  "truckAxleWeightHint": "車軸重量 (公斤)",
+  "@truckAxleWeightHint": {
+    "description": "卡車規格偏好設定的提示"
+  },
+  "truckGrossWeightRowTitle": "總重",
+  "@truckGrossWeightRowTitle": {
+    "description": "卡車規格偏好設定的標題"
+  },
+  "truckCurrentWeightRowTitle": "目前重量",
+  "@truckCurrentWeightRowTitle": {
+    "description": "卡車規格偏好設定的標題"
+  },
+  "truckHeightHint": "高度 (公分)",
+  "@truckHeightHint": {
+    "description": "卡車規格偏好設定的提示"
+  },
+  "truckHeightRowTitle": "高度",
+  "@truckHeightRowTitle": {
+    "description": "卡車規格偏好設定的標題"
+  },
+  "truckLengthRowTitle": "長度",
+  "@truckLengthRowTitle": {
+    "description": "卡車規格偏好設定的標題"
+  },
+  "truckLengthtHint": "長度 (公分)",
+  "@truckLengthtHint": {
+    "description": "卡車規格偏好設定的提示"
+  },
+  "truckSpecificationsTitle": "卡車規格",
+  "@truckSpecificationsTitle": {
+    "description": "路線卡車偏好設定區段標題"
+  },
+  "truckSpecTrailerAxleCount": "拖車車軸數量",
+  "@truckSpecTrailerAxleCount": {
+    "description": "卡車規格偏好設定的標題"
+  },
+  "truckSpecTrailerAxleCountHint": "車軸數量",
+  "@truckSpecTrailerAxleCountHint": {
+    "description": "卡車規格偏好設定的提示"
+  },
+  "truckSpecTrailerCount": "拖車數量",
+  "@truckSpecTrailerCount": {
+    "description": "卡車規格偏好設定的標題"
+  },
+  "truckSpecTrailerCountHint": "拖車數量範圍 0-255",
+  "@truckSpecTrailerCountHint": {
+    "description": "卡車規格偏好設定的提示"
+  },
+  "truckTotalWeightHint": "總重量 (公斤)",
+  "@truckTotalWeightHint": {
+    "description": "卡車規格偏好設定的提示"
+  },
+  "truckType": "卡車類型",
+  "@truckType": {
+    "description": "卡車類型規格的標題"
+  },
+  "truckWeightPerAxleRowTitle": "每軸重量",
+  "@truckWeightPerAxleRowTitle": {
+    "description": "卡車規格偏好設定的標題"
+  },
+  "truckWidthHint": "寬度 (公分)",
+  "@truckWidthHint": {
+    "description": "卡車規格偏好設定的提示"
+  },
+  "truckWidthRowTitle": "寬度",
+  "@truckWidthRowTitle": {
+    "description": "卡車規格偏好設定的標題"
+  },
+  "tunnel": "隧道",
+  "@tunnel": {
+    "description": "路線偏好設定的迴避道路特徵名稱"
+  },
+  "tunnelCategoryB": "B 類別",
+  "@tunnelCategoryB": {
+    "description": "隧道類別 B"
+  },
+  "tunnelCategoryC": "C 類別",
+  "@tunnelCategoryC": {
+    "description": "隧道類別 C"
+  },
+  "tunnelCategoryD": "D 類別",
+  "@tunnelCategoryD": {
+    "description": "隧道類別 D"
+  },
+  "tunnelCategoryE": "E 類別",
+  "@tunnelCategoryE": {
+    "description": "隧道類別 E"
+  },
+  "tunnelCategoryTitle": "隧道類別",
+  "@tunnelCategoryTitle": {
+    "description": "路線卡車偏好設定設定"
+  },
+  "turnOff": "關閉",
+  "@turnOff": {
+    "description": "關閉動作文字"
+  },
+  "unitSystemImperialUk": "英制 (英國)",
+  "@unitSystemImperialUk": {
+    "description": "路線文字選項中英制 (英國) 單位系統設定的標題"
+  },
+  "unitSystemImperialUs": "英制 (美國)",
+  "@unitSystemImperialUs": {
+    "description": "路線文字選項中英制 (美國) 單位系統設定的標題"
+  },
+  "unitSystemMetric": "公制",
+  "@unitSystemMetric": {
+    "description": "路線文字選項中公制單位系統設定的標題"
+  },
+  "unitSystemTitle": "單位系統",
+  "@unitSystemTitle": {
+    "description": "路線選項中單位系統設定的標題"
+  },
+  "updateButtonTitle": "更新",
+  "@updateButtonTitle": {
+    "description": "更新按鈕標題"
+  },
+  "locationWaitingForPositioning": "等待定位中",
+  "@locationWaitingForPositioning": {
+    "description": "導航狀態：等待定位，當引擎等待定位時。"
+  },
+  "navigationStatusRerouting": "重新規劃路線中",
+  "@navigationStatusRerouting": {
+    "description": "導航狀態：重新規劃路線，當引擎嘗試獲取新路線時。"
+  },
+  "navigationStatusWaitingForManeuvers": "等待操作中",
+  "@navigationStatusWaitingForManeuvers": {
+    "description": "導航狀態：等待操作，當引擎嘗試獲取新操作時。"
+  },
+  "updateMapsErrorText": "地圖更新失敗，錯誤：'{{error}}'",
+  "@updateMapsErrorText": {
+    "description": "地圖更新錯誤訊息"
+  },
+  "updatingMapTitle": "正在更新地圖...",
+  "@updatingMapTitle": {
+    "description": "地圖更新進度的標題"
+  },
+  "useMapOfflineSwitch": "離線使用應用程式",
+  "@useMapOfflineSwitch": {
+    "description": "應用程式切換到離線的標題"
+  },
+  "userConsentDescription": "請幫助 HERE 改進提供的服務",
+  "@userConsentDescription": {
+    "description": "有關資訊收集的描述文字"
+  },
+  "userConsentTitle": "同意",
+  "@userConsentTitle": {
+    "description": "使用者同意選單的文字"
+  },
+  "uTurns": "迴轉",
+  "@uTurns": {
+    "description": "路線偏好設定的迴避道路特徵名稱"
+  },
+  "version": "版本",
+  "@version": {
+    "description": "版本輸入的標題"
+  },
+  "versionHintAsLong": "版本提示為長整數",
+  "@versionHintAsLong": {
+    "description": "版本作為長整數的文字提示"
+  },
+  "walkSpeedTitle": "步行速度",
+  "@walkSpeedTitle": {
+    "description": "行人路線設定標題"
+  },
+  "walkSpeedUnitTitle": "步行速度 (公尺/秒)",
+  "@walkSpeedUnitTitle": {
+    "description": "行人路線設定"
+  },
+  "wayPointsListTitle": "路點",
+  "@wayPointsListTitle": {
+    "description": "路點清單的標題"
+  },
+  "weightInKg": "重量 (公斤)",
+  "@weightInKg": {
+    "description": "卡車規格 WeightPerAxleGroup 偏好設定的標題"
+  },
+  "weightPerAxleGroup": "每軸組重量",
+  "@weightPerAxleGroup": {
+    "description": "卡車規格 WeightPerAxleGroup 偏好設定區段的標題"
+  },
+  "welcome": "歡迎",
+  "@Welcome": {
+    "description": "首次使用歡迎對話方塊的標題"
+  },
+  "welcomeMessage": "並感謝您使用 HERE SDK for Flutter 參考應用程式。在此放置您的首次使用資訊。\n如需隱私聲明，請包含以下文字：\n",
+  "@welcomeMessage": {
+    "description": "首次使用歡迎對話方塊訊息"
+  },
+  "yourLocationTitle": "您的位置",
+  "@yourLocationTitle": {
+    "description": "您的位置標題"
+  }
+}

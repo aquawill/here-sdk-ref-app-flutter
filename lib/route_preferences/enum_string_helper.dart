@@ -262,9 +262,9 @@ class EnumStringHelper {
         case CountryCode.aia:
           result[localizations.countryCodeAia] = value;
           break;
-        case CountryCode.ala:
-          result[localizations.countryCodeAla] = value;
-          break;
+        // case CountryCode.ala:
+        //   result[localizations.countryCodeAla] = value;
+        //   break;
         case CountryCode.alb:
           result[localizations.countryCodeAlb] = value;
           break;
@@ -286,9 +286,9 @@ class EnumStringHelper {
         case CountryCode.ata:
           result[localizations.countryCodeAta] = value;
           break;
-        case CountryCode.atf:
-          result[localizations.countryCodeAtf] = value;
-          break;
+        // case CountryCode.atf:
+        //   result[localizations.countryCodeAtf] = value;
+        //   break;
         case CountryCode.atg:
           result[localizations.countryCodeAtg] = value;
           break;
@@ -358,9 +358,9 @@ class EnumStringHelper {
         case CountryCode.btn:
           result[localizations.countryCodeBtn] = value;
           break;
-        case CountryCode.bvt:
-          result[localizations.countryCodeBvt] = value;
-          break;
+        // case CountryCode.bvt:
+        //   result[localizations.countryCodeBvt] = value;
+        //   break;
         case CountryCode.bwa:
           result[localizations.countryCodeBwa] = value;
           break;
@@ -493,9 +493,9 @@ class EnumStringHelper {
         case CountryCode.geo:
           result[localizations.countryCodeGeo] = value;
           break;
-        case CountryCode.ggy:
-          result[localizations.countryCodeGgy] = value;
-          break;
+        // case CountryCode.ggy:
+        //   result[localizations.countryCodeGgy] = value;
+        //   break;
         case CountryCode.gha:
           result[localizations.countryCodeGha] = value;
           break;
@@ -541,9 +541,9 @@ class EnumStringHelper {
         case CountryCode.hkg:
           result[localizations.countryCodeHkg] = value;
           break;
-        case CountryCode.hmd:
-          result[localizations.countryCodeHmd] = value;
-          break;
+        // case CountryCode.hmd:
+        //   result[localizations.countryCodeHmd] = value;
+        //   break;
         case CountryCode.hnd:
           result[localizations.countryCodeHnd] = value;
           break;
@@ -589,9 +589,9 @@ class EnumStringHelper {
         case CountryCode.jam:
           result[localizations.countryCodeJam] = value;
           break;
-        case CountryCode.jey:
-          result[localizations.countryCodeJey] = value;
-          break;
+        // case CountryCode.jey:
+        //   result[localizations.countryCodeJey] = value;
+        //   break;
         case CountryCode.jor:
           result[localizations.countryCodeJor] = value;
           break;
@@ -946,9 +946,9 @@ class EnumStringHelper {
         case CountryCode.ukr:
           result[localizations.countryCodeUkr] = value;
           break;
-        case CountryCode.umi:
-          result[localizations.countryCodeUmi] = value;
-          break;
+        // case CountryCode.umi:
+        //   result[localizations.countryCodeUmi] = value;
+        //   break;
         case CountryCode.ury:
           result[localizations.countryCodeUry] = value;
           break;

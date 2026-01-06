@@ -26,6 +26,7 @@ import 'package:here_sdk_reference_application_flutter/common/utils/navigation/l
 
 class SimulatedLocationProvider extends LocationProviderInterface implements LocationListener {
   SimulatedLocationProvider.withRoute(Route route, LocationSimulatorOptions options) {
+    options.speedFactor = 2;
     _simulator = LocationSimulator.withRoute(route, options);
     _simulator.listener = this;
   }
